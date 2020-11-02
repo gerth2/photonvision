@@ -133,6 +133,12 @@ public class ReflectivePipeline extends CVPipeline<CVPipelineResult, ReflectiveP
         var fps = fpsResult.output;
         sumPipeNanosElapsed += fpsResult.nanosElapsed;
 
+        // FPS text
+        Imgproc.putText(rawInputMat, fps.toString(), 
+        new Point(5, 50), 
+        Core.FONT_HERSHEY_PLAIN, 4, 
+        new Scalar(0, 255, 0), 
+        3);
 
         PipelineProfiler.printReflectiveProfile(pipeProfileNanos);
 
