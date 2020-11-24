@@ -22,8 +22,12 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.*;
 import java.util.stream.Collectors;
 import org.photonvision.common.logging.LogGroup;
@@ -39,6 +43,10 @@ import org.zeroturnaround.zip.ZipUtil;
 public class ConfigManager {
     private static final Logger logger = new Logger(ConfigManager.class, LogGroup.General);
     private static ConfigManager INSTANCE;
+
+    public static final String HW_CFG_FNAME = "hardwareConfig.json";
+    public static final String HW_SET_FNAME = "hardwareSettings.json";
+    public static final String NET_SET_FNAME = "networkSettings.json";
 
     private PhotonConfiguration config;
     private final File hardwareConfigFile;
@@ -82,11 +90,11 @@ public class ConfigManager {
     ConfigManager(Path configDirectoryFile) {
         this.configDirectoryFile = new File(configDirectoryFile.toUri());
         this.hardwareConfigFile =
-                new File(Path.of(configDirectoryFile.toString(), "hardwareConfig.json").toUri());
+                new File(Path.of(configDirectoryFile.toString(), HW_CFG_FNAME).toUri());
         this.hardwareSettingsFile =
-                new File(Path.of(configDirectoryFile.toString(), "hardwareSettings.json").toUri());
+                new File(Path.of(configDirectoryFile.toString(), HW_SET_FNAME).toUri());
         this.networkConfigFile =
-                new File(Path.of(configDirectoryFile.toString(), "networkSettings.json").toUri());
+                new File(Path.of(configDirectoryFile.toString(), NET_SET_FNAME).toUri());
         this.camerasFolder = new File(Path.of(configDirectoryFile.toString(), "cameras").toUri());
 
         TimedTaskManager.getInstance().addTask("ConfigManager", this::checkSaveAndWrite, 1000);
@@ -349,11 +357,28 @@ public class ConfigManager {
         requestSave();
     }
 
+    public Path getLogsDir() {
+        return Path.of(configDirectoryFile.toString(), "logs");
+    }
+
+    public static final String LOG_PREFIX = "photonvision-";
+    public static final String LOG_EXT = ".log";
+    public static final String LOG_DATE_TIME_FORMAT = "yyyy-M-d_hh-mm-ss";
+
+    public String taToLogFname(TemporalAccessor date) {
+        var dateString = DateTimeFormatter.ofPattern(LOG_DATE_TIME_FORMAT).format(date);
+        return LOG_PREFIX + dateString + LOG_EXT;
+    }
+
+    public Date logFnameToDate(String fname) throws ParseException {
+        // Strip away known unneded portions of the log file name
+        fname = fname.replace(LOG_PREFIX, "").replace(LOG_EXT, "");
+        DateFormat format = new SimpleDateFormat(LOG_DATE_TIME_FORMAT);
+        return format.parse(fname);
+    }
+
     public Path getLogPath() {
-        var dateString = DateTimeFormatter.ofPattern("yyyy-M-d_hh-mm-ss").format(LocalDateTime.now());
-        var logFile =
-                Path.of(configDirectoryFile.toString(), "logs", "photonvision-" + dateString + ".log")
-                        .toFile();
+        var logFile = Path.of(this.getLogsDir().toString(), taToLogFname(LocalDateTime.now())).toFile();
         if (!logFile.getParentFile().exists()) logFile.getParentFile().mkdirs();
         return logFile.toPath();
     }
@@ -362,6 +387,33 @@ public class ConfigManager {
         var imgFilePath = Path.of(configDirectoryFile.toString(), "imgSaves").toFile();
         if (!imgFilePath.exists()) imgFilePath.mkdirs();
         return imgFilePath.toPath();
+    }
+
+    public Path getHardwareConfigFile() {
+        return this.hardwareConfigFile.toPath();
+    }
+
+    public Path getHardwareSettingsFile() {
+        return this.hardwareSettingsFile.toPath();
+    }
+
+    public Path getNetworkConfigFile() {
+        return this.networkConfigFile.toPath();
+    }
+
+    public void saveUploadedHardwareConfig(Path uploadPath) {
+        FileUtils.deleteFile(this.getHardwareConfigFile());
+        FileUtils.copyFile(uploadPath, this.getHardwareConfigFile());
+    }
+
+    public void saveUploadedHardwareSettings(Path uploadPath) {
+        FileUtils.deleteFile(this.getHardwareSettingsFile());
+        FileUtils.copyFile(uploadPath, this.getHardwareSettingsFile());
+    }
+
+    public void saveUploadedNetworkConfig(Path uploadPath) {
+        FileUtils.deleteFile(this.getNetworkConfigFile());
+        FileUtils.copyFile(uploadPath, this.getNetworkConfigFile());
     }
 
     public void requestSave() {

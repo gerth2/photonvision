@@ -47,7 +47,6 @@ import org.photonvision.vision.target.TrackedTarget;
 public class ReflectivePipeline extends CVPipeline<CVPipelineResult, ReflectivePipelineSettings> {
 
     private final RotateImagePipe rotateImagePipe = new RotateImagePipe();
-
     private final CalculateFPSPipe calculateFPSPipe = new CalculateFPSPipe();
 
     CascadeClassifier cascadeClassifierModel;
