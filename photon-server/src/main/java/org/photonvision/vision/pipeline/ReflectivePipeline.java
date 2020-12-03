@@ -32,6 +32,8 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
+import org.opencv.dnn.Net;
+import org.opencv.dnn.Dnn;
 import org.photonvision.common.util.math.MathUtils;
 import org.photonvision.vision.frame.Frame;
 import org.photonvision.vision.frame.FrameStaticProperties;
@@ -50,6 +52,7 @@ public class ReflectivePipeline extends CVPipeline<CVPipelineResult, ReflectiveP
     private final CalculateFPSPipe calculateFPSPipe = new CalculateFPSPipe();
 
     CascadeClassifier cascadeClassifierModel;
+
 
     private final Mat rawInputMat = new Mat();
     private final long[] pipeProfileNanos = new long[PipelineProfiler.ReflectivePipeCount];
