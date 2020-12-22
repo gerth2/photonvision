@@ -22,10 +22,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.Triple;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +38,9 @@ import org.junit.jupiter.api.Test;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.photonvision.common.configuration.CameraConfiguration;
 import org.photonvision.common.util.TestUtils;
+import org.photonvision.common.util.file.JacksonUtils;
 import org.photonvision.vision.frame.Frame;
 import org.photonvision.vision.frame.FrameStaticProperties;
 import org.photonvision.vision.opencv.CVMat;
@@ -178,6 +185,8 @@ public class Calibrate3dPipeTest {
 
         assertTrue(directoryListing.length >= 25);
 
+        CameraConfiguration camCfg = new CameraConfiguration("", "");
+
         Calibrate3dPipeline calibration3dPipeline = new Calibrate3dPipeline(20);
         calibration3dPipeline.getSettings().boardType = UICalibrationData.BoardType.CHESSBOARD;
         calibration3dPipeline.getSettings().resolution = imgRes;
@@ -243,5 +252,62 @@ public class Calibrate3dPipeTest {
 
         // Confirm we didn't get leaky on our mat usage
         assertTrue(CVMat.getMatCount() == startMatCount);
+    }
+
+    @Test
+    public void desktopCal(){
+
+        Path calFolder = Path.of(TestUtils.getCalibrationPath(true).toString(), "desktopCal");
+
+        var cameraConfigPath = Path.of(calFolder.toString(), "config.json");
+        CameraConfiguration loadedConfig = null;
+        try {
+            loadedConfig =
+                    JacksonUtils.deserialize(
+                            cameraConfigPath.toAbsolutePath(), CameraConfiguration.class);
+        } catch (IOException e) {
+            System.out.println("Camera config deserialization failed!");
+            System.out.println( e.toString());
+            e.printStackTrace();
+        }
+
+        assertNotNull(loadedConfig);
+
+        //Read in all files to memory
+        ArrayList<CVMat> calInMats = new ArrayList<CVMat>();
+        for (var file : cameraConfigPath.toFile().listFiles()) {
+                if (FilenameUtils.getExtension(file.toString()).equals(".jpg")) {
+                        calInMats.add(new CVMat(Imgcodecs.imread(file.getAbsolutePath())));
+                }
+        }
+
+        //Set up calibration pipeline to match the first image we read in.
+        Size imgRes = calInMats.get(0).getMat().size();
+        Calibrate3dPipeline calibration3dPipeline = new Calibrate3dPipeline(20);
+        calibration3dPipeline.getSettings().boardType = UICalibrationData.BoardType.CHESSBOARD;
+        calibration3dPipeline.getSettings().resolution = imgRes;
+
+        // Run all input images through the calibration routine to find pattern points.
+        for(var inMat : calInMats) {
+                calibration3dPipeline.takeSnapshot();
+                FrameStaticProperties newFSP = new FrameStaticProperties( (int) imgRes.width, (int) imgRes.height, 67, new Rotation2d(), null);
+                var output = calibration3dPipeline.run(new Frame(inMat, newFSP));
+                output.outputFrame.release();
+        }
+
+        //Run calibration routine on images
+        var cal = calibration3dPipeline.tryCalibration();
+        calibration3dPipeline.finishCalibration();
+
+        //Save results back to file
+        loadedConfig.addCalibration(cal);
+        try {
+                JacksonUtils.serialize(cameraConfigPath, loadedConfig);
+        } catch (IOException e) {
+                System.out.println("Camera config serialize failed!");
+                System.out.println( e.toString());
+                e.printStackTrace();
+        }
+
     }
 }
