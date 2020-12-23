@@ -159,6 +159,15 @@ public class Calibrate3dPipeTest {
     }
 
     @Test
+    public void calibrateSquares320x240_reduced_count() {
+        // Pi3 and V1.3 camera
+        String base = TestUtils.getSquaresBoardImagesPath().toAbsolutePath().toString();
+        File dir = Path.of(base, "piCam", "320_240_3").toFile();
+        Size sz = new Size(320, 240);
+        calibrateSquaresCommon(sz, dir);
+    }
+
+    @Test
     public void calibrateSquares640x480() {
         // Pi3 and V1.3 camera
         String base = TestUtils.getSquaresBoardImagesPath().toAbsolutePath().toString();
@@ -200,9 +209,9 @@ public class Calibrate3dPipeTest {
 
         File[] directoryListing = rootFolder.listFiles();
 
-        assertTrue(directoryListing.length >= 25);
+        assertTrue(directoryListing.length >= 10);
 
-        Calibrate3dPipeline calibration3dPipeline = new Calibrate3dPipeline(20);
+        Calibrate3dPipeline calibration3dPipeline = new Calibrate3dPipeline();
         calibration3dPipeline.getSettings().boardType = UICalibrationData.BoardType.CHESSBOARD;
         calibration3dPipeline.getSettings().resolution = imgRes;
         calibration3dPipeline.getSettings().boardHeight = (int) Math.round(boardDim.height);
@@ -219,7 +228,7 @@ public class Calibrate3dPipeTest {
                                         new FrameStaticProperties(
                                                 (int) imgRes.width, (int) imgRes.height, 67, new Rotation2d(), null)));
 
-                // TestUtils.showImage(output.outputFrame.image.getMat(), file.getName(), 1);
+                TestUtils.showImage(output.outputFrame.image.getMat(), file.getName(), 1);
                 output.outputFrame.release();
             }
         }
