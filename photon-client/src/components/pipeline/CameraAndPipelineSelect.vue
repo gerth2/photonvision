@@ -69,6 +69,16 @@
           :list="($store.getters.isDriverMode ? ['Driver Mode'] : []).concat($store.getters.pipelineList)"
           @input="handleInputWithIndex('currentPipeline', currentPipelineIndex)"
         />
+
+        <CVselect
+          v-model="currentPipelineType"
+          name="Type"
+          tooltip="Choose the algorithm used to process the camera output into a list of targets"
+          :disabled="$store.getters.isDriverMode"
+          :list="($store.getters.isDriverMode ? ['Driver Mode'] : []).concat($store.getters.currentPipelineSettings.pipelineTypeList)"
+          @input="handleInputWithIndex('currentPipeline', $store.getters.currentPipelineSettings.pipelineType)"
+        />
+
       </v-col>
       <v-col
         cols="2"

@@ -26,6 +26,7 @@ export default new Vuex.Store({
                 tiltDegrees: 0.0,
                 currentPipelineIndex: 0,
                 pipelineNicknames: ["Unknown"],
+                pipelineTypeNicknames: ["", "Driver", "Reflective", "Colored Shape"],
                 outputStreamPort: 1181,
                 inputStreamPort: 1182,
                 nickname: "Unknown",
@@ -244,6 +245,7 @@ export default new Vuex.Store({
             return Object.values(state.cameraSettings[state.currentCameraIndex].videoFormatList); // convert to a list
         },
         pipelineList: state => state.cameraSettings[state.currentCameraIndex].pipelineNicknames,
+        pipelineTypeList: state => state.cameraSettings[state.currentCameraIndex].pipelineTypeNicknames,
         calibrationList: state => state.cameraSettings[state.currentCameraIndex].calibrations,
     }
 })
