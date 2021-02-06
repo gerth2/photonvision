@@ -5,6 +5,8 @@ import undoRedo from "./modules/undoRedo";
 
 Vue.use(Vuex);
 
+Vue.config.devtools = true
+
 const set = key => (state, val) => {
     Vue.set(state, key, val);
 };
@@ -25,8 +27,9 @@ export default new Vuex.Store({
             {
                 tiltDegrees: 0.0,
                 currentPipelineIndex: 0,
+                currentPipelineType: 0,
                 pipelineNicknames: ["Unknown"],
-                pipelineTypeNicknames: ["", "Driver", "Reflective", "Colored Shape"],
+                pipelineTypeNicknames: ["Unknown"],
                 outputStreamPort: 1181,
                 inputStreamPort: 1182,
                 nickname: "Unknown",
@@ -43,8 +46,7 @@ export default new Vuex.Store({
                 isFovConfigurable: true,
                 calibrated: false,
                 currentPipelineSettings: {
-                    pipelineType: 2, // One of "driver", "reflective", "shape"
-                    // 2 is reflective
+                    pipelineType: 0, // dictates reflective, colored shape, or other pipeline type
 
                     // Settings that apply to all pipeline types
                     cameraExposure: 1,
@@ -134,6 +136,7 @@ export default new Vuex.Store({
             gpuMem: "N/A",
             ramUtil: "N/A",
             gpuMemUtil: "N/A",
+            // na na batman
         }
     },
     mutations: {
@@ -157,6 +160,11 @@ export default new Vuex.Store({
         currentPipelineIndex: (state, val) => {
             const settings = state.cameraSettings[state.currentCameraIndex];
             Vue.set(settings, 'currentPipelineIndex', val);
+        },
+
+        currentPipelineType: (state, val) => {
+            const settings = state.cameraSettings[state.currentCameraIndex];
+            Vue.set(settings, 'currentPipelineType', val);
         },
 
         // TODO change everything to use this
@@ -239,13 +247,14 @@ export default new Vuex.Store({
         currentCameraSettings: state => state.cameraSettings[state.currentCameraIndex],
         currentCameraIndex: state => state.currentCameraIndex,
         currentPipelineIndex: state => state.cameraSettings[state.currentCameraIndex].currentPipelineIndex,
+        currentPipelineType: state => state.cameraSettings[state.currentCameraIndex].currentPipelineType,
         currentPipelineSettings: state => state.cameraSettings[state.currentCameraIndex].currentPipelineSettings,
         currentVideoFormat: state => state.cameraSettings[state.currentCameraIndex].videoFormatList[state.cameraSettings[state.currentCameraIndex].currentPipelineSettings.cameraVideoModeIndex],
         videoFormatList: state => {
             return Object.values(state.cameraSettings[state.currentCameraIndex].videoFormatList); // convert to a list
         },
         pipelineList: state => state.cameraSettings[state.currentCameraIndex].pipelineNicknames,
-        pipelineTypeList: state => state.cameraSettings[state.currentCameraIndex].pipelineTypeNicknames,
+        pipelineTypeList: state =>  state.cameraSettings[state.currentCameraIndex].pipelineTypeNicknames,
         calibrationList: state => state.cameraSettings[state.currentCameraIndex].calibrations,
     }
 })

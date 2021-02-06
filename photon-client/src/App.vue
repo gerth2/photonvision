@@ -257,8 +257,7 @@ import Logs from "./views/LogsView"
                 }
               }
               this.previouslySelectedIndices = null;
-            }
-,
+            },
             switchToSettingsTab() {
                 this.axios.post('http://' + this.$address + '/api/sendMetrics', {})
             }

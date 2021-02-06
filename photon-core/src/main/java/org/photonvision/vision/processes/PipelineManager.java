@@ -38,6 +38,7 @@ public class PipelineManager {
 
     /** Index of the currently active pipeline. Defaults to 0. */
     private int currentPipelineIndex = 0;
+    private int currentPipelineType = 0;
 
     /** The currently active pipeline. */
     private CVPipeline currentUserPipeline = driverModePipeline;
@@ -105,12 +106,36 @@ public class PipelineManager {
     }
 
     /**
+    * Gets a list of nicknames for all allowed pipeline types
+    *
+    * @return The list of nicknames for all user pipelines
+    */
+    public List<String> getPipelineTypeNicknames() {
+        List<String> ret = new ArrayList<>();
+        for (var p : PipelineType.values()) {
+            if(p.baseIndex >= 0){
+                ret.add(p.name());
+            }
+        }
+        return ret;
+    }
+
+    /**
     * Gets the index of the currently active pipeline
     *
     * @return The index of the currently active pipeline
     */
     public int getCurrentPipelineIndex() {
         return currentPipelineIndex;
+    }
+
+    /**
+    * Gets 
+    *
+    * @return 
+    */
+    public int getCurrentPipelineType() {
+        return currentPipelineType;
     }
 
     /**

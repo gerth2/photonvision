@@ -70,15 +70,6 @@
           @input="handleInputWithIndex('currentPipeline', currentPipelineIndex)"
         />
 
-        <CVselect
-          v-model="currentPipelineType"
-          name="Type"
-          tooltip="Choose the algorithm used to process the camera output into a list of targets"
-          :disabled="$store.getters.isDriverMode"
-          :list="($store.getters.isDriverMode ? ['Driver Mode'] : []).concat($store.getters.currentPipelineSettings.pipelineTypeList)"
-          @input="handleInputWithIndex('currentPipeline', $store.getters.currentPipelineSettings.pipelineType)"
-        />
-
       </v-col>
       <v-col
         cols="2"
@@ -142,6 +133,33 @@
           </v-list>
         </v-menu>
       </v-col>
+
+      <v-col
+        cols="10"
+        md="5"
+        lg="10"
+        class="pt-0 pb-0 pl-6"
+      >
+
+        <CVselect
+          v-model="currentPipelineType"
+          name="Type"
+          tooltip="Choose the algorithm used to process the camera output into a list of targets"
+          :disabled="$store.getters.isDriverMode"
+          :list="($store.getters.isDriverMode ? ['Driver Mode'] : []).concat($store.getters.pipelineTypeList)"
+          @input="e => handlePipelineUpdate('pipelineType', e + 2)"
+        />
+      </v-col>
+
+      <v-col
+        cols="2"
+        md="1"
+        lg="2"
+      >
+      <!-- nothing here yet -->
+      </v-col>
+
+
     </v-row>
     <!--pipeline duplicate dialog-->
     <v-dialog
@@ -299,7 +317,15 @@
                 set(value) {
                     this.$store.commit('currentPipelineIndex', value - (this.$store.getters.isDriverMode ? 1 : 0));
                 }
-            }
+            }, 
+            currentPipelineType: {
+                get() {
+                    return this.$store.getters.currentPipelineType;
+                },
+                set(value) {
+                    this.$store.commit('currentPipelineType', value);
+                }
+            },
         },
         methods: {
             changeCameraName() {

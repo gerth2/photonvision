@@ -444,6 +444,7 @@ public class VisionModule {
                 SerializationUtils.objectToHashMap(pipelineManager.getCurrentPipelineSettings());
         ret.currentPipelineIndex = pipelineManager.getCurrentPipelineIndex();
         ret.pipelineNicknames = pipelineManager.getPipelineNicknames();
+        ret.pipelineTypeNicknames = pipelineManager.getPipelineTypeNicknames();
 
         // TODO refactor into helper method
         var temp = new HashMap<Integer, HashMap<String, Object>>();
