@@ -304,4 +304,23 @@ class SimVisionSystemTest {
         tgtList = res.getTargets();
         assertEquals(tgtList.size(), 11);
     }
+
+    @Test
+    public void testSpooky() {
+        Transform2d kCameraInGlobalToTurretInGlobal = new Transform2d(new Pose2d(), new Pose2d(0, Units.inchesToMeters(-3), new Rotation2d(0)));
+        var sysUnderTest = new SimVisionSystem("Test", 74.8, 22.8, kCameraInGlobalToTurretInGlobal, Units.inchesToMeters(39), 100, 960, 720, 10);
+
+        var kOffset = new Translation2d(0, Units.inchesToMeters(5.0));
+        var targetPose = new Pose2d(new Translation2d(Units.feetToMeters(54.0), 
+        Units.feetToMeters(27.0/2)- Units.inchesToMeters(43.75) - Units.inchesToMeters(48.0/2.0) ).plus(kOffset), 
+        new Rotation2d());
+        sysUnderTest.addSimVisionTarget(new SimVisionTarget(targetPose, Units.inchesToMeters(81.91), 
+                                                                        Units.inchesToMeters(41.30 - 6.70), 
+                                                                        Units.inchesToMeters(98.19 - 81.19)));
+
+        var robotPose = new Pose2d(new Translation2d(Units.inchesToMeters(620), Units.inchesToMeters(100)), new Rotation2d());
+        sysUnderTest.processFrame(robotPose);
+        assertTrue(sysUnderTest.cam.getLatestResult().hasTargets());
+    }
+
 }

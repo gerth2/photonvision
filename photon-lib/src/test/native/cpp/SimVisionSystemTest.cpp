@@ -399,3 +399,56 @@ TEST(SimVisionSystemTest, testMultipleTargets) {
   auto tgtList = result.GetTargets();
   EXPECT_EQ(11ul, tgtList.size());
 }
+
+TEST_F(SimVisionSystemTest, TestData) {
+    photonlib::PhotonCamera rpiCam{"gloworm"};
+    const frc::Pose2d drivetrainPose{620_in, 100_in, units::radian_t{0}};
+
+    // Simulation variables
+    using namespace frc3512::Constants::Vision;
+    photonlib::SimVisionSystem simVision{
+        "gloworm",
+        kCameraDiagonalFOV,
+        kCameraPitch,
+        frc3512::Vision::kCameraInGlobalToTurretInGlobal,
+        kCameraHeight,
+        100_m,
+        960,
+        720,
+        10};
+
+    frc::Pose2d kTargetPose{
+        frc::Translation2d{54_ft, (27.0_ft / 2) - 43.75_in - (48.0_in / 2.0)} +
+            TargetModel::kOffset,
+        frc::Rotation2d{0_rad}};
+    photonlib::SimVisionTarget newTgt{kTargetPose, 81.91_in, 41.30_in - 6.70_in,
+                                      98.19_in - 81.19_in};
+    simVision.AddSimVisionTarget(newTgt);
+
+    simVision.ProcessFrame(drivetrainPose);
+    // Delay to ensure value propagates to tables
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+    photonlib::PhotonPipelineResult result = rpiCam.GetLatestResult();
+
+    ASSERT_TRUE(result.HasTargets());
+    if (result.HasTargets()) {
+        units::second_t latency = result.GetLatency();
+
+        photonlib::PhotonTrackedTarget target = result.GetBestTarget();
+
+        frc::Pose2d targetInGlobalToCameraInGlobal{
+            target.GetCameraRelativePose().Translation(),
+            target.GetCameraRelativePose().Rotation()};
+        frc::Pose2d targetInGlobalToTurretInGlobal =
+            targetInGlobalToCameraInGlobal.TransformBy(
+                frc3512::Vision::kCameraInGlobalToTurretInGlobal);
+
+        auto timestamp = frc2::Timer::GetFPGATimestamp();
+        timestamp -= latency;
+        EXPECT_NE(timestamp.to<double>(), 0);
+        EXPECT_NE(targetInGlobalToTurretInGlobal.X().to<double>(), 0);
+        EXPECT_NE(targetInGlobalToTurretInGlobal.Y().to<double>(), 0);
+        EXPECT_NE(target.GetYaw(), 0);
+    }
+}
