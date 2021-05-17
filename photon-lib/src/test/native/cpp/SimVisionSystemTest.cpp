@@ -27,6 +27,24 @@
 #include "photonlib/PhotonUtils.h"
 #include "photonlib/SimVisionSystem.h"
 
+TEST(SimVisionSystemTest, testNoResults) {
+  photonlib::SimVisionSystem sysUnderTest("Test", 80.0_deg, 0.0_deg,
+                                          frc::Transform2d(), 1.0_m, 99999.0_m,
+                                          320, 240, 0.0);
+
+  // Grab one result before simulation Processframe run - should have no contents
+  auto result = sysUnderTest.cam.GetLatestResult();
+  ASSERT_FALSE(result.HasTargets());
+
+  // Process a frame - should have no targets in view
+  sysUnderTest.ProcessFrame(frc::Pose2d());
+
+  // Grab the result again, confirm still no targets in view
+  result = sysUnderTest.cam.GetLatestResult();
+  ASSERT_FALSE(result.HasTargets());
+}
+
+
 TEST(SimVisionSystemTest, testEmpty) {
   photonlib::SimVisionSystem sysUnderTest("Test", 80.0_deg, 0.0_deg,
                                           frc::Transform2d(), 1.0_m, 99999.0_m,
