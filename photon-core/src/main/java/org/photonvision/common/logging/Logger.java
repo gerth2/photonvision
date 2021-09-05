@@ -333,17 +333,20 @@ public class Logger {
             } catch (FileNotFoundException e) {
                 out = null;
                 System.err.println("Unable to log to file " + logFilePath.toString());
+                System.err.println("File logging is disabled!!");
             }
         }
 
         @Override
         public void log(String message, LogLevel level) {
             message += "\n";
-            try {
-                out.write(message.getBytes());
-                wantsFlush = true;
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(this.out != null){
+                try {
+                    out.write(message.getBytes());
+                    wantsFlush = true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
