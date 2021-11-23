@@ -29,6 +29,8 @@ public class PipelineProfiler {
             new Logger(ReflectivePipeline.class, LogGroup.VisionModule);
     private static final Logger coloredShapeLogger =
             new Logger(ColoredShapePipeline.class, LogGroup.VisionModule);
+    private static final Logger arucoLogger =
+            new Logger(ArucoPipeline.class, LogGroup.VisionModule);
 
     /**
     * Indices for Reflective profiling 0 - rotateImagePipe 1 - inputCopy (not a pipe) 2 - hsvPipe 3 -

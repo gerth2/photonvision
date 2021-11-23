@@ -188,6 +188,10 @@ public class PipelineManager {
                     currentUserPipeline =
                             new ColoredShapePipeline((ColoredShapePipelineSettings) desiredPipelineSettings);
                     break;
+                case Aruco:
+                    currentUserPipeline =
+                            new ArucoPipeline((ArucoPipelineSettings) desiredPipelineSettings);
+                    break;
             }
         }
     }
@@ -266,6 +270,12 @@ public class PipelineManager {
             case ColoredShape:
                 {
                     var added = new ColoredShapePipelineSettings();
+                    added.pipelineNickname = nickname;
+                    return added;
+                }
+            case Aruco:
+                {
+                    var added = new ArucoPipelineSettings();
                     added.pipelineNickname = nickname;
                     return added;
                 }

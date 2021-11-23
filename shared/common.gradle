@@ -39,12 +39,12 @@ dependencies {
     compile "edu.wpi.first.ntcore:ntcore-jni:$wpilibVersion:osxx86-64"
     compile "edu.wpi.first.ntcore:ntcore-jni:$wpilibVersion:windowsx86-64"
 
-    implementation "edu.wpi.first.thirdparty.frc2021.opencv:opencv-java:$opencvVersion"
-    compile "edu.wpi.first.thirdparty.frc2021.opencv:opencv-jni:$opencvVersion:linuxaarch64bionic"
-    compile "edu.wpi.first.thirdparty.frc2021.opencv:opencv-jni:$opencvVersion:linuxraspbian"
-    compile "edu.wpi.first.thirdparty.frc2021.opencv:opencv-jni:$opencvVersion:linuxx86-64"
-    compile "edu.wpi.first.thirdparty.frc2021.opencv:opencv-jni:$opencvVersion:osxx86-64"
-    compile "edu.wpi.first.thirdparty.frc2021.opencv:opencv-jni:$opencvVersion:windowsx86-64"
+    implementation "edu.wpi.first.thirdparty.frc2022.opencv:opencv-java:$opencvVersion"
+    compile "edu.wpi.first.thirdparty.frc2022.opencv:opencv-jni:$opencvVersion:linuxaarch64bionic"
+    compile "edu.wpi.first.thirdparty.frc2022.opencv:opencv-jni:$opencvVersion:linuxraspbian"
+    compile "edu.wpi.first.thirdparty.frc2022.opencv:opencv-jni:$opencvVersion:linuxx86-64"
+    compile "edu.wpi.first.thirdparty.frc2022.opencv:opencv-jni:$opencvVersion:osxx86-64"
+    compile "edu.wpi.first.thirdparty.frc2022.opencv:opencv-jni:$opencvVersion:windowsx86-64"
 
     implementation "edu.wpi.first.wpimath:wpimath-java:2021.3.1"
 

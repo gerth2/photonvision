@@ -22,7 +22,8 @@ public enum PipelineType {
     Calib3d(-2, Calibrate3dPipeline.class),
     DriverMode(-1, DriverModePipeline.class),
     Reflective(0, ReflectivePipeline.class),
-    ColoredShape(1, ColoredShapePipeline.class);
+    ColoredShape(1, ColoredShapePipeline.class),
+    Aruco(2, ArucoPipeline.class);
 
     public final int baseIndex;
     public final Class clazz;

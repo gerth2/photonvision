@@ -146,7 +146,7 @@
         <CVselect
           v-model="currentPipelineType"
           name="Type"
-          :list="['Reflective', 'Shape']"
+          :list="['Reflective', 'Shape', 'ArUco']"
           @input="e => showTypeDialog(e)"
         />
       </v-col>
@@ -179,7 +179,7 @@
           <CVselect
             v-model="newPipelineType"
             name="Pipeline Type"
-            :list="['Reflective', 'Shape']"
+            :list="['Reflective', 'Shape', 'ArUco']"
             :disabled="isPipelineNameEdit"
           />
         </v-card-text>
@@ -212,7 +212,7 @@
       >
         <v-card-title>Change Pipeline Type</v-card-title>
         <v-card-text>
-          Changing the type of this pipeline will erase the current pipeline's settings and replace it with a new {{ ['Reflective', 'Shape'][proposedPipelineType] }} pipeline. <b class="red--text format_bold">You will lose all settings for the pipeline
+          Changing the type of this pipeline will erase the current pipeline's settings and replace it with a new {{ ['Reflective', 'Shape', 'ArUco'][proposedPipelineType] }} pipeline. <b class="red--text format_bold">You will lose all settings for the pipeline
             "{{ ($store.getters.isDriverMode ? ['Driver Mode'] : []).concat($store.getters.pipelineList)[currentPipelineIndex] }}."</b> Are you sure you want to do this?
           <v-row
             class="mt-6"

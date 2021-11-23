@@ -23,7 +23,7 @@ apply from: "versioningHelper.gradle"
 
 ext {
     wpilibVersion = "2021.3.1"
-    opencvVersion = "3.4.7-5"
+    opencvVersion = "4.5.2-1"
     joglVersion = "2.4.0-rc-20200307"
     pubVersion = versionString
     isDev = pubVersion.startsWith("dev")

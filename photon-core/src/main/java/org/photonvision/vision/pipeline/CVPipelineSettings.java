@@ -29,6 +29,7 @@ import org.photonvision.vision.opencv.ImageRotationMode;
         include = JsonTypeInfo.As.WRAPPER_ARRAY,
         property = "type")
 @JsonSubTypes({
+    @JsonSubTypes.Type(value = ArucoPipelineSettings.class),
     @JsonSubTypes.Type(value = ColoredShapePipelineSettings.class),
     @JsonSubTypes.Type(value = ReflectivePipelineSettings.class),
     @JsonSubTypes.Type(value = DriverModePipelineSettings.class)
