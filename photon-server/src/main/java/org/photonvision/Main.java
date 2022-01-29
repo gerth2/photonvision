@@ -157,7 +157,7 @@ public class Main {
             camConfShape =
                     new CameraConfiguration(
                             "Shape",
-                            TestUtils.getPowercellImagePath(TestUtils.PowercellTestImages.kPowercell_test_1, true)
+                            TestUtils.getPolygonImagePath(TestUtils.PolygonTestImages.kPolygons, true)
                                     .toString());
             var settings = new ColoredShapePipelineSettings();
             settings.hsvHue = new IntegerCouple(0, 35);
@@ -177,10 +177,10 @@ public class Main {
         var fvs2020 = new FileVisionSource(camConf2020);
         var fvs2022 = new FileVisionSource(camConf2022);
 
-        collectedSources.add(fvs2022);
+//        collectedSources.add(fvs2022);
         collectedSources.add(fvsShape);
-        collectedSources.add(fvs2020);
-        collectedSources.add(fvs2019);
+//        collectedSources.add(fvs2020);
+//        collectedSources.add(fvs2019);
 
         VisionModuleManager.getInstance().addSources(collectedSources).forEach(VisionModule::start);
         ConfigManager.getInstance().addCameraConfigurations(collectedSources);
@@ -215,6 +215,7 @@ public class Main {
             CameraServerCvJNI.forceLoad();
             PicamJNI.forceLoad();
             TestUtils.loadLibraries();
+//            PhotonJNI.load();
             logger.info("Native libraries loaded.");
         } catch (Exception e) {
             logger.error("Failed to load native libraries!", e);
