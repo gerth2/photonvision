@@ -25,7 +25,6 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.photonvision.PhotonVersion;
 import org.photonvision.common.util.numbers.IntegerCouple;
-import org.photonvision.jni.PhotonJNI;
 import org.photonvision.vision.pipe.CVPipe;
 import sun.misc.Unsafe;
 
