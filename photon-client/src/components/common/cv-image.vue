@@ -5,7 +5,7 @@
     :style="styleObject"
     :src="src"
     alt=""
-    @click="e => $emit('click', e)"
+    @click="e => {this.switchFullscreen(e)}"
   >
 </template>
 
@@ -13,7 +13,7 @@
     export default {
         name: "CvImage",
         // eslint-disable-next-line vue/require-prop-types
-        props: ['idx', 'scale', 'maxHeight', 'maxHeightMd', 'maxHeightLg', 'maxHeightXl', 'colorPicking', 'id', 'disconnected'],
+        props: {idx:Number, scale:Number, maxHeight:Number, maxHeightMd:Number, maxHeightLg:Number, maxHeightXl:Number, colorPicking:Boolean, id:Number, disconnected:Boolean, isFullscreen: {type: Boolean, default: false}},
         data() {
             return {
                 seed: 1.0,
@@ -23,24 +23,29 @@
             styleObject: {
                 get() {
                     let ret = {
-                      "border-radius": "3px",
-                      "display": "block",
-                      "object-fit": "contain",
-                      "object-position": "50% 50%",
-                      "max-width": "100%",
-                      "margin-left": "auto",
-                      "margin-right": "auto",
-                      "max-height": this.maxHeight,
-                      height: `${this.scale}%`,
+                      "border-radius": (this.isFullscreen ? "0px": "3px"),
+                      "position": (this.isFullscreen? "fixed": "auto"),
+                      "display": (this.isFullscreen ? "block": "block"),
+                      "z-index": (this.isFullscreen ? "99999": "auto"),
+                      "object-fit": (this.isFullscreen ? "contain": "contain"),
+                      "object-position": (this.isFullscreen ? "50% 50%" : "50% 50%"),
+                      "max-width": (this.isFullscreen ? "100vw":"100%"),
+                      "width": (this.isFullscreen ? "100vw":"auto"),
+                      "margin-left": (this.isFullscreen ? "0": "auto"),
+                      "margin-right": (this.isFullscreen ? "0": "auto"),
+                      "max-height": (this.isFullscreen ? "100vh": this.maxHeight),
+                      height: (this.isFullscreen ? "auto": `${this.scale}%`),
                       cursor: (this.colorPicking ? `url(${require("../../assets/eyedropper.svg")}),` : "") + "default",
                     };
 
-                    if (this.$vuetify.breakpoint.xl) {
-                      ret["max-height"] = this.maxHeightXl;
-                    } else if (this.$vuetify.breakpoint.lg) {
-                      ret["max-height"] = this.maxHeightLg;
-                    } else if (this.$vuetify.breakpoint.md) {
-                      ret["max-height"] = this.maxHeightMd;
+                    if(this.isFullscreen == false){
+                      if (this.$vuetify.breakpoint.xl) {
+                        ret["max-height"] = this.maxHeightXl;
+                      } else if (this.$vuetify.breakpoint.lg) {
+                        ret["max-height"] = this.maxHeightLg;
+                      } else if (this.$vuetify.breakpoint.md) {
+                        ret["max-height"] = this.maxHeightMd;
+                      }
                     }
 
                     return ret;
@@ -83,6 +88,11 @@
             reload() {
               console.log("Reloading " + this.id + " with port " + String(this.port));
               this.wsStream.setPort(this.port);
+            },
+            switchFullscreen(e) {
+              e;
+              this.isFullscreen = !this.isFullscreen;
+              console.log(this.isFullscreen);
             }
         },
     }
