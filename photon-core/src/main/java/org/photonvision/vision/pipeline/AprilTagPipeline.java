@@ -17,6 +17,7 @@
 
 package org.photonvision.vision.pipeline;
 
+import edu.wpi.first.apriltag.AprilTag;
 import edu.wpi.first.apriltag.AprilTagDetection;
 import edu.wpi.first.apriltag.AprilTagDetector;
 import edu.wpi.first.apriltag.AprilTagPoseEstimator.Config;
@@ -25,8 +26,6 @@ import edu.wpi.first.math.util.Units;
 import java.util.ArrayList;
 import java.util.List;
 import org.photonvision.common.util.math.MathUtils;
-import org.photonvision.vision.apriltag.AprilTagDetectorParams;
-import org.photonvision.raspi.PicamJNI;
 import org.photonvision.vision.camera.CameraQuirk;
 import org.photonvision.vision.frame.Frame;
 import org.photonvision.vision.frame.FrameThresholdType;
@@ -140,8 +139,7 @@ public class AprilTagPipeline extends CVPipeline<CVPipelineResult, AprilTagPipel
             return new CVPipelineResult(0, 0, List.of());
         }
 
-        CVPipeResult<List<DetectionResult>> tagDetectionPipeResult;
-        tagDetectionPipeResult = aprilTagDetectionPipe.run(frame.processedImage);
+        tagDetectionPipeResult = aprilTagDetectionPipe.run(frame.processedImage.getMat());
         sumPipeNanosElapsed += tagDetectionPipeResult.nanosElapsed;
 
         targetList = new ArrayList<>();
