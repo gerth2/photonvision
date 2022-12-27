@@ -17,35 +17,48 @@
 
 package org.photonvision.vision.pipe.impl;
 
-import edu.wpi.first.apriltag.jni.DetectionResult;
+import edu.wpi.first.apriltag.AprilTagDetection;
+import edu.wpi.first.apriltag.AprilTagDetector;
 import java.util.List;
-import org.photonvision.vision.apriltag.AprilTagDetector;
-import org.photonvision.vision.opencv.CVMat;
+
+import org.opencv.core.Mat;
 import org.photonvision.vision.pipe.CVPipe;
 
 public class AprilTagDetectionPipe
-        extends CVPipe<CVMat, List<DetectionResult>, AprilTagDetectionPipeParams> {
+        extends CVPipe<Mat, List<AprilTagDetection>, AprilTagDetectionPipeParams> {
     private final AprilTagDetector m_detector = new AprilTagDetector();
 
     boolean useNativePoseEst;
 
+
+    public AprilTagDetectionPipe() {
+        super();
+
+        m_detector.addFamily("tag16h5");
+        m_detector.addFamily("tag36h11");
+    }
+
     @Override
-    protected List<DetectionResult> process(CVMat in) {
-        var ret =
-                m_detector.detect(
-                        in.getMat(),
-                        params.cameraCalibrationCoefficients,
-                        useNativePoseEst,
-                        params.numIterations,
-                        params.tagWidthMeters);
-        if (ret == null) return List.of();
+    protected List<AprilTagDetection> process(Mat in) {
+        var ret = m_detector.detect(in);
+
+        if (ret == null) {
+            return List.of();
+        }
+
         return List.of(ret);
     }
 
     @Override
-    public void setParams(AprilTagDetectionPipeParams params) {
-        super.setParams(params);
-        m_detector.updateParams(params.detectorParams);
+    public void setParams(AprilTagDetectionPipeParams newParams) {
+        if (this.params == null || !this.params.equals(newParams)) {
+            m_detector.setConfig(newParams.detectorParams);
+
+            m_detector.clearFamilies();
+            m_detector.addFamily(newParams.family.getNativeName());
+        }
+
+        super.setParams(newParams);
     }
 
     public void setNativePoseEstimationEnabled(boolean enabled) {
