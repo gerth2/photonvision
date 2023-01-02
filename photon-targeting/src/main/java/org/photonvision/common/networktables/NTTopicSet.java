@@ -46,7 +46,9 @@ public class NTTopicSet {
 
     public BooleanTopic driverModeEntry;
     public BooleanPublisher driverModePublisher;
-    public BooleanSubscriber driverModeSubscriber;
+
+    public BooleanTopic driverModeCmdEntry;
+    public BooleanSubscriber driverModeCmdSubscriber;
 
     public DoublePublisher latencyMillisEntry;
     public BooleanPublisher hasTargetEntry;
@@ -73,7 +75,9 @@ public class NTTopicSet {
 
         driverModeEntry = subTable.getBooleanTopic("driverMode");
         driverModePublisher = driverModeEntry.publish();
-        driverModeSubscriber = driverModeEntry.subscribe(false);
+
+        driverModeCmdEntry = subTable.getBooleanTopic("driverModeCmd");
+        driverModeCmdSubscriber = driverModeEntry.subscribe(false);
 
         latencyMillisEntry = subTable.getDoubleTopic("latencyMillis").publish();
         hasTargetEntry = subTable.getBooleanTopic("hasTarget").publish();

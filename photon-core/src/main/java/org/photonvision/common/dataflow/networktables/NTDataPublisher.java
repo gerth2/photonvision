@@ -142,8 +142,16 @@ public class NTDataPublisher implements CVPipelineResultConsumer {
 
         ts.rawBytesEntry.set(packet.getData());
 
-        ts.pipelineIndexPublisher.set(pipelineIndexSupplier.get());
-        ts.driverModePublisher.set(driverModeSupplier.getAsBoolean());
+        var curPipelineIndex = pipelineIndexSupplier.get();
+        if(ts.pipelineIndexSubscriber.get() != curPipelineIndex){
+            ts.pipelineIndexPublisher.set(curPipelineIndex);
+        }
+
+        var curDriverMode = driverModeSupplier.getAsBoolean();
+        if(ts.driverModeSubscriber.get() != curDriverMode)
+            ts.driverModePublisher.set(curDriverMode);
+
+
         ts.latencyMillisEntry.set(result.getLatencyMillis());
         ts.hasTargetEntry.set(result.hasTargets());
 
