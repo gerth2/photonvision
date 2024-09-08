@@ -22,14 +22,25 @@
 
 from ..targeting import *
 
-
 class TargetCornerSerde:
+
     # Message definition md5sum. See photon_packet.adoc for details
     MESSAGE_VERSION = "22b1ff7551d10215af6fb3672fe4eda8"
     MESSAGE_FORMAT = "float64 x;float64 y;"
 
+
     @staticmethod
-    def unpack(packet: "Packet") -> "TargetCorner":
+    def pack(packet: 'Packet', value: 'TargetCorner') -> None:
+
+        # field x is of intrinsic type float64
+        packet.encode(value.x)
+
+        # field y is of intrinsic type float64
+        packet.encode(value.y)
+
+
+    @staticmethod
+    def unpack(packet: 'Packet') -> 'TargetCorner':
         ret = TargetCorner()
 
         # x is of intrinsic type float64

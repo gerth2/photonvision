@@ -22,16 +22,28 @@
 
 from ..targeting import *
 
-
 class PhotonPipelineMetadataSerde:
+
     # Message definition md5sum. See photon_packet.adoc for details
     MESSAGE_VERSION = "2a7039527bda14d13028a1b9282d40a2"
-    MESSAGE_FORMAT = (
-        "int64 sequenceID;int64 captureTimestampMicros;int64 publishTimestampMicros;"
-    )
+    MESSAGE_FORMAT = "int64 sequenceID;int64 captureTimestampMicros;int64 publishTimestampMicros;"
+
 
     @staticmethod
-    def unpack(packet: "Packet") -> "PhotonPipelineMetadata":
+    def pack(packet: 'Packet', value: 'PhotonPipelineMetadata') -> None:
+
+        # field sequenceID is of intrinsic type int64
+        packet.encode(value.sequenceID)
+
+        # field captureTimestampMicros is of intrinsic type int64
+        packet.encode(value.captureTimestampMicros)
+
+        # field publishTimestampMicros is of intrinsic type int64
+        packet.encode(value.publishTimestampMicros)
+
+
+    @staticmethod
+    def unpack(packet: 'Packet') -> 'PhotonPipelineMetadata':
         ret = PhotonPipelineMetadata()
 
         # sequenceID is of intrinsic type int64

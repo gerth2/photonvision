@@ -22,14 +22,25 @@
 
 from ..targeting import *
 
-
 class MultiTargetPNPResultSerde:
+
     # Message definition md5sum. See photon_packet.adoc for details
     MESSAGE_VERSION = "ffc1cb847deb6e796a583a5b1885496b"
     MESSAGE_FORMAT = "PnpResult estimatedPose;int16[?] fiducialIDsUsed;"
 
+
     @staticmethod
-    def unpack(packet: "Packet") -> "MultiTargetPNPResult":
+    def pack(packet: 'Packet', value: 'MultiTargetPNPResult') -> None:
+
+        # field estimatedPose is of non-intrinsic type PnpResult
+        PnpResult.photonStruct.pack(packet, value.estimatedPose)
+
+        # fiducialIDsUsed is an intrinsic VLA!
+        packet.encode(value.fiducialIDsUsed)
+
+
+    @staticmethod
+    def unpack(packet: 'Packet') -> 'MultiTargetPNPResult':
         ret = MultiTargetPNPResult()
 
         # estimatedPose is of non-intrinsic type PnpResult

@@ -48,10 +48,10 @@ public class PhotonPipelineResultSerde implements PacketSerde<PhotonPipelineResu
     public void pack(Packet packet, PhotonPipelineResult value) {
         // field metadata is of non-intrinsic type PhotonPipelineMetadata
         PhotonPipelineMetadata.photonStruct.pack(packet, value.metadata);
-
+    
         // targets is a custom VLA!
         packet.encodeList(value.targets);
-
+    
         // multitagResult is optional! it better not be a VLA too
         packet.encodeOptional(value.multitagResult);
     }
@@ -62,10 +62,10 @@ public class PhotonPipelineResultSerde implements PacketSerde<PhotonPipelineResu
 
         // metadata is of non-intrinsic type PhotonPipelineMetadata
         ret.metadata = PhotonPipelineMetadata.photonStruct.unpack(packet);
-
+    
         // targets is a custom VLA!
         ret.targets = packet.decodeList(PhotonTrackedTarget.photonStruct);
-
+    
         // multitagResult is optional! it better not be a VLA too
         ret.multitagResult = packet.decodeOptional(MultiTargetPNPResult.photonStruct);
 

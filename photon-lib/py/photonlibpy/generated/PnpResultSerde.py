@@ -22,14 +22,34 @@
 
 from ..targeting import *
 
-
 class PnpResultSerde:
+
     # Message definition md5sum. See photon_packet.adoc for details
     MESSAGE_VERSION = "0d1f2546b00f24718e30f38d206d4491"
     MESSAGE_FORMAT = "Transform3d best;Transform3d alt;float64 bestReprojErr;float64 altReprojErr;float64 ambiguity;"
 
+
     @staticmethod
-    def unpack(packet: "Packet") -> "PnpResult":
+    def pack(packet: 'Packet', value: 'PnpResult') -> None:
+
+        # field is shimmed!
+        (packet, value.best)
+
+        # field is shimmed!
+        (packet, value.alt)
+
+        # field bestReprojErr is of intrinsic type float64
+        packet.encode(value.bestReprojErr)
+
+        # field altReprojErr is of intrinsic type float64
+        packet.encode(value.altReprojErr)
+
+        # field ambiguity is of intrinsic type float64
+        packet.encode(value.ambiguity)
+
+
+    @staticmethod
+    def unpack(packet: 'Packet') -> 'PnpResult':
         ret = PnpResult()
 
         # field is shimmed!
