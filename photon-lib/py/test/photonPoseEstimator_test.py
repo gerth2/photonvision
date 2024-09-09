@@ -169,7 +169,7 @@
 #                 0.7,
 #             )
 #         ],
-#         multiTagResult=MultiTargetPNPResult(
+#         multitagResult=MultiTargetPNPResult(
 #             PnpResult(True, Transform3d(1, 3, 2, Rotation3d()))
 #         ),
 #         metadata=PhotonPipelineMetadata(0, 2 * 1e3, 0),

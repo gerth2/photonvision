@@ -47,6 +47,7 @@ class MessageType(TypedDict):
     cpp_include: str
     # python shim types
     python_decode_shim: str
+    python_encode_shim: str
 
 
 def yaml_to_dict(path: str):

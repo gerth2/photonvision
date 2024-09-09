@@ -22,7 +22,7 @@ import wpilib
 
 
 class Packet:
-    def __init__(self, data: bytes):
+    def __init__(self, data: bytes=bytes()):
         """
         * Constructs an empty packet.
         *
@@ -101,7 +101,7 @@ class Packet:
         encodedBytes = struct.pack(packFormat, value)
         
         # Append each byte to the packetData
-        self.packetData.extend(encodedBytes)
+        self.packetData += encodedBytes
         self.size = len(self.packetData)  # Update the size after modification
 
     def encode8(self, value: int) -> None:

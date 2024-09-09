@@ -32,7 +32,7 @@ import org.photonvision.targeting.*;
  */
 public class PhotonTrackedTargetSerde implements PacketSerde<PhotonTrackedTarget> {
     // Message definition md5sum. See photon_packet.adoc for details
-    public static final String MESSAGE_VERSION = "8fdada56b9162f2e32bd24f0055d7b60";
+    public static final String MESSAGE_VERSION = "279c90c678905da8c4c47726d7945798";
     public static final String MESSAGE_FORMAT = "float64 yaw;float64 pitch;float64 area;float64 skew;int32 fiducialId;int32 objDetectId;float32 objDetectConf;Transform3d bestCameraToTarget;Transform3d altCameraToTarget;float64 poseAmbiguity;TargetCorner[?] minAreaRectCorners;TargetCorner[?] detectedCorners;";
 
     public final String getTypeString() { return MESSAGE_FORMAT; }

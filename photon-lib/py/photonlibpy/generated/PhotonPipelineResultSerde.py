@@ -25,7 +25,7 @@ from ..targeting import *
 class PhotonPipelineResultSerde:
 
     # Message definition md5sum. See photon_packet.adoc for details
-    MESSAGE_VERSION = "cb3e1605048ba49325888eb797399fe2"
+    MESSAGE_VERSION = "bd059ad6c216364c6187675af5f2fbfc"
     MESSAGE_FORMAT = "PhotonPipelineMetadata metadata;PhotonTrackedTarget[?] targets;MultiTargetPNPResult? multitagResult;"
 
 
@@ -36,10 +36,10 @@ class PhotonPipelineResultSerde:
         PhotonPipelineMetadata.photonStruct.pack(packet, value.metadata)
 
         # targets is a custom VLA!
-        packet.encodeList(value.targets)
+        packet.encodeList(value.targets, PhotonTrackedTarget.photonStruct)
 
         # multitagResult is optional! it better not be a VLA too
-        packet.encodeOptional(value.multitagResult)
+        packet.encodeOptional(value.multitagResult, MultiTargetPNPResult.photonStruct)
 
 
     @staticmethod

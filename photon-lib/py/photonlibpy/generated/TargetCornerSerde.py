@@ -33,10 +33,10 @@ class TargetCornerSerde:
     def pack(packet: 'Packet', value: 'TargetCorner') -> None:
 
         # field x is of intrinsic type float64
-        packet.encode(value.x)
+        packet.encodeDouble(value.x)
 
         # field y is of intrinsic type float64
-        packet.encode(value.y)
+        packet.encodeDouble(value.y)
 
 
     @staticmethod

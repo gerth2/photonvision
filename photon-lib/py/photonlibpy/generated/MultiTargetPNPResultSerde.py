@@ -25,7 +25,7 @@ from ..targeting import *
 class MultiTargetPNPResultSerde:
 
     # Message definition md5sum. See photon_packet.adoc for details
-    MESSAGE_VERSION = "ffc1cb847deb6e796a583a5b1885496b"
+    MESSAGE_VERSION = "cd29d899dd41f83f08ea26868735724c"
     MESSAGE_FORMAT = "PnpResult estimatedPose;int16[?] fiducialIDsUsed;"
 
 
@@ -36,7 +36,7 @@ class MultiTargetPNPResultSerde:
         PnpResult.photonStruct.pack(packet, value.estimatedPose)
 
         # fiducialIDsUsed is an intrinsic VLA!
-        packet.encode(value.fiducialIDsUsed)
+        packet.encodeShort(value.fiducialIDsUsed)
 
 
     @staticmethod

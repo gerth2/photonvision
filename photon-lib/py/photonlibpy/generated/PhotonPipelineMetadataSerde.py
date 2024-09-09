@@ -33,13 +33,13 @@ class PhotonPipelineMetadataSerde:
     def pack(packet: 'Packet', value: 'PhotonPipelineMetadata') -> None:
 
         # field sequenceID is of intrinsic type int64
-        packet.encode(value.sequenceID)
+        packet.encodeLong(value.sequenceID)
 
         # field captureTimestampMicros is of intrinsic type int64
-        packet.encode(value.captureTimestampMicros)
+        packet.encodeLong(value.captureTimestampMicros)
 
         # field publishTimestampMicros is of intrinsic type int64
-        packet.encode(value.publishTimestampMicros)
+        packet.encodeLong(value.publishTimestampMicros)
 
 
     @staticmethod

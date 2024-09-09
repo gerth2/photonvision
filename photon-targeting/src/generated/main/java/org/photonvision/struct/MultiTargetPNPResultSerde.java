@@ -32,7 +32,7 @@ import org.photonvision.targeting.*;
  */
 public class MultiTargetPNPResultSerde implements PacketSerde<MultiTargetPNPResult> {
     // Message definition md5sum. See photon_packet.adoc for details
-    public static final String MESSAGE_VERSION = "ffc1cb847deb6e796a583a5b1885496b";
+    public static final String MESSAGE_VERSION = "cd29d899dd41f83f08ea26868735724c";
     public static final String MESSAGE_FORMAT = "PnpResult estimatedPose;int16[?] fiducialIDsUsed;";
 
     public final String getTypeString() { return MESSAGE_FORMAT; }

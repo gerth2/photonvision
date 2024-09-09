@@ -25,7 +25,7 @@ from ..targeting import *
 class PhotonTrackedTargetSerde:
 
     # Message definition md5sum. See photon_packet.adoc for details
-    MESSAGE_VERSION = "8fdada56b9162f2e32bd24f0055d7b60"
+    MESSAGE_VERSION = "279c90c678905da8c4c47726d7945798"
     MESSAGE_FORMAT = "float64 yaw;float64 pitch;float64 area;float64 skew;int32 fiducialId;int32 objDetectId;float32 objDetectConf;Transform3d bestCameraToTarget;Transform3d altCameraToTarget;float64 poseAmbiguity;TargetCorner[?] minAreaRectCorners;TargetCorner[?] detectedCorners;"
 
 
@@ -33,40 +33,40 @@ class PhotonTrackedTargetSerde:
     def pack(packet: 'Packet', value: 'PhotonTrackedTarget') -> None:
 
         # field yaw is of intrinsic type float64
-        packet.encode(value.yaw)
+        packet.encodeDouble(value.yaw)
 
         # field pitch is of intrinsic type float64
-        packet.encode(value.pitch)
+        packet.encodeDouble(value.pitch)
 
         # field area is of intrinsic type float64
-        packet.encode(value.area)
+        packet.encodeDouble(value.area)
 
         # field skew is of intrinsic type float64
-        packet.encode(value.skew)
+        packet.encodeDouble(value.skew)
 
         # field fiducialId is of intrinsic type int32
-        packet.encode(value.fiducialId)
+        packet.encodeInt(value.fiducialId)
 
         # field objDetectId is of intrinsic type int32
-        packet.encode(value.objDetectId)
+        packet.encodeInt(value.objDetectId)
 
         # field objDetectConf is of intrinsic type float32
-        packet.encode(value.objDetectConf)
+        packet.encodeFloat(value.objDetectConf)
 
         # field is shimmed!
-        (packet, value.bestCameraToTarget)
+        packet.encodeTransform(packet, value.bestCameraToTarget)
 
         # field is shimmed!
-        (packet, value.altCameraToTarget)
+        packet.encodeTransform(packet, value.altCameraToTarget)
 
         # field poseAmbiguity is of intrinsic type float64
-        packet.encode(value.poseAmbiguity)
+        packet.encodeDouble(value.poseAmbiguity)
 
         # minAreaRectCorners is a custom VLA!
-        packet.encodeList(value.minAreaRectCorners)
+        packet.encodeList(value.minAreaRectCorners, TargetCorner.photonStruct)
 
         # detectedCorners is a custom VLA!
-        packet.encodeList(value.detectedCorners)
+        packet.encodeList(value.detectedCorners, TargetCorner.photonStruct)
 
 
     @staticmethod
