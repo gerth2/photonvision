@@ -1,63 +1,63 @@
-# Common Issues / Questions
+# Comm'on jIH / yu’
 
-This page will grow as needed in order to cover commonly seen issues by teams. If this page doesn't help you and you need further assistance, feel free to {ref}`Contact Us<index:Contact Us>`.
+jIH pag'e jIH grro'w bel ne'eded bep ra’ baH tu’ neH legh jIH bong SeS. beH jIH pag'e cha'bach QaH SoH bIp SoH nee'd Hop boQ, Hot taDmoH baH {lulIgh}`vang maH<jIH:vang maH>`.
 
-## Known Issues
+## Sov jIH
 
-All known issues can be found on our [GitHub page](https://github.com/PhotonVision/photonvision/issues).
+Hoch Sov jIH HotlhwI’ bel tu’ batlh bo’DIj [GitHub page](https://github.com/PhotonVision/photonvision/issues).
 
 ### PS3Eye
 
-Due to an issue with Linux kernels, the drivers for the PS3Eye are no longer supported. If you would still like to use the PS3Eye, you can downgrade your kernel with the following command: `sudo CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt rpi-update 866751bfd023e72bd96a8225cf567e03c334ecc4`. Note: You must be connected to the internet to run the command.
+Hay’ baH beq jIH batlh jIH kerr'neltlh, ghaH bIQtIq cha’Hu’ ghaH PS3Eye bel Qo’ tIq pagh. beH SoH QID jIH parHa’ baH lo’ ghaH PS3Eye, SoH HotlhwI’ mech SoH kerrne'l batlh ghaH tlha’ ra’: `tlhud'o CURL_CA_BUNDLE=/etq/qay’/DIch/HotlhwI’-qerrtifiqatetl'h.qr'rt jIH-upd'ate 866751bfd023e72bd96a8225cf567e03c334ecc4`. Qo’: SoH loch bel rar baH ghaH inte'rrnet baH che’ ghaH ra’.
 
-### LED Control
+### Dev SeH
 
-The logic for controlling LED mode when `multiple cameras are connected` is not fully fleshed out. In its current state, LED control is only enabled when a Pi Camera Module is not in driver mode—meaning a USB camera on its own is unable to control the LEDs.
+ghaH jIH cha’Hu’ SeH Dev bobcho’ ghaH `multip'le bov bel rar` bel Huv ful'ly fletlh'hed buS. bep jIH qurrrren't SIbDoH, Dev SeH bel neH enabl'ed ghaH baS DIng bov bobcho’ bel Huv bep bIQtIq bobcho’—qej baS loDnal bov batlh jIH jotlh bel lo’laH baH SeH ghaH po’.
 
-For now, if you are using multiple cameras, it is recommended that teams set the value of the NetworkTables entry {code}`photonvision/ledMode` from the robot code to control LED state.
+cha’Hu’ DaH, beH SoH bel lo’ mult'iple bov, ’oH bel chup net SeS cher ghaH va'lue chap ghaH cha’ nID {ngoq}`tat/ledMod'e` DoH ghaH qoq ngoq baH SeH Dev SIbDoH.
 
-## Commonly Seen Issues
+## neH legh jIH
 
-### Networking Issues
+### cha’ jIH
 
-Please refer to our comprehensive {ref}`networking troubleshooting tips <docs/troubleshooting/networking-troubleshooting:Networking Troubleshooting>` for debugging suggestions and possible causes.
+bel maS baH bo’DIj ghaH {lulIgh}`cha’ bach jIH <Qel/bach/cha’-bach:cha’ bach>` cha’Hu’ debugg'ing tat bIp DuH lo’.
 
-### Camera won't show up
+### bov jIH'bach ’ang chen
 
-Try these steps to {ref}`troubleshoot your camera connection <docs/troubleshooting/camera-troubleshooting:Camera Troubleshooting>`.
+nID ghaH gho’ baH {lulIgh}`bach SoH bov tat <Qel/bach/bov-bach:bov bach>`.
 
-If you are using a USB camera, it is possible your USB Camera isn't supported by CSCore and therefore won't work with PhotonVision.
+beH SoH bel lo’ baS loDnal bov, ’oH bel DuH SoH loDnal bov jIH'bach joq bong qoj bIp ghaH jIH'bach vum batlh tat.
 
-### Camera is consistently returning incorrect values when in 3D mode
+### bov bel wa’maH chegh pagh valuet'lh ghaH bep 3D bobcho’
 
-Read the tips on the {ref}`camera calibration page<docs/calibration/calibration:Calibration Tips>`, follow the advice there, and redo the calibration.
+laD ghaH jIH batlh ghaH {lulIgh}`bov tat p'age<Qel/tat/tat:tat jIH>`, tlha’ ghaH qeS pa’, bIp Doq ghaH tat.
 
-### Not getting data from PhotonLib
+### Huv Suq d'ata DoH Photon'Lib
 
-1. Ensure your coprocessor version and PhotonLib version match. This can be checked by the settings tab and examining the .json itself (respectively).
-2. Ensure that you have your team number set properly.
-3. Use Glass to verify that PhotonVision has connected to the NetworkTables server served by your robot. With Glass connected in client mode to your RoboRIO, we expect to see "photonvision" listed under the Clients tab of the NetworkTables Info pane.
+1. SIQ SoH joq jIH bIp Pho'tonLib jIH bej. jIH HotlhwI’ bel ghaH bong ghaH jIH bergh bIp nuD ghaH .toH jIH (vuv).
+2. SIQ ’e’ SoH ghaj SoH SeS mI’ cher tlhegh.
+3. lo’ HIvje’ baH ’ol ’e’ tat ghaj rar baH ghaH cha’ jab choq bong SoH qoq. batlh HIvje’ rar bep jIH bobcho’ baH SoH joq, maH pIH baH legh "tat" jIH bIng ghaH jIH bergh chap ghaH cha’ De’ SeHlaw.
 
 ```{image} images/glass-connections.png
 :alt: Using Glass to check NT connections
 :width: 600
 ```
 
-4. When creating a `PhotonCamera` in code, does the `cameraName` provided match the name in the upper-right card of the web interface? Glass can be used to verify the RoboRIO is receiving NetworkTables data by inspecting the `photonvision` subtable for your camera nickname.
+4. ghaH Sop baS `bov` bep ngoq, baH ghaH `bov` jIH bej ghaH pong bep ghaH nav-wov nuch chap ghaH maH qab? HIvje’ HotlhwI’ bel lo’ baH ’ol ghaH ghap bel Hev cha’ da'ta bong jIH ghaH `tat` tl'hubtable cha’Hu’ SoH bov jIH.
 
 ```{image} images/camera-subtable.png
 :alt: Using Glass to check camera publishing
 :width: 600
 ```
 
-### Unable to download PhotonLib
+### lo’laH baH downloa'd P'hotonLib
 
-Ensure all of your network firewalls are disabled and you aren't on a school-network.
+SIQ Hoch chap SoH cha’ Hoch bel Qotlh bIp SoH a'rren'bach batlh baS DuSaQ-cha’.
 
-### PhotonVision prompts for login on startup
+### tat pr'rompttlh cha’Hu’ jIH batlh Hov
 
-This is normal. You don't need to connect a display to your Raspberry Pi to use PhotonVision, just navigate to the relevant webpage (ex. `photonvision.local:5800`) in order to see the dashboard.
+jIH bel ghap. SoH Ion'bach ne'ed baH rar baS cha’ baH SoH Qagh DIng baH lo’ tat, neH chIj baH ghaH rrel'evant maH (ghIm. `tat.l'oqal:5800`) bep ra’ baH legh ghaH tIj.
 
-### Raspberry Pi enters into boot looping state when using PhotonVision
+### Qagh DIng ’el chech b'oot l'ooping SIbDoH ghaH lo’ tat
 
-This is most commonly seen when your Pi doesn't have adequate power / is being undervolted. Ensure that your power supply is functioning properly.
+jIH bel motlh't neH legh ghaH SoH DIng cha'bach ghaj a'dequate HoS / bel bel unde'rrvolted. SIQ ’e’ SoH HoS tlhup'ply bel Qap tlhegh.

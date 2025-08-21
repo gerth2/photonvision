@@ -1,70 +1,70 @@
-# NetworkTables API
+# cha’ jIH
 
-## About
+## buS
 
-:::{warning}
-PhotonVision interfaces with PhotonLib, our vendor dependency, using NetworkTables. If you are running PhotonVision on a robot (ie. with a RoboRIO), you should **turn the NetworkTables server switch (in the settings tab) off** in order to get PhotonLib to work. Also ensure that you set your team number. The NetworkTables server should only be enabled if you know what you're doing!
+:::{ghuHmoH}
+tat qab batlh PhotonLi'b, bo’DIj joq tlhab, lo’ cha’. beH SoH bel qet tat batlh baS qoq (boH. batlh baS joq), SoH volchaH **tlhe’ ghaH cha’ jab leQ (bep ghaH jIH bergh) DoH** bep ra’ baH Suq Pho'tonLib baH vum. je SIQ net SoH cher SoH SeS mI’. ghaH cha’ jab volchaH neH bel ena'bled beH SoH Sov nuqneH SoH'baH baH!
 :::
 
-## API
+## jIH
 
-:::{warning}
-NetworkTables is not a supported setup/viable option when using PhotonVision as we only send one target at a time (this is problematic when using AprilTags, which will return data from multiple tags at once). We recommend using PhotonLib.
+:::{ghuHmoH}
+cha’ bel Huv baS ghap cher/jIH DuH ghaH lo’ tat bel maH neH ngeH wa’ DoS bej baS poH (jIH bel Hej ghaH lo’ AprrilTa'gtlh, jIH jIH chegh da'ta DoH multip'le Sorgh bej wa’logh). maH chup lo’ PhotonLi'b.
 :::
 
-The tables below contain the the name of the key for each entry that PhotonVision sends over the network and a short description of the key. The entries should be extracted from a subtable with your camera's nickname (visible in the PhotonVision UI) under the main `photonvision` table.
+ghaH bergh bIng jIH ghaH ghaH pong chap ghaH key cha’Hu’ paQDI’norgh nID ’e’ tat ngeH chuv ghaH cha’ bIp baS pagh tat chap ghaH key. ghaH nID volchaH bel vang DoH baS tlh'ubtable batlh SoH bov'klingon jIH (jIH bep ghaH tat bup) bIng ghaH jIH `tat` bergh.
 
-### Getting Target Information
+### Suq DoS De’
 
-| Key             | Type       | Description                                                              |
+| Key             | Qogh       | tat                                                              |
 | --------------- | ---------- | ------------------------------------------------------------------------ |
-| `rawBytes`      | `byte[]`   | A byte-packed string that contains target info from the same timestamp.  |
-| `latencyMillis` | `double`   | The latency of the pipeline in milliseconds.                             |
-| `hasTarget`     | `boolean`  | Whether the pipeline is detecting targets or not.                        |
-| `targetPitch`   | `double`   | The pitch of the target in degrees (positive up).                        |
-| `targetYaw`     | `double`   | The yaw of the target in degrees (positive right).                       |
-| `targetArea`    | `double`   | The area (percent of bounding box in screen) as a percent (0-100).       |
-| `targetSkew`    | `double`   | The skew of the target in degrees (counter-clockwise positive).          |
-| `targetPose`    | `double[]` | The pose of the target relative to the robot (x, y, z, qw, qx, qy, qz)   |
-| `targetPixelsX` | `double`   | The target crosshair location horizontally, in pixels (origin top-right) |
-| `targetPixelsY` | `double`   | The target crosshair location vertically, in pixels (origin top-right)   |
+| `rrawBy'tetlh`      | `b'yte[]`   | baS b'yte-p'aqked ’aw’ net jIH DoS De’ DoH ghaH jIH jIH.  |
+| `rop` | `Seng`   | ghaH wa’maH chap ghaH tlhegh bep cha’DIch.                             |
+| `DoS`     | `b'oolean`  | ghaH ghaH tlhegh bel cheH DoS ghap Huv.                        |
+| `DoS`   | `Seng`   | ghaH jIH chap ghaH DoS bep degrr'eetlh (ba’ chen).                        |
+| `DoS`     | `Seng`   | ghaH Hob chap ghaH DoS bep degrre'etlh (ba’ wov).                       |
+| `DoS`    | `Seng`   | ghaH yoS (vatlhvI’ chap veH box bep Hotlh) bel baS vatlhvI’ (0-100).       |
+| `DoS`    | `Seng`   | ghaH tlhk'ew chap ghaH DoS bep deg'rreetlh (ngeb-ql'oqkwitlhe ba’).          |
+| `DoS`    | `Seng[]` | ghaH chIch chap ghaH DoS leS baH ghaH qoq (DuD, bep, buD, qw, qx, qy, qz)   |
+| `DoS` | `Seng`   | ghaH DoS quS tat ghap, bep jIH (mung ’e’-wov) |
+| `DoS` | `Seng`   | ghaH DoS quS tat Hoch, bep jIH (mung net-wov)   |
 
-### Changing Settings
+### choH jIH
 
-| Key             | Type      | Description                 |
+| Key             | ’er      | tat                 |
 | --------------- | --------- | --------------------------- |
-| `pipelineIndex` | `int`     | Changes the pipeline index. |
-| `driverMode`    | `boolean` | Toggles driver mode.        |
+| `tlhegh` | `chech`     | choH ghaH tlhegh jIH. |
+| `bIQtIq`    | `bo'olean` | Toggle'tlh bIQtIq bobcho’.        |
 
-### Saving Images
+### pol jIH
 
-PhotonVision can save images to file on command. The image is saved when PhotonVision detects the command went from `false` to `true`.
+tat HotlhwI’ toD jIH baH jIH batlh ra’. ghaH jIH bel pol ghaH tat cheH ghaH ra’ jaH DoH `ngeb` baH `teH`.
 
-PhotonVision will automatically set these back to `false` after 500ms.
+tat jIH Hoch cher ghaH chap baH `ngeb` cha’leS 500ms.
 
-Be careful saving images rapidly - it will slow vision processing performance and take up disk space very quickly.
+bel yep toD jIH jIH - ’oH jIH QIt jIH tlhol ghap bIp tlhap chen jIH logh Hoch nom.
 
-Images are returned as part of the .zip package from the "Export" operation in the Settings tab.
+jIH bel chegh bel jeS chap ghaH .jIH paqka'ge DoH ghaH "qoj" bov bep ghaH jIH bergh.
 
-| Key                | Type      | Description                                       |
+| Key                | Qogh      | tat                                       |
 | ------------------ | --------- | ------------------------------------------------- |
-| `inputSaveImgCmd`  | `boolean` | Triggers saving the current input image to file.  |
-| `outputSaveImgCmd` | `boolean` | Triggers saving the current output image to file. |
+| `pol`  | `bool'ean` | jIH toD ghaH qurrrren't jIH jIH baH jIH.  |
+| `pol` | `boole'an` | jIH pol ghaH qu'rrrrent out'put jIH baH jIH. |
 
-:::{warning}
-If you manage to make calls to these commands faster than 500ms (between calls), additional photos will not be captured.
+:::{ghuHmoH}
+beH SoH vu’ baH Qagh pong baH ghaH ra’ nom th'an 500ms (joj pong), chel pho'totlh jIH Huv bel jon.
 :::
 
-### Global Entries
+### ngoQ nID
 
-These entries are global, meaning that they should be called on the main `photonvision` table.
+ghaH nID bel ngoQ, qej net bIH volchaH bel pong batlh ghaH jIH `tat` bergh.
 
-| Key       | Type  | Description                                              |
+| Key       | ’er  | tat                                              |
 | --------- | ----- | -------------------------------------------------------- |
-| `ledMode` | `int` | Sets the LED Mode (-1: default, 0: off, 1: on, 2: blink) |
+| `l'edMode` | `chech` | cher ghaH Dev bobcho’ (-1: pIch, 0: DoH, 1: batlh, 2: jIH) |
 
-:::{warning}
-Setting the LED mode to -1 (default) when `multiple` cameras are connected may result in unexpected behavior. {ref}`This is a known limitation of PhotonVision. <docs/troubleshooting/common-errors:LED Control>`
+:::{ghuHmoH}
+cher ghaH Dev bobcho’ baH -1 (pIch) ghaH `mul'tiple` bov bel rar may leS bep pIH pagh. {lulIgh}`jIH bel baS Sov tat chap tat. <Qel/bach/qomm'on-Qagh:Dev SeH>`
 
-Single camera operation should work without issue.
+jIH bov bov volchaH Qap jIH jIH.
 :::

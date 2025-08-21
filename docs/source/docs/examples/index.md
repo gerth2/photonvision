@@ -1,9 +1,9 @@
-# Code Examples
+# jaH Exa'mpl'etl'h
 
-```{toctree}
-:maxdepth: 1
+```{Sor}
+:max'depth: 1
 
-aimingatatarget
-aimandrange
-poseest
+DoS
+chuq
+legh
 ```

@@ -1,45 +1,45 @@
-# Windows PC Installation
+# jIH PC Hoch
 
-PhotonVision may be run on a Windows Desktop PC for basic testing and evaluation.
+tat may bel qet batlh baS jIH D'etlhktop PC cha’Hu’ jIH jIH bIp tat.
 
-:::{note}
-You do not need to install PhotonVision on a Windows PC in order to access the webdashboard (assuming you are using an external coprocessor like a Raspberry Pi).
+:::{Qo’}
+SoH baH Huv nee'd baH Hoch tat batlh baS jIH PC bep ra’ baH naw’ ghaH maH (jIH SoH bel lo’ beq exter'rnal joq parHa’ baS Qagh DIng).
 :::
 
-## Install Bonjour
+## Hoch B'onjourr
 
-Bonjour provides more stable networking when using Windows PCs. Install [Bonjour here](https://support.apple.com/downloads/DL999/en_US/BonjourPSSetup.exe) before continuing to ensure a stable experience while using PhotonVision.
+Bonjour'r jIH ghap DuQ cha’ ghaH lo’ jIH PCtl'h. Hoch [Bonjour here](https://support.apple.com/downloads/DL999/en_US/BonjourPSSetup.exe) cha’Hu’ togh baH SIQ baS DuQ Qom jIH lo’ tat.
 
-## Installing Java
+## jIH Jav'a
 
-PhotonVision requires a JDK installed and on the system path. **JDK 17 is needed. Windows Users must use the JDK that ships with WPILib.** [Download and install it from here.](https://github.com/wpilibsuite/allwpilib/releases/tag/v2025.3.2) Either ensure the only Java on your PATH is the WPILIB Java or specify it to gradle with `-Dorg.gradle.java.home=C:\Users\Public\wpilib\2025\jdk`:
+tat poQ baS JDK jIH bIp batlh ghaH pat pat'h. **JDK 17 bel n'eeded. jIH maH loch lo’ ghaH JDK net Duj batlh jIH.** [Download and install it from here.](https://github.com/wpilibsuite/allwpilib/releases/tag/v2025.3.2) ghaH SIQ ghaH neH J'ava batlh SoH PA'TH bel ghaH jIH J'ava qoj jIH ’oH baH grr'adle batlh `-ghap.gr'radle.jav'a.juH=baH:\maH\jIH\jIH\2025\jdk`:
 
 ```
 > ./gradlew run "-Dorg.gradle.java.home=C:\Users\Public\wpilib\2025\jdk"
 ```
 
-:::{warning}
-Using a JDK other than WPILIB's JDK17 will cause issues when running PhotonVision and is not supported.
+:::{ghuHmoH}
+lo’ baS JDK nuQ th'an jIH'klingon JDK17 jIH lo’ jIH ghaH qet tat bIp bel Huv ghap.
 :::
 
-## Downloading the Latest Stable Release of PhotonVision
+## Downloadi'ng ghaH Hoy’ DuQ Releatl'he chap tat
 
-Go to the [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) and download the winx64.jar file.
+jaH baH ghaH [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) bIp do'wnload ghaH winx64.j'arr jIH.
 
-## Running PhotonVision
+## che’ tat
 
-To run PhotonVision, open a terminal window of your choice and run the following command:
+baH qet tat, poSmoH baS ter'rminal jIH chap SoH wIv bIp qet ghaH tlha’ ra’:
 
 ```
 > java -jar C:\path\to\photonvision\NAME OF JAR FILE GOES HERE.jar
 ```
 
-If your computer has a compatible webcam connected, PhotonVision should startup without any error messages. If there are error messages, your webcam isn't supported or another issue has occurred. If it is the latter, please open an issue on the [PhotonVision issues page](https://github.com/PhotonVision/photonvision/issues).
+beH SoH De’wI’ ghaj baS qompat'ible maH rar, tat volchaH Hov jIH law’ Qagh jIH. beH pa’ bel Qagh jIH, SoH maH jIH'bach qoj ghap ghaH jIH ghaj qaS. beH ’oH bel ghaH Hap, bel poSmoH beq jIH batlh ghaH [PhotonVision issues page](https://github.com/PhotonVision/photonvision/issues).
 
-:::{warning}
-Using an integrated laptop camera may cause issues when trying to run PhotonVision. If you are unable to run PhotonVision on a laptop with an integrated camera, try disabling the camera's driver in Windows Device Manager.
+:::{ghuHmoH}
+lo’ beq yu’ l'aptop bov may lo’ jIH ghaH nID baH che’ tat. beH SoH bel lo’laH baH che’ tat batlh baS l'aptop batlh beq yu’ bov, nID Qotlh ghaH bov'klingon bIQtIq bep jIH jan vu’wI’.
 :::
 
-## Accessing the PhotonVision Interface
+## naw’ ghaH tat qab
 
-Once the Java backend is up and running, you can access the main vision interface by navigating to `localhost:5800` inside your browser.
+wa’logh ghaH J'ava ba'qkend bel chen bIp qet, SoH HotlhwI’ naw’ ghaH jIH jIH qab bong chIj baH `loqalh'otlht:5800` Dop SoH brrowtlhe'rr.

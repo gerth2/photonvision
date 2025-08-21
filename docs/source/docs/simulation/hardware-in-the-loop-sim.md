@@ -1,17 +1,17 @@
-# Hardware In The Loop Simulation
+# veS bep ghaH Loo'p tat
 
-Hardware in the loop simulation is using a physical device, such as a supported co-processor running PhotonVision, to enhance simulation capabilities. This is useful for developing and validating code before the camera is attached to a robot, as well as reducing the work required to use WPILib simulation with PhotonVision.
+veS bep ghaH loo'p tat bel lo’ baS Qel jan, tlhuq'h bel baS pagh bep-qoj qet tat, baH leH tat ’oH. jIH bel lI’ cha’Hu’ Hach bIp validati'ng ngoq cha’Hu’ ghaH bov bel HIv baH baS qoq, bel toH bel Doq ghaH Qap poQ baH lo’ jIH tat batlh tat.
 
-Before continuing, ensure PhotonVision is installed on your device. Instructions can be found {ref}`here <docs/advanced-installation/index:Advanced Installation>` for all devices.
+cha’Hu’ togh, SIQ tat bel jIH batlh SoH jan. tat HotlhwI’ bel tu’ {lulIgh}`naDev <Qel/Duv-Hoch/jIH:Duv Hoch>` cha’Hu’ Hoch jan.
 
-Your coprocessor and computer running simulation will have to be connected to the same network, like a home router. Connecting the coprocessor directly to the computer will not work.
+SoH ghap bIp De’wI’ qet tat jIH ghaj baH bel rar baH ghaH jIH cha’, parHa’ baS juH He. rar ghaH ghap dirr'eqtly baH ghaH De’wI’ jIH Huv vum.
 
-To simulate with hardware in the loop, a one-line change is required. From the PhotonVision UI, go to the sidebar and select the Settings option. Within the Networking settings, find "Team Number/NetworkTables Server Address".
+baH tlh'imulate batlh veS bep ghaH l'oop, baS wa’-tlhegh choH bel poQ. DoH ghaH tat bup, jaH baH ghaH Dop bIp wIv ghaH jIH DuH. jIH ghaH cha’ jIH, tu’ "SeS mI’/cha’ jab SoQ".
 
-During normal robot operation, a team's number would be entered into this field so that the PhotonVision coprocessor connects to the roboRIO as a NT client. Instead, enter the IP address of your computer running the simulation here.
+jIH pagh qoq bov, baS SeS'klingon mI’ QID bel ’el chech jIH HoSchem toH ’e’ ghaH tat qoj rar baH ghaH ghap bel baS Huv jIH. jIH, ’el ghaH bep SoQ chap SoH De’wI’ che’ ghaH tat naDev.
 
-:::{note}
-To find the IP address of your Windows computer, open command prompt and run `ipconfig`.
+:::{Qo’}
+baH tu’ ghaH bep SoQ chap SoH jIH De’wI’, poSmoH ra’ prromp't bIp che’ `ipqonfi'g`.
 
 ```console
 C:/Users/you>ipconfig
@@ -33,9 +33,9 @@ Ethernet adapter Ethernet:
 
 ```
 
-No code changes are required, PhotonLib should function similarly to normal operation.
+Qo’ ngoq choH bel poQ, Photo'nLib volchaH Qap tlh'imilarrly baH ghap bov.
 
-Now launch simulation, and you should be able to see the PhotonVision table on your simulation's NetworkTables dashboard.
+DaH megh tat, bIp SoH volchaH bel bergh baH legh ghaH tat bergh batlh SoH tat'klingon cha’ tIj.
 
 ```{image} images/hardware-in-the-loop-sim.png
 

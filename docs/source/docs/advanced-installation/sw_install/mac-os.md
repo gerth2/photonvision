@@ -1,53 +1,53 @@
-# Mac OS Installation
+# burgh chep Hoch
 
-:::{warning}
-Due to current [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) restrictions, the PhotonVision server backend may have issues running macOS.
+:::{ghuHmoH}
+Hay’ baH q'urrrrent [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) leS, ghaH tat jab baq'kend may ghaj jIH che’ ma'qOS.
 :::
 
-:::{note}
-You do not need to install PhotonVision on a Mac in order to access the webdashboard (assuming you are using an external coprocessor like a Raspberry Pi).
+:::{Qo’}
+SoH baH Huv nee'd baH Hoch tat batlh baS burgh bep ra’ baH naw’ ghaH maH (jIH SoH bel lo’ beq ext'errnal ghap parHa’ baS Qagh DIng).
 :::
 
-VERY Limited macOS support is available.
+Hoch vuS maq'OS joq bel ava'ilable.
 
-## Installing Java
+## jIH Ja'va
 
-PhotonVision requires a JDK installed and on the system path. JDK 17 is needed (different versions will not work). You may already have this if you have installed WPILib 2025+. If not, [download and install it from here](https://adoptium.net/temurin/releases?version=17).
+tat poQ baS JDK jIH bIp batlh ghaH pat pa'th. JDK 17 bel nee'ded (pIm jIH jIH Huv vum). SoH may laD ghaj jIH beH SoH ghaj jIH jIH 2025+. beH Huv, [download and install it from here](https://adoptium.net/temurin/releases?version=17).
 
-:::{warning}
-Using a JDK other than JDK17 will cause issues when running PhotonVision and is not supported.
+:::{ghuHmoH}
+lo’ baS JDK nuQ th'an JDK17 jIH lo’ jIH ghaH che’ tat bIp bel Huv joq.
 :::
 
-## Downloading the Latest Stable Release of PhotonVision
+## Downloa'ding ghaH Hoy’ DuQ Re'leatlhe chap tat
 
-Go to the [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) and download the relevant .jar file for your coprocessor.
+jaH baH ghaH [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) bIp do'wnload ghaH rre'levant .j'arr jIH cha’Hu’ SoH ghap.
 
-:::{note}
-If you have an M Series Mac, download the macarm64.jar file.
+:::{Qo’}
+beH SoH ghaj beq baS jIH burgh, down'load ghaH macarm64.jar'r jIH.
 
-If you have an Intel based Mac, download the macx64.jar file.
+beH SoH ghaj beq jIH waw’ burgh, d'ownload ghaH macx64.jar'r jIH.
 :::
 
-:::{warning}
-Be careful to pick the latest stable release. "Draft" or "Pre-Release" versions are not stable and often have bugs.
+:::{ghuHmoH}
+bel yep baH Hurgh ghaH Hoy’ DuQ rreleatl'he. "’o’" ghap "bot-R'eleatlhe" jIH bel Huv DuQ bIp pIj ghaj bu'gtlh.
 :::
 
-## Running PhotonVision
+## qet tat
 
-To run PhotonVision, open a terminal window of your choice and run the following command:
+baH che’ tat, poSmoH baS terrmina'l jIH chap SoH wIv bIp che’ ghaH tlha’ ra’:
 
 ```
 $ java -jar /path/to/photonvision/photonvision-xxx.jar
 ```
 
-:::{warning}
-Due to current [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) restrictions, the PhotonVision using test mode is all that is known to work currently.
+:::{ghuHmoH}
+Hay’ baH qurr'rrent [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) leS, ghaH tat lo’ muS bobcho’ bel Hoch net bel Sov baH vum qurrrr'ently.
 :::
 
-## Accessing the PhotonVision Interface
+## naw’ ghaH tat qab
 
-Once the Java backend is up and running, you can access the main vision interface by navigating to `localhost:5800` inside your browser.
+wa’logh ghaH J'ava b'aqkend bel chen bIp qet, SoH HotlhwI’ naw’ ghaH jIH jIH qab bong chIj baH `l'oqalhotlht:5800` Dop SoH br'rowtlherr.
 
-:::{warning}
-Due to current [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) restrictions, it is unlikely any streams will open from real webcams.
+:::{ghuHmoH}
+Hay’ baH qu'rrrrent [cscore](https://github.com/wpilibsuite/allwpilib/tree/main/cscore) leS, ’oH bel parHa’ law’ SeS jIH poSmoH DoH tlhoj maH.
 :::

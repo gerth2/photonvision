@@ -1,34 +1,34 @@
-# Camera Matching
+# bov bej
 
-## Activating and Deactivating Cameras
+## chu’ bIp vang bov
 
-When you first plug in a camera, it will be detected and added to the list of cameras with the "Unassigned" status, as shown below. You can press the "Activate" button to enable PhotonVision to use the camera.
+ghaH SoH wa’DIch pl'ug bep baS bov, ’oH jIH bel Duy’ bIp chel baH ghaH jIH chap bov batlh ghaH "Unatlhtlhig'ned" Dotlh, bel cha’ bIng. SoH HotlhwI’ Doj ghaH "chu’" ’a baH ena'ble tat baH lo’ ghaH bov.
 
 ```{image} images/camera-matching/unassigned-camera.png
 :scale: 50%
 ```
 
-If a camera has been activated in the past, it will be listed as "Deactivated" in the camera list. You can press the "Activate" button to enable PhotonVision to use the camera.
+beH baS bov ghaj bel chu’ bep ghaH patlh't, ’oH jIH bel jIH bel "vang" bep ghaH bov jIH. SoH HotlhwI’ Doj ghaH "chu’" ’ach baH en'able tat baH lo’ ghaH bov.
 
 ```{image} images/camera-matching/deactivated-camera.png
 :scale: 50%
 ```
 
-Once a camera is activated, it will be listed as "Active" in the camera list. You can press the "Deactivate" button to stop PhotonVision from using the camera.
+wa’logh baS bov bel chu’, ’oH jIH bel jIH bel "jIH" bep ghaH bov jIH. SoH HotlhwI’ Doj ghaH "vang" ’ach baH mev tat DoH lo’ ghaH bov.
 
 ```{image} images/camera-matching/activated-camera.png
 :scale: 50%
 ```
 
-## Deleting Cameras
+## Delet'ing bov
 
-If you want to remove a camera from the list, you can press the delete button. This will clear all settings for that particular camera, including the calibration data and any other settings you have configured. It is recommended to make a backup of the camera's settings before deleting it, as this action cannot be undone.
+beH SoH neH baH teq baS bov DoH ghaH jIH, SoH HotlhwI’ Doj ghaH delet'e ’ach. jIH jIH Huv Hoch jIH cha’Hu’ net ghom bov, jIH ghaH tat da'ta bIp law’ nuQ jIH SoH ghaj q'onfigurred. ’oH bel chup baH Qagh baS baqk'up chap ghaH bov'klingon jIH cha’Hu’ delet'ing ’oH, bel jIH jIH HotlhwI’ bel undon'e.
 
-## Matching Cameras
+## bej bov
 
-When you plug in a camera, PhotonVision will attempt to match it to a previously configured camera based on the physical USB port it is connected to. If you plug another camera into that port, the cameras will have a "Camera Mismatch" status, indicating that the camera is not recognized as the one that was previously configured.
+ghaH SoH plu'g bep baS bov, tat jIH nID baH bej ’oH baH baS maH qonfigur'red bov waw’ batlh ghaH Qel loDnal ghap ’oH bel rar baH. beH SoH p'lug ghaH bov chech ’e’ joq, ghaH bov jIH ghaj baS "bov bej" Dotlh, indiqati'ng net ghaH bov bel Huv ghov bel ghaH wa’ ’e’ bel maH qonfi'gurred.
 
-Additionally, pressing on the Details button will show you the details of the camera mismatch, allowing you to compare the current camera with the previously configured camera.
+chel, Doj batlh ghaH jIH ’a jIH cha’ SoH ghaH jIH chap ghaH bov bej, chaw’ SoH baH q'omparre ghaH qurr'rrent bov batlh ghaH maH qonfigurre'd bov.
 
 ```{image} images/camera-matching/camera-mismatch-details.png
 :scale: 50%
@@ -38,4 +38,4 @@ Additionally, pressing on the Details button will show you the details of the ca
 Camera matching is based on the USB ports on the device. If you unplug a camera and plug it into a different port, PhotonVision will attempt to use settings from the camera that was previously configured in that port, causing unexpected behavior.
 ```
 
-To resolve the camera mismatch, you should ensure each camera is plugged into the same port that you configured it in.
+baH toH ghaH bov bej, SoH volchaH SIQ paQDI’norgh bov bel plu'gged chech ghaH jIH joq net SoH qonfig'urred ’oH bep.

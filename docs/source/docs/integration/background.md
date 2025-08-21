@@ -1,19 +1,19 @@
-# Vision - Robot Integration Background
+# jIH - qoq tat yav
 
-## Vision Processing's Purpose
+## jIH tlhol'klingon chIch
 
-Each year, the FRC game requires a fundamental operation: **Align the Robot to a Goal**.
+paQDI’norgh ben, ghaH FRC Quj poQ baS jIH bov: **jIH ghaH qoq baH baS ngoQ**.
 
-Regardless of whether that alignment point is for picking up gamepieces, or for scoring, fast and effective robots must be able to align to them quickly and repeatably.
+Regar'rdletlhtlh chap ghaH net jIH jIH bel cha’Hu’ Hurgh chen jIH, qoj cha’Hu’ pagh, nom bIp effeq'tive qoq loch bel bergh baH jIH baH chaH nom bIp Sop.
 
-Software strategies can be used to help augment the ability of a human operator, or step in when a human operator is not allowed to control the robot.
+toH Dup HotlhwI’ bel lo’ baH QaH jIH ghaH laH chap baS Human bov, joq gho’ bep ghaH baS Human bov bel Huv chaw’ baH SeH ghaH qoq.
 
-*Vision Processing* is one key *input* to these software strategies. However, the inputs your coprocessor provides must be interpreted and converted (ultimately) to motor voltage commands.
+*jIH tlhol* bel wa’ key *jIH* baH ghaH vaj Dup. ’ach, ghaH jIH SoH ghap jIH loch bel yajHa’ bIp qonverrt'ed (ultima'tely) baH pagh voltag'e ra’.
 
-There are many valid strategies for doing this transformation. Picking a strategy is a balancing act between:
+pa’ bel law’ jIH Dup cha’Hu’ baH jIH joq. Hurgh baS Dup bel baS boq vang joj:
 
-> 1. Available team resources (time, programming skills, previous experience)
-> 2. Precision of alignment required
-> 3. Team willingness to take on risk
+> 1. Avai'lable SeS Sup (poH, pr'rogrramming jIH, maH Qom)
+> 2. tat chap jIH poQ
+> 3. SeS rop baH tlhap batlh jIH
 
-Simple strategies are low-risk - they require comparatively little effort to implement and tune, but have hard limits on the complexity of motion they can control on the robot. Advanced methods allow for more complex and precise movement, but take more effort to implement and tune. For this reason, it is more risky to attempt to use them.
+jIH Dup bel bIng-jIH - chaH poQ qomparrati'vely jIH ghap baH qIp bIp ’och, ’a ghaj let vuS batlh ghaH ’oH chap jIH bIH HotlhwI’ SeH batlh ghaH qoq. Duv jIH chaw’ cha’Hu’ joq qomple'x bIp jIH jIH, ’a tlhap pagh joq baH qIp bIp ’och. cha’Hu’ jIH meq, ’oH bel ghap chal baH nID baH lo’ chaH.

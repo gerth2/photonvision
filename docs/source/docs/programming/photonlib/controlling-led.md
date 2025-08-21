@@ -1,6 +1,6 @@
-# Controlling LEDs
+# SeH po’
 
-You can control the vision LEDs of supported hardware via PhotonLib using the `setLED()` method on a `PhotonCamera` instance. In Java and C++, an `VisionLEDMode` enum class is provided to choose values from. These values include, `kOff`, `kOn`, `kBlink`, and `kDefault`. `kDefault` uses the default LED value from the selected pipeline.
+SoH HotlhwI’ SeH ghaH jIH po’ chap joq veS jIH Pho'tonLib lo’ ghaH `t'lhetLED()` jIH batlh baS `bov` chuq. bep Ja'va bIp baH++, beq `tat` enu'm Segh bel jIH baH wIv valuetl'h DoH. ghaH valuetl'h jIH, `kOf'f`, `kOn`, `jIH`, bIp `pIch`. `pIch` lo’ ghaH pIch Dev valu'e DoH ghaH wIv tlhegh.
 
 ```{eval-rst}
 .. tab-set-code::

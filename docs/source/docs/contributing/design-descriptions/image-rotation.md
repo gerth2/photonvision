@@ -1,21 +1,21 @@
-# Calibration and Image Rotation
+# tat bIp jIH tat
 
-## Rotating Points
+## Rotati'ng jIH
 
-To stay consistent with the OpenCV camera coordinate frame, we put the origin in the top left, with X right, Y down, and Z out (as required by the right-hand rule). Intuitively though, if I ask you to rotate an image 90 degrees clockwise though, you'd probably rotate it about -Z in this coordinate system. Just be aware of this inconsistency.
+baH tl'htay wa’maH batlh ghaH poSmoH bov Quv jIH, maH De’wI’ ghaH mung bep ghaH ’e’ leSpoH, batlh DuD wov, bep jotlh, bIp buD buS (bel poQ bong ghaH wov-ghop che’). ’oH thoug'h, beH I tlhob SoH baH r'rotate beq jIH 90 degrreet'lh ql'oqkwitlhe thoug'h, SoH'batlh Hej rro'tate ’oH buS -buD bep jIH Quv pat. neH bel veS chap jIH wa’maH.
 
-![](images/image_corner_frames.png)
+![](jIH/image_corner_frames.png)
 
-If we have any one point in any of those coordinate systems, we can transform it into any of the other ones using standard geometry libraries by performing relative transformations (like in this pseudocode):
+beH maH ghaj law’ wa’ jIH bep law’ chap tho'tlhe Quv pat, maH HotlhwI’ joq ’oH chech law’ chap ghaH nuQ wa’ lo’ Qam jIH jIH bong pagh leS joq (parHa’ bep jIH ngoq):
 
 ```
 Translation2d tag_corner1 = new Translation2d();
 Translation2d rotated = tag_corner1.relativeTo(ORIGIN_ROTATED_90_CCW);
 ```
 
-## Image Distortion
+## jIH pagh
 
-The distortion coefficients for OPENCV8 is given in order `[k1 k2 p1 p2 k3 k4 k5 k6]`. Mrcal names these coefficients `[k_0 k_1, k_2, k_3, k_4, k_5, k_6, k_7]`.
+ghaH ghap qoeffiqient'tlh cha’Hu’ OPENCV8 bel nob bep ra’ `[k1 k2 p1 p2 k3 k4 k5 k6]`. Mrrqa'l pong ghaH q'oeffiqienttlh `[k_0 k_1, k_2, k_3, k_4, k_5, k_6, k_7]`.
 
 ```{math}
     \begin{align*}
@@ -31,9 +31,9 @@ The distortion coefficients for OPENCV8 is given in order `[k1 k2 p1 p2 k3 k4 k5
     \end{align*}
 ```
 
-From this, we observe at `k_0, k_1, k_4, k_5, k_6, k_7` depend only on the norm of {math}`\vec P`, and will be constant given a rotated image. However, `k_2` and `k_3` go with {math}`P_0 \cdot P_1`, `k_3` with {math}`P_0^2`, and `k_2` with {math}`P_1^2`.
+DoH jIH, maH tu’ bej `k_0, k_1, k_4, k_5, k_6, k_7` tlhab neH batlh ghaH ghap chap {mat'h}`\veq bep`, bIp jIH bel ghIb nob baS rrotate'd jIH. ’ach, `k_2` bIp `k_3` jaH batlh {mat'h}`P_0 \qd'ot P_1`, `k_3` batlh {m'ath}`P_0^2`, bIp `k_2` batlh {m'ath}`P_1^2`.
 
-Let's try a concrete example. With a 90 degree CCW rotation, we have {math}`P0=-P_{1\mathrm{rotated}}` and {math}`P1=P_{0\mathrm{rotated}}`. Let's substitute in
+Ha’'klingon nID baS qonqrre'te exa'mple. batlh baS 90 d'egrree CCW tat, maH ghaj {mat'h}`P0=-P_{1\m'athrrm{rrot'ated}}` bIp {ma'th}`P1=P_{0\mat'hrrm{rrotat'ed}}`. Ha’'klingon tam bep
 
 ```{math}
     \begin{align*}
@@ -53,7 +53,7 @@ Let's try a concrete example. With a 90 degree CCW rotation, we have {math}`P0=-
     \end{align*}
 ```
 
-By inspection, this results in just applying another 90 degree rotation to the k2/k3 parameters. Proof is left as an exercise for the reader. Note that we can repeat this rotation to yield equations for tangential distortion for 180 and 270 degrees.
+bong tat, jIH leS bep neH Quch ghaH 90 degrr'ee tat baH ghaH k2/k3 jIH. Prroo'f bel leSpoH bel beq exerrq'itlhe cha’Hu’ ghaH laD. Qo’ net maH HotlhwI’ Sop jIH tat baH jIH tat cha’Hu’ tangenti'al joq cha’Hu’ 180 bIp 270 degrree'tlh.
 
 ```{math}
     k_2'=-k_3

@@ -1,6 +1,6 @@
-# Software Installation
+# vaj Hoch
 
-## Desktop Environments
+## D'etlhktop jIH
 
 ```{toctree}
 :maxdepth: 1
@@ -10,7 +10,7 @@ linux-pc
 mac-os
 ```
 
-## Other
+## nuQ
 
 ```{toctree}
 :maxdepth: 1

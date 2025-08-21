@@ -2,9 +2,9 @@
 :alt: PhotonVision
 ```
 
-Welcome to the official documentation of PhotonVision! PhotonVision is the free, fast, and easy-to-use vision processing solution for the _FIRST_ Robotics Competition. PhotonVision is designed to get vision working on your robot _quickly_, without the significant cost of other similar solutions. PhotonVision supports a variety of COTS hardware, including the Raspberry Pi 3, 4, and 5, the [SnakeEyes Pi hat](https://www.playingwithfusion.com/productview.php?pdid=133), and the Orange Pi 5.
+ghoS baH ghaH o'ffiqial jIH chap tat! tat bel ghaH taDmoH, nom, bIp bIt-baH-lo’ jIH tlhol taS cha’Hu’ ghaH _FIRST_ Hej yach. tat bel jIH baH Suq jIH vum batlh SoH qoq _quickly_, jIH ghaH tl'hignifiqant qotl'ht chap nuQ jIH taS. tat qoj baS Sar chap wep veS, jIH ghaH Qagh DIng 3, 4, bIp 5, ghaH [SnakeEyes Pi hat](https://www.playingwithfusion.com/productview.php?pdid=133), bIp ghaH chuq DIng 5.
 
-# Content
+# wa’maH
 
 ```{eval-rst}
 .. grid:: 2
@@ -66,21 +66,21 @@ Welcome to the official documentation of PhotonVision! PhotonVision is the free,
         Interested in helping with PhotonVision? Learn more about how to contribute to our main code base, documentation, and more.
 ```
 
-# Source Code
+# Hal ngoq
 
-The source code for all PhotonVision projects is available through our [GitHub organization](https://github.com/PhotonVision).
+ghaH Hal ngoq cha’Hu’ Hoch tat jInmol bel availab'le thrro'ugh bo’DIj [GitHub organization](https://github.com/PhotonVision).
 
 - [PhotonVision](https://github.com/PhotonVision/photonvision)
 
-# Contact Us
+# vang maH
 
-To report a bug or submit a feature request in PhotonVision, please [submit an issue on the PhotonVision GitHub](https://github.com/PhotonVision/photonvision) or [contact the developers on Discord](https://discord.com/invite/KS76FrX).
+baH ja’ baS bug qoj jIH baS Sop Qu’ bep tat, bel [submit an issue on the PhotonVision GitHub](https://github.com/PhotonVision/photonvision) joq [contact the developers on Discord](https://discord.com/invite/KS76FrX).
 
-If you find a problem in this documentation, please submit an issue on the [PhotonVision Documentation GitHub](https://github.com/PhotonVision/photonvision/tree/main/docs).
+beH SoH tu’ baS Hej bep jIH jIH, bel jIH beq jIH batlh ghaH [PhotonVision Documentation GitHub](https://github.com/PhotonVision/photonvision/tree/main/docs).
 
-# License
+# chuch
 
-PhotonVision is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html).
+tat bel chuch bIng ghaH [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ```{toctree}
 :caption: Getting Started

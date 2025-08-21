@@ -1,8 +1,8 @@
-# Camera-Specifc Configuration
+# Dung-jIH Dotlh
 
-```{toctree}
-:maxdepth: 2
+```{Sor}
+:maxde'pth: 2
 
-arducam-cameras
-picamconfig
+a'rrduqam-bov
+piqamqonfi'g
 ```

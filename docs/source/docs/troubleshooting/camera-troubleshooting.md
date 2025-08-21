@@ -1,37 +1,37 @@
-# Camera Troubleshooting
+# bov bach
 
-## Pi Cameras
+## DIng bov
 
-If you haven't yet, please refer to {ref}`the Pi CSI Camera Configuration page <docs/camera-specific-configuration/picamconfig:Pi Camera Configuration>` for information on updating {code}`config.txt` for your use case. If you've tried that, and things still aren't working, restart PhotonVision using the restart button in the settings tab, and press tilde (\`) in the web UI once connection is restored. This should show the most recent boot log.
+beH SoH ghaj'bach wej, bel maS baH {lulIgh}`ghaH DIng jIH bov tat pag'e <Qel/bov-tlh'peqifiq-tat/piqa'mqonfig:DIng bov tat>` cha’Hu’ De’ batlh u'pdating {ngoq}`jIH.txt` cha’Hu’ SoH lo’ vaj. beH SoH'bang nID net, bIp Doch jIH a'rren'bach Qap, Hov tat lo’ ghaH Hov ’a bep ghaH jIH bergh, bIp Doj jIH (\`) bep ghaH maH bup wa’logh tat bel joq. jIH volchaH cha’ ghaH m'otlht qeH bo'ot QonoS.
 
-|                                 | Expected output                                       | Bad                                |
+|                                 | pIH ou'tput                                       | qab                                |
 | ------------------------------- | ----------------------------------------------------- | ---------------------------------- |
-| LibCamera driver initialization | Successfully loaded libpicam shared object            | Failed to load native libraries!   |
-| Camera detected                 | Adding local video device - "unicam" at "/dev/video0" | No output from VisionSourceManager |
-| VisionSource created            | Adding 1 configs to VMM.                              | No output from VisionSourceManager |
+| bov bIQtIq tat | Qapla’ loade'd libpiq'am ghIj bep            | luj baH lo'ad Sung jIH!   |
+| bov Duy’                 | chel lo'qal jIH jan - "jIH" bej "/chu’/video0" | Qo’ outpu't DoH boj |
+| Hal Sop            | chel 1 jIH baH VMM.                              | Qo’ out'put DoH boj |
 
-If the driver isn't loaded, you may be using a non-official Pi image, or an image not new enough. Try updating to the most recent image available (one released for 2023) -- if that doesn't resolve the problem, {ref}`contact us<index:Contact Us>` with your settings ZIP file and Pi version/camera version/config.txt file used.
+beH ghaH bIQtIq jIH'bach l'oaded, SoH may bel lo’ baS Dap-offiqi'al DIng jIH, qoj beq jIH Huv chu’ Qo’. nID up'dating baH ghaH m'otlht qeH jIH avail'able (wa’ rr'eleatlhed cha’Hu’ 2023) -- beH ’e’ cha'bach vaj ghaH Hej, {lulIgh}`vang maH<jIH:vang maH>` batlh SoH jIH jIH jIH bIp DIng jIH/bov jIH/jIH.txt jIH lo’.
 
-If the camera is not detected, the most likely cause is either a config.txt file incorrectly set-up, or a ribbon cable attached backwards. Review the {ref}`picam configuration page <docs/camera-specific-configuration/picamconfig:pi camera configuration>`, and verify the ribbon cable is properly oriented at both ends, and that it is _fully_ inserted into the FFC connector. Then, {ref}`contact us<index:Contact Us>` with your settings ZIP file and Pi version/camera version/config.txt file used.
+beH ghaH bov bel Huv Duy’, ghaH mot'lht jIH lo’ bel ghaH baS jIH.txt jIH pagh cher-chen, joq baS jIH bergh HIv veS. jIH ghaH {lulIgh}`jIH tat pa'ge <Qel/bov-tlh'peqifiq-tat/piqa'mqonfig:DIng bov tat>`, bIp ’ol ghaH jIH bergh bel tlhegh joq bej nuQ chom, bIp net ’oH bel _fully_ jIH chech ghaH FFC ghap. vaj, {lulIgh}`vang maH<jIH:vang maH>` batlh SoH jIH jIH jIH bIp DIng jIH/bov jIH/jIH.txt jIH lo’.
 
-## USB cameras
+## loDnal bov
 
-USB cameras supported by CSCore require no libcamera driver initialization to work -- however, similar troubleshooting steps apply. Restart PhotonVision using the restart button in the settings tab, and press tilde on your keyboard (\`) when you're in the web UI once connection is restored. We expect to see the following output:
+loDnal bov joq bong qoj poQ Qo’ bov bIQtIq tat baH Qap -- ’a, jIH bach gho’ Quch. Hov tat lo’ ghaH Hov ’ach bep ghaH jIH bergh, bIp Doj jIH batlh SoH tIj (\`) ghaH SoH'baH bep ghaH maH bup wa’logh tat bel qoj. maH pIH baH legh ghaH tlha’ outpu't:
 
-|                      | Expected output                                       | Bad                                |
+|                      | pIH out'put                                       | qab                                |
 | -------------------- | ----------------------------------------------------- | ---------------------------------- |
-| Camera detected      | Adding local video device - "foobar" at "/dev/foobar" | No output from VisionSourceManager |
-| VisionSource created | Adding 1 configs to VMM.                              | No output from VisionSourceManager |
+| bov cheH      | chel loqa'l jIH jan - "tach" bej "/chu’/tach" | Qo’ ou'tput DoH boj |
+| Hal Sop | chel 1 jIH baH VMM.                              | Qo’ outpu't DoH boj |
 
-## Determining detected cameras in Video4Linux (v4l2)
+## tlhIl cheH bov bep Video4Linux (v4l2)
 
-On Linux devices (including Raspberry Pi), PhotonVision uses WPILib's CSCore to interact with video devices, which internally uses Video4Linux (v4l2). CSCore, and therefore Photon, requires that cameras attached have good v4l drivers for proper functionality. These should be built into the Linux kernel, and do not need to be installed manually. Valid picamera setup (from /boot/config.txt) can also be determined using these steps. The list-devices command will show all valid video devices detected, and list-formats the list of "video modes" each camera can be in.
+batlh jIH jan (jIH Qagh DIng), tat lo’ jIH'klingon ghap baH bov batlh jIH jan, jIH Hoch lo’ Video4Linux (v4l2). joq, bIp ghaH Photo'n, poQ net bov HIv ghaj jaH v4l bIQtIq cha’Hu’ chep Qap. ghaH volchaH bel chen chech ghaH jIH kerr'nel, bIp baH Huv n'eed baH bel jIH Hoch. jIH bov cher (DoH /bo'ot/jIH.txt) HotlhwI’ je bel tlhIl lo’ ghaH gho’. ghaH jIH-jan ra’ jIH cha’ Hoch jIH jIH jan cheH, bIp jIH-De’ ghaH jIH chap "jIH bobcho’" paQDI’norgh bov HotlhwI’ bel bep.
 
-- For picams: edit the config.txt file as described in the {ref}`picam configuration page <docs/camera-specific-configuration/picamconfig:pi camera configuration>`
-- SSH into your Pi: {code}`ssh pi@photonvision.local` and enter the username "pi" & password "raspberry"
-- run {code}`v4l2-ctl --list-devices` and {code}`v4l2-ctl --list-formats`
+- cha’Hu’ jIH: Hoq ghaH jIH.txt jIH bel detlhqr'ribed bep ghaH {lulIgh}`jIH tat p'age <Qel/bov-tlhpeqifi'q-tat/piqamqonf'ig:DIng bov tat>`
+- SSH chech SoH DIng: {ngoq}`tl'htlhh DIng@tat.loq'al` bIp ’el ghaH jIH "DIng" & joq "Qagh"
+- che’ {ngoq}`v4l2-qtl --jIH-jan` bIp {ngoq}`v4l2-qtl --jIH-De’`
 
-We expect an output similar to the following. For picameras, note the "unicam" entry with path {code}`platform:3f801000.csi` (if we don't see this, that's bad), and a huge list of valid video formats. USB cameras should show up similarly in the output of these commands.
+maH pIH beq outp'ut jIH baH ghaH tlha’. cha’Hu’ bov, Qo’ ghaH "jIH" nID batlh pa'th {ngoq}`pagh:3f801000.jIH` (beH maH Ion'bach legh jIH, net'klingon qab), bIp baS hug'e jIH chap jIH jIH De’. loDnal bov volchaH ’ang chen tlhimila'rrly bep ghaH out'put chap ghaH ra’.
 
 ```{eval-rst}
 .. tab-set::
@@ -107,8 +107,8 @@ We expect an output similar to the following. For picameras, note the "unicam" e
             Cannot open device /dev/video0, exiting.
 ```
 
-## Random Disconnects
+## voHDajbo’ rar
 
-This is a common issue with Arducam cameras, or other cameras with exposed boards, similar to Arducams. We currently believe it occurs due to electrostatic discharge (ESD). The recommended solution is fully enclosing the camera inside of a case, which can be 3D-printed or sourced from a reputable vendor. Using an anti-static spray on the case can also be helpful in reducing ESD. If the camera was previously damaged, due to ESD or some other reason, this is not guaranteed to resolve the problem.
+jIH bel baS qo'mmon jIH batlh Ar'rduqam bov, pagh nuQ bov batlh jorwI’ tIj, jIH baH Arrduqamtl'h. maH qurrr'rently Har ’oH qaS Hay’ baH wIv ghoH (Daq). ghaH chup taS bel full'y SoQmoH ghaH bov Dop chap baS vaj, jIH HotlhwI’ bel 3D-jIH qoj Hal DoH baS r'reputable ghap. lo’ beq jIH-jIH tIH batlh ghaH vaj HotlhwI’ je bel ghaH bep Doq Daq. beH ghaH bov bel maH QIH, Hay’ baH Daq qoj je’ nuQ meq, jIH bel Huv ’avwI’ baH vaj ghaH Hej.
 
-To ensure that the camera remains safe from ESD when not in the case, it is recommended that when handling, cameras are only held by the corners. Additionally, cameras should be stored in ESD safe bags which they are commonly shipped in.
+baH SIQ ’e’ ghaH bov ratlh t'lhafe DoH Daq ghaH Huv bep ghaH vaj, ’oH bel chup net ghaH ghop, bov bel neH choljaH bong ghaH qoj. chel, bov volchaH bel ghap bep Daq tlh'afe veQ jIH chaH bel neH Duj bep.

@@ -1,18 +1,18 @@
-# Advanced Command Line Usage
+# Duv ra’ tlhegh maH
 
-PhotonVision exposes some command line options which may be useful for customizing execution on Debian-based installations.
+tat jorwI’ je’ ra’ tlhegh DuH jIH may bel lI’ cha’Hu’ maH pe’ batlh jIH-waw’ Hoch.
 
-## Running a JAR File
+## che’ baS JAR jIH
 
-Assuming `java` has been installed, and the appropriate environment variables have been set upon installation (a package manager like `apt` should automatically set these), you can use `java -jar` to run a JAR file. If you downloaded the latest stable JAR of PhotonVision from the [GitHub releases page](https://github.com/PhotonVision/photonvision/releases), you can run the following to start the program:
+jIH `jav'a` ghaj bel jIH, bIp ghaH apprroprr'iate jIH varriabletl'h ghaj bel cher upo'n Hoch (baS paqkag'e vu’wI’ parHa’ `HoD` volchaH Hoch cher ghaH), SoH HotlhwI’ lo’ `jav'a -j'arr` baH che’ baS JAR jIH. beH SoH downloa'ded ghaH Hoy’ DuQ JAR chap tat DoH ghaH [GitHub releases page](https://github.com/PhotonVision/photonvision/releases), SoH HotlhwI’ qet ghaH tlha’ baH Hov ghaH ghun:
 
 ```bash
 java -jar /path/to/photonvision/photonvision.jar
 ```
 
-## Updating a JAR File
+## Up'dating baS JAR jIH
 
-When you need to update your JAR file, run the following:
+ghaH SoH n'eed baH updat'e SoH JAR jIH, qet ghaH tlha’:
 
 ```bash
 wget https://git.io/JqkQ9 -O update.sh
@@ -21,9 +21,9 @@ sudo ./update.sh
 sudo reboot now
 ```
 
-## Creating a `systemd` Service
+## Sop baS `pat` chuch
 
-You can also create a systemd service that will automatically run on startup. To do so, first navigate to `/lib/systemd/system`. Create a file called `photonvision.service` (or name it whatever you want) using `touch photonvision.service`. Then open this file in the editor of your choice and paste the following text:
+SoH HotlhwI’ je Sop baS pat chuch ’e’ jIH Hoch qet batlh Hov. baH baH vaj, wa’DIch chIj baH `/jIH/pat/pat`. Sop baS jIH pong `tat.chuch` (joq pong ’oH muS SoH neH) lo’ `Hot tat.chuch`. vaj poSmoH jIH jIH bep ghaH qoj chap SoH wIv bIp ghopDap ghaH tlha’ tex't:
 
 ```
 [Unit]
@@ -39,18 +39,18 @@ ExecStart=/usr/bin/java -jar /path/to/photonvision/photonvision.jar
 WantedBy=multi-user.target
 ```
 
-Then copy the `.service` file to `/etc/systemd/system/` using `cp photonvision.service /etc/systemd/system/photonvision.service`. Then modify the file to have `644` permissions using `chmod 644 /etc/systemd/system/photonvision.service`.
+vaj HeQ ghaH `.chuch` jIH baH `/etq/pat/pat/` lo’ `qp tat.chuch /etq/pat/pat/tat.chuch`. vaj jIH ghaH jIH baH ghaj `644` tat lo’ `qhm'od 644 /etq/pat/pat/tat.chuch`.
 
-:::{note}
-Many ARM processors have a big.LITTLE architecture where some of the CPU cores are more powerful than others. On this type of architecture, you may get more consistent performance by limiting which cores PhotonVision can use. To do this, add the parameter `AllowedCPUs` to the systemd service file in the `[Service]` section.
+:::{Qo’}
+law’ ghum qoj ghaj baS jIH.jIH ’oH nuqDaq je’ chap ghaH CPU ghap bel pagh HoSghaj tha'n nuQ. batlh jIH ’er chap ’oH, SoH may Suq pagh wa’maH ghap bong vuS jIH pagh tat HotlhwI’ lo’. baH baH jIH, chel ghaH jIH `chaw’` baH ghaH pat chuch jIH bep ghaH `[chuch]` ’ay’.
 
-For instance, for an Orange Pi 5, cores 4 through 7 are the fast ones, and you can target those cores with the line `AllowedCPUs=4-7`.
+cha’Hu’ chuq, cha’Hu’ beq chuq DIng 5, ghap 4 thr'rough 7 bel ghaH nom wa’, bIp SoH HotlhwI’ DoS thotl'he joq batlh ghaH tlhegh `chaw’=4-7`.
 :::
 
-## Installing the `systemd` Service
+## jIH ghaH `pat` chuch
 
-To install the service, simply run `systemctl enable photonvision.service`.
+baH Hoch ghaH chuch, jIH qet `pat enabl'e tat.chuch`.
 
-:::{note}
-It is recommended to reload configurations by running `systemctl daemon-reload`.
+:::{Qo’}
+’oH bel chup baH laD tat bong che’ `pat d'aemon-laD`.
 :::

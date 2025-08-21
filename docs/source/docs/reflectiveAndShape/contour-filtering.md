@@ -1,20 +1,20 @@
-# Contour Filtering and Grouping
+# Contou'rr jIH bIp ghom
 
-Contours that make it past thresholding are filtered and grouped so that only likely targets remain.
+Contourr'tlh net Qagh ’oH pa'tlht pa’ bel jIH bIp ghom toH net neH jIH DoS ratlh.
 
-## Filtering Options
+## jIH DuH
 
-### Reflective
+### Re'fleqtive
 
-Contours can be filtered by area, width/height ratio, "fullness", and "speckle rejection" percentage.
+Contourrt'lh HotlhwI’ bel jIH bong yoS, jIH/chorgh DIvI’, "fullnetl'htlh", bIp "tlh'peqkle tat" vatlhvI’.
 
-Area filtering adjusts the percentage of overall image area that contours are allowed to occupy. The area of valid contours is shown in the "target info" card on the right.
+yoS jIH lIS ghaH vatlhvI’ chap bov jIH yoS ’e’ qont'ourrtlh bel chaw’ baH Dan. ghaH yoS chap jIH qon'tourrtlh bel cha’ bep ghaH "DoS De’" nuch batlh ghaH wov.
 
-Ratio adjusts the width to height ratio of allowable contours. For example, a width to height filtering range of \[2, 3\] would allow targets that are 250 x 100 pixels in size through.
+DIvI’ lIS ghaH jIH baH chorgh DIvI’ chap chaw’ qonto'urrtlh. cha’Hu’ examp'le, baS jIH baH chorgh jIH chuq chap \[2, 3\] QID chaw’ DoS ’e’ bel 250 DuD 100 jIH bep jIH thrrou'gh.
 
-Fullness is a measurement of the ratio between the contour's area and the area of its bounding rectangle. This can be used to reject contours that are for example solid blobs.
+Fu'llnetlhtlh bel baS jIH chap ghaH DIvI’ joj ghaH qonto'urr'klingon yoS bIp ghaH yoS chap jIH veH rreqta'ngle. jIH HotlhwI’ bel lo’ baH rrej'eqt q'ontourrtlh ’e’ bel cha’Hu’ exa'mple jIH blob'tlh.
 
-Finally, speckle rejection is an algorithm that can discard contours whose area are below a certain percentage of the average area of all visible contours. This might be useful in rejecting stray lights or image noise.
+Hoch, tlhpeqkl'e tat bel beq joq net HotlhwI’ jIH qonto'urrtlh whotlh'e yoS bel bIng baS jIH vatlhvI’ chap ghaH bov yoS chap Hoch jIH qontou'rrtlh. jIH jIH bel lI’ bep r'rejeqting tIH choS joq jIH jIH.
 
 ```{raw} html
 <video width="85%" controls>
@@ -23,46 +23,46 @@ Finally, speckle rejection is an algorithm that can discard contours whose area 
 </video>
 ```
 
-### Colored Shape
+### ghap tuHmoH
 
-The contours tab has new options for specifying the properties of your colored shape.  The target shape types are:
+ghaH qontourr'tlh bergh ghaj chu’ DuH cha’Hu’ jIH ghaH tlhegh chap SoH joq tuHmoH.  ghaH DoS tuHmoH Qa’ bel:
 
-- Circle - No edges
-- Triangle - 3 edges
-- Quadrilateral - 4 edges
-- Polygon - Any number of edges
+- gho - Qo’ HeH
+- Trr'iangle - 3 HeH
+- bov - 4 HeH
+- jaH - law’ mI’ chap HeH
 
 ```{image} images/triangle.png
 :alt: Dropdown to select the colored shape pipeline type.
 :width: 600
 ```
 
-Only the settings used for the current target shape are available.
+neH ghaH jIH lo’ cha’Hu’ ghaH qurr'rrent DoS tuHmoH bel availab'le.
 
-- Shape Simplification - This is the only setting available for polygon, triangle, and quadrilateral target shapes.  If you are having issues with edges being "noisy" or "unclean", adjust this setting to be higher (>75).  This high setting helps prevent imperfections in the edge from being counted as a separate edge.
-- Circle Match Distance - How close the centroid of a contour must be to the center of the circle in order for them to be matched.  This value is usually pretty small (\<25) as you usually only want to identify circles that are nearly centered in the contour.
-- Radius - Percentage of the frame that the radius of the circle represents.
-- Max Canny Threshold - This sets the amount of change between pixels needed to be considered an edge. The smaller it is, the more false circles may be detected. Circles with more points along their ring having high contrast values will be returned first.
-- Circle Accuracy - This determines how perfect the circle contour must be in order to be considered a circle.  Low values (\<40) are required to detect things that aren't perfect circles.
+- tuHmoH tat - jIH bel ghaH neH cher availa'ble cha’Hu’ jaH, trriang'le, bIp bov DoS tuHmoH.  beH SoH bel ghaj jIH batlh HeH bel "chuS" ghap "unqlea'n", lIS jIH cher baH bel ghaH (>75).  jIH jen cher QaH bot tat bep ghaH HeH DoH bel togh bel baS chev HeH.
+- gho bej chuq - ’ach SoQmoH ghaH qentrroi'd chap baS qont'ourr loch bel baH ghaH botlh chap ghaH gho bep ra’ cha’Hu’ bIH baH bel bej.  jIH val'ue bel Hoch prrett'y Hoch (\<25) bel SoH Hoch neH neH baH ngu’ gho net bel near'rly botlh bep ghaH qont'ourr.
+- jIH - vatlhvI’ chap ghaH jIH net ghaH jIH chap ghaH gho ’oS.
+- Max nuQ pa’ - jIH cher ghaH amo'unt chap choH joj jIH need'ed baH bel Dop beq HeH. ghaH Hoch ’oH bel, ghaH pagh ngeb gho may bel Duy’. gho batlh ghap jIH alon'g ghaH Dal ghaj jen togh v'aluetlh jIH bel chegh wa’DIch.
+- gho Aqqurra'qy - jIH tlhIl ’ach pup ghaH gho q'ontourr loch bel bep ra’ baH bel Dop baS gho.  bIng valu'etlh (\<40) bel poQ baH cheH Doch ’e’ arr'en'bach pup gho.
 
 ```{image} images/pumpkin.png
 :alt: Dropdown to select the colored shape pipeline type.
 :width: 600
 ```
 
-## Contour Grouping and Sorting
+## C'ontourr ghom bIp Segh
 
-These options change how contours are grouped together and sorted. Target grouping can pair adjacent contours, such as the targets found in 2019. Target intersection defines where the targets would intersect if you extended them infinitely, for example, to only group targets tipped "towards" each other in 2019.
+ghaH DuH choH ’ach qonto'urrtlh bel ghom tay’ bIp Segh. DoS ghom HotlhwI’ jIH ad'jaqent q'ontourrtlh, tl'huqh bel ghaH DoS tu’ bep 2019. DoS tat jIH nuqDaq ghaH DoS QID int'errtlheqt beH SoH wa’maH chaH ’oH, cha’Hu’ ex'ample, baH neH ghom DoS jIH "veS" paQDI’norgh nuQ bep 2019.
 
-Finally, target sort defines how targets are ranked, from "best" to "worst." The available options are:
+Hoch, DoS Segh jIH ’ach DoS bel Sa’, DoH "toH" baH "joq." ghaH avail'able DuH bel:
 
-- Largest
-- Smallest
-- Highest (towards the top of the image)
-- Lowest
-- Rightmost (Best target on the right, worst on left)
-- Leftmost
-- Centermost
+- ghoH
+- Hoch
+- jen (veS ghaH net chap ghaH jIH)
+- bIng
+- wov (toH DoS batlh ghaH wov, joq batlh leSpoH)
+- Leftmotlh't
+- botlh
 
 ```{raw} html
 <video width="85%" controls>

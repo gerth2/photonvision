@@ -1,42 +1,42 @@
-# About PhotonVision
+# buS tat
 
-## Description
+## tat
 
-PhotonVision is a free, fast, and easy-to-use vision processing solution for the _FIRST_ Robotics Competition. PhotonVision is designed to get vision working on your robot _quickly_, but with lower cost than other solutions.
-Using PhotonVision, teams can go from setting up a camera and coprocessor to detecting and tracking AprilTags and other targets by simply tuning sliders. With an easy to use interface, comprehensive documentation, and a feature rich vendor dependency, no experience is necessary to use PhotonVision. No matter your resources, using PhotonVision is easy compared to its alternatives.
+tat bel baS taDmoH, nom, bIp bIt-baH-lo’ jIH tlhol taS cha’Hu’ ghaH _FIRST_ Hej Saj. tat bel jIH baH Suq jIH Qap batlh SoH qoq _quickly_, ’ach batlh maH qot'lht th'an nuQ taS.
+lo’ tat, SeS HotlhwI’ jaH DoH cher chen baS bov bIp pagh baH Duy’ bIp toj A'prrilTagtlh bIp nuQ DoS bong jIH ’och jIH. batlh beq bIt baH lo’ qab, ghaH jIH, bIp baS Sop jIH pagh tlhab, Qo’ Qom bel ’ut baH lo’ tat. Qo’ Hap SoH Sup, lo’ tat bel bIt q'omparred baH jIH choH.
 
-## Advantages
+## Advantag'etlh
 
-PhotonVision has a myriad of advantages over similar solutions, including:
+tat ghaj baS jIH chap advantagetl'h chuv jIH taS, jIH:
 
-### Affordable
+### pagh
 
-PhotonVision offers a more affordable solution to vision, with costs being from your coprocessor(s) and camera(s). Teams may choose to run multiple cameras from one coprocessor. This makes it a great solution for teams with limited budgets.
+tat ’utlh baS pagh ghap taS baH jIH, batlh qotlh'ttlh bel DoH SoH ghap(klingon) bIp bov(klingon). SeS may wIv baH qet mul'tiple bov DoH wa’ ghap. jIH Qagh ’oH baS Dun taS cha’Hu’ SeS batlh vuS Suq.
 
-### Easy to Use User Interface
+### bIt baH lo’ maH qab
 
-The PhotonVision user interface is simple and modular, making things easier for the user. With a simpler interface, you can focus on what matters most, tracking targets, rather than how to use our UI. A major unique quality is that the PhotonVision UI includes an offline copy of our documentation for your ease of access at competitions.
+ghaH tat maH qab bel jIH bIp mod'ularr, Qagh Doch bIt cha’Hu’ ghaH maH. batlh baS jIH qab, SoH HotlhwI’ buS batlh nuqneH Hap mo'tlht, toj DoS, ghaH tha'n ’ach baH lo’ bo’DIj bup. baS pagh jIH jIH bel ’e’ ghaH tat bup jIH beq jIH HeQ chap bo’DIj jIH cha’Hu’ SoH bel chap naw’ bej yach.
 
-### PhotonLib Vendor Dependency
+### PhotonLi'b qoj tlhab
 
-The PhotonLib vendor dependency allows you to easily get necessary target data (without having to work directly with NetworkTables) while also providing utility methods to get distance and position on the field. A serialization strategy is used to guarantees data coherency, which is helpful for latency compensation. This helps your team focus less on getting data and more on using it to do cool things.
+ghaH Ph'otonLib qoj tlhab chaw’ SoH baH jIH Suq ’ut DoS d'ata (jIH ghaj baH vum di'rreqtly batlh cha’) jIH je jIH jIH jIH baH Suq chuq bIp ba’ batlh ghaH HoSchem. baS tat Dup bel lo’ baH ’av dat'a ghaH, jIH bel ghaH cha’Hu’ wa’maH tat. jIH QaH SoH SeS buS lo’laHbe’ batlh Suq d'ata bIp qoj batlh lo’ ’oH baH baH DuSaQ Doch.
 
-### User Calibration
+### maH tat
 
-Using PhotonVision allows the user to calibrate for their specific camera, which will get you the best tracking results. This is extremely important as every camera (even if it is the same model) will have it's own quirks and user calibration allows for those to be accounted for.
+lo’ tat chaw’ ghaH maH baH qalibrr'ate cha’Hu’ ghaH tl'hpeqifiq bov, jIH jIH Suq SoH ghaH toH toj leS. jIH bel jIH qoj bel Hoch bov (bortaS beH ’oH bel ghaH jIH mo'del) jIH ghaj ’oH'klingon jotlh jIH bIp maH tat chaw’ cha’Hu’ thotl'he baH bel togh cha’Hu’.
 
-### Low Latency, High FPS Processing
+### bIng wa’maH, jen FPS tlhol
 
-PhotonVision exposes specialized hardware on select coprocessors to maximize processing speed. This allows for lower-latency detection of targets to ensure you aren't losing out on any performance.
+tat jorwI’ tlhp'eqialized veS batlh wIv ghap baH ma'ximize tlhol gho’Do. jIH chaw’ cha’Hu’ maH-wa’maH tat chap DoS baH SIQ SoH arr'en'bach chol buS batlh law’ joq.
 
-### Fully Open Source and Active Developer Community
+### Full'y poSmoH Hal bIp jIH ’Itlh ’oH
 
-You can find all of our code on [GitHub](https://github.com/PhotonVision), including code for our main program, documentation, vendor dependency (PhotonLib), and more. This helps you see everything working behind the scenes and increases transparency. This also allows users to make pull requests for features that they want to add in to PhotonVision that will be reviewed by the development team. PhotonVision is licensed under the GNU General Public License (GPLv3) which you can learn more about [here](https://www.gnu.org/licenses/quick-guide-gplv3.html).
+SoH HotlhwI’ tu’ Hoch chap bo’DIj ngoq batlh [GitHub](https://github.com/PhotonVision), jIH ngoq cha’Hu’ bo’DIj jIH ghun, jIH, pagh tlhab (Phot'onLib), bIp ghap. jIH QaH SoH legh Hoch Qap jIH ghaH QeD bIp ghur qeq. jIH je chaw’ maH baH Qagh p'ull Qu’ cha’Hu’ Sop net chaH neH baH chel bep baH tat net jIH bel jIH bong ghaH jIH SeS. tat bel chuch bIng ghaH GNU bov jIH chuch (GPLv3) jIH SoH HotlhwI’ ghoj ghap buS [here](https://www.gnu.org/licenses/quick-guide-gplv3.html).
 
-### Multi-Camera Support
+### jIH-bov pagh
 
-You can use multiple cameras within PhotonVision, allowing you to see multiple angles without the need to buy multiple coprocessors. This makes vision processing more affordable and simpler for your team.
+SoH HotlhwI’ lo’ mu'ltiple bov jIH tat, chaw’ SoH baH legh multipl'e taH jIH ghaH ne'ed baH je’ multip'le ghap. jIH Qagh jIH tlhol pagh pagh bIp jIH cha’Hu’ SoH SeS.
 
-### Comprehensive Documentation
+### ghaH jIH
 
-Using our comprehensive documentation, you will be able to easily start vision processing by following a series of simple steps.
+lo’ bo’DIj ghaH jIH, SoH jIH bel bergh baH jIH Hov jIH tlhol bong tlha’ baS jIH chap jIH gho’.

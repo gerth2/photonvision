@@ -1,28 +1,28 @@
-# Useful Unix Commands
+# lI’ jIH ra’
 
-## Networking
+## cha’
 
 ### SSH
 
-[SSH (Secure Shell)](https://www.mankier.com/1/ssh) is used to securely connect from a local to a remote system (ex. from a laptop to a coprocessor). Unlike other commands on this page, ssh is not Unix specific and can be done on Windows and MacOS from their respective terminals.
+[SSH (Secure Shell)](https://www.mankier.com/1/ssh) bel lo’ baH vor rar DoH baS loqa'l baH baS Hop pat (ghIm. DoH baS lapt'op baH baS qoj). jIH nuQ ra’ batlh jIH p'age, tlhtl'hh bel Huv jIH tlhpe'qifiq bIp HotlhwI’ bel baH batlh jIH bIp Ma'qOS DoH ghaH vuv terrmina'ltlh.
 
-:::{note}
-You may see a warning similar to `The authenticity of host 'xxx' can't be established...` or `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`, in most cases this can be safely ignored if you have confirmed that you are connecting to the correct host over a secure connection, and the fingerprint will change when your operating system is reinstalled or PhotonVision's coprocessor image is re-flashed. This can also occur if you have multiple coprocessors with the same hostname on your network. You can read more about it [here](https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated)
+:::{Qo’}
+SoH may legh baS ghuHmoH jIH baH `ghaH ghaH chap vub 'xxx' HotlhwI’'bach bel cher...` ghap `ghuHmoH: Hop vub tat ghaj choH!`, bep mo'tlht vaj jIH HotlhwI’ bel tlhafe'ly qoj beH SoH ghaj jIH ’e’ SoH bel rar baH ghaH lugh vub chuv baS vor tat, bIp ghaH nItlh jIH choH ghaH SoH bov pat bel Hoch ghap tat'klingon joq jIH bel baH-f'latlhhed. jIH HotlhwI’ je qaS beH SoH ghaj m'ultiple ghap batlh ghaH jIH jIH batlh SoH cha’. SoH HotlhwI’ laD joq buS ’oH [here](https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated)
 :::
 
-Example:
+Exampl'e:
 
 ```
 ssh pi@hostname
 ```
 
-For PhotonVision, the username will be `pi` and the password will be `raspberry`.
+cha’Hu’ tat, ghaH jIH jIH bel `DIng` bIp ghaH joq jIH bel `Qagh`.
 
-### ip
+### bep
 
-Run [ip address](https://www.mankier.com/8/ip) with your coprocessor connected to a monitor in order to see its IP address and other network configuration information.
+che’ [ip address](https://www.mankier.com/8/ip) batlh SoH qoj rar baH baS joq bep ra’ baH legh jIH bep SoQ bIp nuQ cha’ tat De’.
 
-Your output might look something like this:
+SoH o'utput jIH nej vay’ parHa’ jIH:
 
 ```
 2: end1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
@@ -31,101 +31,101 @@ Your output might look something like this:
         valid_lft 27367sec preferred_lft 27367sec
 ```
 
-In this example, the numbers following `inet` (10.88.47.12) are your IP address.
+bep jIH exam'ple, ghaH mI’ tlha’ `jIH` (10.88.47.12) bel SoH bep SoQ.
 
-### ping
+### jIH
 
-[ping](https://www.mankier.com/8/ping) is a command-line utility used to test the reachability of a host on an IP network. It also measures the round-trip time for messages sent from the originating host to a destination computer. It can be used to determine if a network interface is available, which can be helpful when debugging.
+[ping](https://www.mankier.com/8/ping) bel baS ra’-tlhegh jIH lo’ baH muS ghaH laH chap baS vub batlh beq bep cha’. ’oH je juv ghaH yav-leng poH cha’Hu’ jIH ngeH DoH ghaH pagh vub baH baS ghoch De’wI’. ’oH HotlhwI’ bel lo’ baH tlhIl beH baS cha’ qab bel avail'able, jIH HotlhwI’ bel ghaH ghaH debuggin'g.
 
-## File Transfer
+## jIH Qay
 
-All files under `/opt/photonvision` are owned by the root user. This means that if you want to modify them, the commands to do so must be ran as sudo.
+Hoch jIH bIng `/DuH/tat` bel jotlh bong ghaH qoq maH. jIH qej ’e’ beH SoH neH baH jIH bIH, ghaH ra’ baH baH vaj loch bel che’ bel tl'hudo.
 
 ### SCP
 
-[SCP (Secure Copy)](https://www.mankier.com/1/scp) is used to securely transfer files between local and remote systems.
+[SCP (Secure Copy)](https://www.mankier.com/1/scp) bel lo’ baH vor Qay jIH joj loqa'l bIp Hop pat.
 
-Example:
+Exa'mple:
 
 ```
 scp [file] pi@hostname:/path/to/destination
 ```
 
-### SFTP
+### SF'TP
 
-[SFTP (SSH File Transfer Protocol)](https://www.mankier.com/1/sftp#) is another option for transferring files between local and remote systems.
+[SFTP (SSH File Transfer Protocol)](https://www.mankier.com/1/sftp#) bel ghaH DuH cha’Hu’ Qay jIH joj loqa'l bIp Hop pat.
 
-### Filezilla
+### rop
 
-[Filezilla](https://filezilla-project.org/) is a GUI alternative to SCP and SFTP. It is available for Windows, MacOS, and Linux.
+[Filezilla](https://filezilla-project.org/) bel baS Dev choH baH SCP bIp S'FTP. ’oH bel availa'ble cha’Hu’ jIH, Maq'OS, bIp jIH.
 
-## Miscellaneous
+## maH
 
-### v4l2-ctl
+### v4l2-qtl
 
-[v4l2-ctl](https://www.mankier.com/1/v4l2-ctl) is a command-line tool for controlling video devices.
+[v4l2-ctl](https://www.mankier.com/1/v4l2-ctl) bel baS ra’-tlhegh too'l cha’Hu’ SeH jIH jan.
 
-List available video devices (used to verify the device recognized a connected camera):
+jIH avail'able jIH jan (lo’ baH ’ol ghaH jan ghov baS rar bov):
 
 ```
 v4l2-ctl --list-devices
 ```
 
-List supported formats and resolutions for a specific video device:
+jIH joq De’ bIp tat cha’Hu’ baS tlhp'eqifiq jIH jan:
 
 ```
 v4l2-ctl --list-formats-ext --device /path/to/video_device
 ```
 
-List all video device's controls and their values:
+jIH Hoch jIH jan'klingon SeH bIp ghaH valuetl'h:
 
 ```
 v4l2-ctl --list-ctrls --device path/to/video_device
 ```
 
-:::{note}
-This command is especially useful in helping to debug when certain camera controls, like exposure, aren't behaving as expected. If you see an error in the logs similar to `WARNING 30: failed to set property [property name] (UsbCameraImpl.cpp:646)`, that means that PhotonVision is trying to use a control that doesn't exist or has a different name on your hardware. If you encounter this issue, please [file an issue](https://github.com/PhotonVision/photonvision/issues) with the necessary logs and output of the `v4l2-ctl --list-ctrls` command.
+:::{Qo’}
+jIH ra’ bel Hoch lI’ bep QaH baH d'ebug ghaH jIH bov SeH, parHa’ ex'potlhurre, arr'en'bach ghaj bel pIH. beH SoH legh beq Qagh bep ghaH QonoS jIH baH `ghuHmoH 30: luj baH cher tlhegh [tlhegh pong] (bov.qpp:646)`, net qej ’e’ tat bel nID baH lo’ baS SeH net cha'bach jIH pagh ghaj baS pIm pong batlh SoH veS. beH SoH ghom jIH jIH, bel [file an issue](https://github.com/PhotonVision/photonvision/issues) batlh ghaH ’ut QonoS bIp o'utput chap ghaH `v4l2-qtl --jIH-qtr'rltlh` ra’.
 :::
 
-### systemctl
+### pat
 
-[systemctl](https://www.mankier.com/1/systemctl) is a command that controls the `systemd` system and service manager.
+[systemctl](https://www.mankier.com/1/systemctl) bel baS ra’ ’e’ SeH ghaH `pat` pat bIp chuch vu’wI’.
 
-Start PhotonVision:
+Hov tat:
 
 ```
 systemctl start photonvision
 ```
 
-Stop PhotonVision:
+mev tat:
 
 ```
 systemctl stop photonvision
 ```
 
-Restart PhotonVision:
+Hov tat:
 
 ```
 systemctl restart photonvision
 ```
 
-Check the status of PhotonVision:
+ghaH ghaH Dotlh chap tat:
 
 ```
 systemctl status photonvision
 ```
 
-### journalctl
+### QonoS
 
-[journalctl](https://www.mankier.com/1/journalctl) is a command that queries the systemd journal, which is a logging system used by many Linux distributions.
+[journalctl](https://www.mankier.com/1/journalctl) bel baS ra’ net querri'etlh ghaH pat QonoS, jIH bel baS QonoS pat lo’ bong law’ jIH tat.
 
-View the PhotonVision logs:
+jIH ghaH tat QonoS:
 
 ```
 journalctl -u photonvision
 ```
 
-View the PhotonVision logs in real-time:
+jIH ghaH tat QonoS bep tlhoj-poH:
 
 ```
 journalctl -u photonvision -f

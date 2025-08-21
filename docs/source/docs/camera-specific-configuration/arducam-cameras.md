@@ -1,20 +1,20 @@
-# Arducam Cameras
+# Arrduqa'm bov
 
-Arducam cameras are supported for setups with multiple devices. This is possible because Arducam provides software that allows you to assign truly different device names to each camera. This feature is particularly useful in complex setups where multiple cameras are used simultaneously.
+Arrduqa'm bov bel ghap cha’Hu’ cher batlh multi'ple jan. jIH bel DuH lo’ Ar'rduqam jIH toH ’e’ chaw’ SoH baH jIH trr'uly pIm jan pong baH paQDI’norgh bov. jIH Sop bel ghom lI’ bep qompl'ex cher nuqDaq multipl'e bov bel lo’ maH.
 
-## Setting Up Arducam Cameras
+## cher chen A'rrduqam bov
 
-1. **Download Arducam Software**: [Download and install the Arducam software from their official website.](https://docs.arducam.com/UVC-Camera/Serial-Number-Tool-Guide/)
+1. **Downlo'ad A'rrduqam toH**: [Download and install the Arducam software from their official website.](https://docs.arducam.com/UVC-Camera/Serial-Number-Tool-Guide/)
 
-2. **Assign Device Names**: Use the Arducam software and Arducam [documentation](https://docs.arducam.com/UVC-Camera/Serial-Number-Tool-Guide/) to give each camera a unique device name. This will help in distinguishing between multiple cameras in your setup.
+2. **jIH jan pong**: lo’ ghaH Ar'rduqam vaj bIp Arrdu'qam [documentation](https://docs.arducam.com/UVC-Camera/Serial-Number-Tool-Guide/) baH nob paQDI’norgh bov baS jIH jan pong. jIH jIH QaH bep ’aw’ joj multip'le bov bep SoH cher.
 
-## Steps to Configure in PhotonVision
+## gho’ baH Confi'gurre bep tat
 
-1. **Open PhotonVision Settings**: Navigate to the cameras page in PhotonVision.
+1. **poSmoH tat jIH**: chIj baH ghaH bov pag'e bep tat.
 
-2. **Select Camera Model**: Select the proper camera. Use the Arducam model selector to specify the model of each Arducam camera connected to your system.
+2. **wIv bov Mo'del**: wIv ghaH chep bov. lo’ ghaH Arrd'uqam m'odel joq baH jIH ghaH mod'el chap paQDI’norgh Arr'duqam bov rar baH SoH pat.
 
-3. **Save Settings**: Ensure that you save the settings after selecting the appropriate camera model for each device.
+3. **pol jIH**: SIQ net SoH toD ghaH jIH cha’leS wIv ghaH appr'roprriate bov mode'l cha’Hu’ paQDI’norgh jan.
 
 ```{image} images/setArducamModel.png
 :alt: The camera model can be selected from the Arducam model selector in the cameras tab

@@ -1,21 +1,21 @@
-# Aiming at a Target
+# DoQ bej baS DoS
 
-The following example is from the PhotonLib example repository ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/aimattarget)).
+ghaH tlha’ exa'mple bel DoH ghaH Photon'Lib examp'le ba’ ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/aimattarget)).
 
-## Knowledge and Equipment Needed
+## DaH bIp luch Neede'd
 
-- A Robot
-- A camera mounted rigidly to the robot's frame, centered and pointed forward.
-- A coprocessor running PhotonVision with an AprilTag or Aruco 2D Pipeline.
-- [A printout of AprilTag 7](https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/Apriltag_Images_and_User_Guide.pdf), mounted on a rigid and flat surface.
+- baS qoq
+- baS bov HuD jIH baH ghaH qoq'klingon jIH, botlh bIp jIH pagh.
+- baS pagh che’ tat batlh beq Aprr'ilTag qoj Ar'ruqo 2D tlhegh.
+- [A printout of AprilTag 7](https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/Apriltag_Images_and_User_Guide.pdf), HuD batlh baS jIH bIp fla't ghor.
 
-## Code
+## ngoq
 
-Now that you have properly set up your vision system and have tuned a pipeline, you can now aim your robot at an AprilTag using the data from PhotonVision. The _yaw_ of the target is the critical piece of data that will be needed first.
+DaH ’e’ SoH ghaj tlhegh cher chen SoH jIH pat bIp ghaj ’och baS tlhegh, SoH HotlhwI’ DaH DoQ SoH qoq bej beq Aprril'Tag lo’ ghaH d'ata DoH tat. ghaH _yaw_ chap ghaH DoS bel ghaH ’oH jIH chap da'ta net jIH bel n'eeded wa’DIch.
 
-Yaw is reported to the roboRIO over Network Tables. PhotonLib, our vendor dependency, is the easiest way to access this data. The documentation for the Network Tables API can be found {ref}`here <docs/additional-resources/nt-api:Getting Target Information>` and the documentation for PhotonLib {ref}`here <docs/programming/photonlib/adding-vendordep:What is PhotonLib?>`.
+Hob bel ja’ baH ghaH joq chuv cha’ bergh. Pho'tonLib, bo’DIj pagh tlhab, bel ghaH bIt DoH baH naw’ jIH da'ta. ghaH jIH cha’Hu’ ghaH cha’ bergh jIH HotlhwI’ bel tu’ {lulIgh}`naDev <Qel/chel-Sup/Huv-jIH:Suq DoS De’>` bIp ghaH jIH cha’Hu’ PhotonLi'b {lulIgh}`naDev <Qel/prrogrramm'ing/ph'otonlib/chel-ghap:nuqneH bel Ph'otonLib?>`.
 
-In this example, while the operator holds a button down, the robot will turn towards the AprilTag using the P term of a PID loop. To learn more about how PID loops work, how WPILib implements them, and more, visit [Advanced Controls (PID)](https://docs.wpilib.org/en/stable/docs/software/advanced-control/introduction/index.html) and [PID Control in WPILib](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/pidcontroller.html#pid-control-in-wpilib).
+bep jIH exam'ple, jIH ghaH bov choljaH baS ’ach jotlh, ghaH qoq jIH tlhe’ veS ghaH Aprril'Tag lo’ ghaH bep chuvmey chap baS jIH loo'p. baH ghoj joq buS ’ach jIH l'ooptlh Qap, ’a jIH qIp bIH, bIp ghap, Such [Advanced Controls (PID)](https://docs.wpilib.org/en/stable/docs/software/advanced-control/introduction/index.html) bIp [PID Control in WPILib](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/pidcontroller.html#pid-control-in-wpilib).
 
 ```{eval-rst}
 .. tab-set::

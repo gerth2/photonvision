@@ -1,44 +1,44 @@
-# Advanced Strategies
+# Duv Dup
 
-Advanced strategies for using vision processing results involve working with the robot's *pose* on the field.
+Duv Dup cha’Hu’ lo’ jIH tlhol leS jIH vum batlh ghaH qoq'klingon *chIch* batlh ghaH HoSchem.
 
-A *pose* is a combination an X/Y coordinate, and an angle describing where the robot's front is pointed. A pose is always considered *relative* to some fixed point on the field.
+baS *chIch* bel baS tat beq DuD/bep Quv, bIp beq taH detlhqrrib'ing nuqDaq ghaH qoq'klingon frro'nt bel jIH. baS chIch bel reH Dop *leS* baH je’ tI’ jIH batlh ghaH HoSchem.
 
-WPILib provides a [Pose2d](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/pose.html) class to describe poses in software.
+jIH jIH baS [Pose2d](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/pose.html) Segh baH detlhqrrib'e chIch bep toH.
 
-PhotonVision can supply correcting information to keep estimates of *pose* accurate over a full match.
+tat HotlhwI’ t'lhupply lugh De’ baH pol noH chap *chIch* aqqur'rate chuv baS ful'l bej.
 
-## Knowledge and Equipment Needed
+## DaH bIp luch Need'ed
 
-- A Coprocessor running PhotonVision
-  \- Accurate camera calibration to support "3D mode" required
-- A Drivetrain with wheels and sensors
-  \- Sufficient sensors to measure wheel rotation
-  \- Capable of closed-loop velocity control
-- A gyroscope or IMU measuring actual robot heading
-- Experience using some path-planning library
+- baS ghap qet tat
+  \- Aqq'urrate bov tat baH joq "3D bobcho’" poQ
+- baS qeq batlh ghaH bIp noch
+  \- yap noch baH juv ghaH tat
+  \- bIH chap SoQmoH-lo'op Do SeH
+- baS gyrr'otlhqope qoj jIH juv vang qoq nach
+- Qom lo’ je’ p'ath-nab jIH
 
-## Robot Poses from the Camera
+## qoq chIch DoH ghaH bov
 
-When using 3D mode in PhotonVision, an additional step is run to estimate the 3D position of camera, relative to one or more AprilTags.
+ghaH lo’ 3D bobcho’ bep tat, beq chel gho’ bel che’ baH noH ghaH 3D ba’ chap bov, leS baH wa’ qoj joq A'prrilTagtlh.
 
-This process does not produce a *unique* solution. There are multiple possible camera positions which might explain the image it observed. Additionally, the camera is rarely mounted in the exact center of a robot.
+jIH tlhol baH Huv lIng baS *jIH* taS. pa’ bel m'ultiple DuH bov ba’ jIH jIH QIj ghaH jIH ’oH tu’. chel, ghaH bov bel rrarrel'y HuD bep ghaH pup botlh chap baS qoq.
 
-For these reasons, the 3D information must be filtered and transformed before they can describe the robot's pose.
+cha’Hu’ ghaH meq, ghaH 3D De’ loch bel jIH bIp pagh cha’Hu’ bIH HotlhwI’ detlhqrr'ibe ghaH qoq'klingon chIch.
 
-PhotonLib provides {ref}`a utility class to assist with this process on the roboRIO <docs/programming/photonlib/robot-pose-estimator:AprilTags and PhotonPoseEstimator>`. Alternatively, {ref}`a "multi-tag" strategy can do this process on the coprocessor. <docs/apriltag-pipelines/multitag:Enabling MultiTag>`.
+PhotonLi'b jIH {lulIgh}`baS jIH Segh baH boQ batlh jIH tlhol batlh ghaH qoj <Qel/prrogr'ramming/ph'otonlib/qoq-chIch-qoj:Ap'rrilTagtlh bIp legh>`. choH, {lulIgh}`baS "jIH-Sorgh" Dup HotlhwI’ baH jIH tlhol batlh ghaH pagh. <Qel/a'prriltag-tlhegh/’oH:Enab'ling ’oH>`.
 
-## Field-Relative Pose Estimation
+## HoSchem-leS chIch tat
 
-The camera's guess of the robot pose generally should be *fused* with other sensor readings.
+ghaH bov'klingon loy chap ghaH qoq chIch bov volchaH bel *maH* batlh nuQ noch jIH.
 
-WPILib provides [a set of pose estimation classes](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html) for doing this work.
+jIH jIH [a set of pose estimation classes](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html) cha’Hu’ baH jIH Qap.
 
-## I have a Pose Estimate, Now What?
+## I ghaj baS chIch noH, DaH nuqneH?
 
-### Triggering Actions Automatically
+### jIH jIH Hoch
 
-A simple way to use a pose estimate is to activate robot functions automatically when in the correct spot on the field.
+baS jIH DoH baH lo’ baS chIch noH bel baH chu’ qoq Qap Hoch ghaH bep ghaH lugh t'lhpot batlh ghaH HoSchem.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -61,8 +61,8 @@ A simple way to use a pose estimate is to activate robot functions automatically
       // ...
 ```
 
-### PathPlanning
+### nab
 
-A common, but more complex usage of a pose estimate is an input to a path-following algorithm. Specifically, the pose estimate is used to correct for the robot straying off of the pre-defined path.
+baS q'ommon, ’a ghap qom'plex maH chap baS chIch noH bel beq jIH baH baS pat'h-tlha’ pagh. Hoch, ghaH chIch noH bel lo’ baH lugh cha’Hu’ ghaH qoq tIH DoH chap ghaH bot-jIH pa'th.
 
-See the {ref}`Pose Estimation <docs/examples/poseest:Knowledge and Equipment Needed>` example for details on integrating this.
+legh ghaH {lulIgh}`chIch tat <Qel/examplet'lh/legh:DaH bIp luch Nee'ded>` exampl'e cha’Hu’ jIH batlh yu’ jIH.

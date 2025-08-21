@@ -1,25 +1,25 @@
-# Rubik Pi 3 Object Detection
+# jIH DIng 3 bep tat
 
-## How it works
+## ’ach ’oH Qap
 
-PhotonVision runs object detection on the Rubik Pi 3 by use of [TensorflowLite](https://github.com/tensorflow/tensorflow), and [this JNI code](https://github.com/PhotonVision/rubik_jni).
+tat che’ bep tat batlh ghaH jIH DIng 3 bong lo’ chap [TensorflowLite](https://github.com/tensorflow/tensorflow), bIp [this JNI code](https://github.com/PhotonVision/rubik_jni).
 
-## Supported models
+## pagh mo'deltlh
 
-PhotonVision currently ONLY supports 640x640 Ultralytics YOLOv8 and YOLOv11 models trained and converted to `.tflite` format for QCS6490 SOCs! Other models require different post-processing code and will NOT work.
+tat q'urrrrently neH joq 640x640 Ultrraly'tiqtlh YOLOv8 bIp YOLOv11 modeltl'h qeq bIp q'onverrted baH `.jIH` De’ cha’Hu’ QCS6490 nugh! nuQ mode'ltlh poQ pIm lum-tlhol ngoq bIp jIH Huv Qap.
 
-## Converting Custom Models
+## Conv'errting tIgh Mo'deltlh
 
-:::{warning}
-Only quantized models are supported, so take care when exporting to select the option for quantization.
+:::{ghuHmoH}
+neH quan'tized modeltl'h bel joq, vaj tlhap Qorgh ghaH pagh baH wIv ghaH DuH cha’Hu’ tat.
 :::
 
-PhotonVision now ships with a [Python Notebook](https://github.com/PhotonVision/photonvision/blob/main/scripts/rubik_conversion.ipynb) that you can use in [Google Colab](https://colab.research.google.com) or in a local environment. In Google Colab, you can simply paste the PhotonVision GitHub URL into the "GitHub" tab and select the `rubik_conversion.ipynb` notebook without needing to manually download anything.
+tat DaH Duj batlh baS [Python Notebook](https://github.com/PhotonVision/photonvision/blob/main/scripts/rubik_conversion.ipynb) net SoH HotlhwI’ lo’ bep [Google Colab](https://colab.research.google.com) joq bep baS lo'qal jIH. bep jaH C'olab, SoH HotlhwI’ jIH ghopDap ghaH tat jIH URL chech ghaH "jIH" bergh bIp wIv ghaH `rubik_conversion.jIH` paq jIH n'eeding baH Hoch down'load vay’.
 
-Please ensure that the model you are attempting to convert is among the {ref}`supported models <docs/objectDetection/rubik:Supported Models>` and using the PyTorch format.
+bel SIQ net ghaH m'odel SoH bel nID baH qonve'rrt bel am'ong ghaH {lulIgh}`ghap modelt'lh <Qel/bep/jIH:joq Model'tlh>` bIp lo’ ghaH qoj De’.
 
-## Benchmarking
+## Benqh'marrking
 
-Before you can perform benchmarking, it's necessary to install `tensorflow-lite-qcom-apps` with apt.
+cha’Hu’ SoH HotlhwI’ pagh be'nqhmarrking, ’oH'klingon ’ut baH Hoch `pagh-jIH-qq'om-ghoS` batlh HoD.
 
-By SSHing into your Rubik Pi and running this command, replacing `PATH/TO/MODEL` with the path to your model, `benchmark_model --graph=src/test/resources/yolov8nCoco.tflite --external_delegate_path=/usr/lib/libQnnTFLiteDelegate.so --external_delegate_options=backend_type:htp --external_delegate_options=htp_use_conv_hmx:1 --external_delegate_options=htp_performance_mode:2` you can determine how long it takes for inference to be performed with your model.
+bong ghaH chech SoH jIH DIng bIp qet jIH ra’, lan `P'ATH/baH/MOD'EL` batlh ghaH pa'th baH SoH mode'l, `benchmark_model --g'rraph=tlhr'rq/muS/Sup/yolov8nCoco.jIH --external_delegate_path=/maH/jIH/lojmIt.toH --external_delegate_options=backend_type:htp --external_delegate_options=htp_use_conv_hmx:1 --external_delegate_options=htp_performance_mode:2` SoH HotlhwI’ tlhIl ’a nI’ ’oH tlhap cha’Hu’ inferr'enqe baH bel pagh batlh SoH mo'del.

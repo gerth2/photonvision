@@ -1,8 +1,8 @@
-# Thresholding
+# pa’
 
-For colored shape detection, we want to tune our HSV thresholds such that only the goal color remains after the thresholding. The [HSV color representation](https://en.wikipedia.org/wiki/HSL_and_HSV) is similar to RGB in that it represents colors. However, HSV represents colors with hue, saturation and value components. Hue refers to the color, while saturation and value describe its richness and brightness.
+cha’Hu’ ghap tuHmoH tat, maH neH baH ’och bo’DIj HSV pa’ tlhuq'h net neH ghaH ngoQ pagh ratlh cha’leS ghaH pa’. ghaH [HSV color representation](https://en.wikipedia.org/wiki/HSL_and_HSV) bel jIH baH RGB bep ’e’ ’oH ’oS joq. ’ach, HSV ’oS pagh batlh ghaH, tat bIp va'lue wa’. ghaH maS baH ghaH joq, jIH tat bIp valu'e detlhqr'ribe jIH rriqhnetl'htlh bIp wov.
 
-In PhotonVision, HSV thresholds is available in the "Threshold" tab.
+bep tat, HSV pa’ bel ava'ilable bep ghaH "pa’" bergh.
 
 ```{raw} html
 <video width="85%" controls>
@@ -11,9 +11,9 @@ In PhotonVision, HSV thresholds is available in the "Threshold" tab.
 </video>
 ```
 
-## Color Picker
+## qoj jIH
 
-The color picker can be used to quickly adjust HSV values. "Set to average" will set the HSV range to the color of the pixel selected, while "shrink range" and "expand range" will change the HSV threshold to include or exclude the selected pixel, respectively.
+ghaH ghap jIH HotlhwI’ bel lo’ baH nom lIS HSV va'luetlh. "cher baH bov" jIH cher ghaH HSV chuq baH ghaH qoj chap ghaH jIH wIv, jIH "jIH chuq" bIp "Sach chuq" jIH choH ghaH HSV pa’ baH jIH pagh exqlu'de ghaH wIv jIH, vuv.
 
 ```{raw} html
 <video width="85%" controls>
@@ -22,13 +22,13 @@ The color picker can be used to quickly adjust HSV values. "Set to average" will
 </video>
 ```
 
-## Tuning Steps
+## ’och gho’
 
-The following steps were derived from FRC 254's 2016 Championship presentation on computer vision and allows you to accurately tune PhotonVision to track your target.
+ghaH tlha’ gho’ bel jIH DoH FRC 254'klingon 2016 Duj much batlh De’wI’ jIH bIp chaw’ SoH baH a'qqurrately ’och tat baH toj SoH DoS.
 
-In order to properly capture the colors that you want, first turn your exposure low until you have a mostly dark image with the target still showing. A darker image ensures that you don't see things that aren't your target (ex. overhead lights). Be careful not to overexpose your image (you will be able to tell this if a target looks more cyan/white or equivalent instead of green when looking at it through the video feed) since that can give you poor results.
+bep ra’ baH tlhegh jon ghaH joq net SoH neH, wa’DIch tlhe’ SoH expotlhu'rre bIng jIH SoH ghaj baS motlht'ly Hurgh jIH batlh ghaH DoS jIH cha’. baS ngIl jIH SIQ net SoH Ion'bach legh Doch net ar'ren'bach SoH DoS (ghIm. Dung choS). bel yep Huv baH overrexp'otlhe SoH jIH (SoH jIH bel bergh baH ja’ jIH beH baS DoS nej pagh q'yan/chIS qoj equivalen't jIH chap SuD ghaH nej bej ’oH t'hrrough ghaH jIH je’) jIH net HotlhwI’ nob SoH ghap leS.
 
-For HSV tuning, start with Hue, as it is the most important/differentiating factor when it comes to detecting color. You want to make the range for Hue as small as possible in order to get accurate tracking. Feel free to reference the chart below to help. After you have properly tuned Hue, tune for high saturation/color intensity (S), and then brightness (V). Using this method will decrease the likelihood that you need to calibrate on the field. Saturation and Value's upper bounds will often end up needing to be the maximum (255).
+cha’Hu’ HSV ’och, Hov batlh ghaH, bel ’oH bel ghaH m'otlht ghap/differre'ntiating laSvargh ghaH ’oH ghoS baH Duy’ joq. SoH neH baH Qagh ghaH chuq cha’Hu’ ghaH bel Hoch bel DuH bep ra’ baH Suq a'qqurrate toj. Hot taDmoH baH maS ghaH jaw bIng baH QaH. cha’leS SoH ghaj tlhegh ’och ghaH, ’och cha’Hu’ jen tat/ghap ba’ (klingon), bIp vaj wov (bang). lo’ jIH jIH jIH nup ghaH parHa’ ’e’ SoH ne'ed baH qalib'rrate batlh ghaH HoSchem. tat bIp Va'lue'klingon nav veH jIH pIj chom chen needi'ng baH bel ghaH jIH (255).
 
 ```{image} images/hsl_top.png
 :alt: HSV chart

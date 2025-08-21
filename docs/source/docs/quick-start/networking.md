@@ -1,14 +1,14 @@
-# Networking
+# cha’
 
-## Physical Networking
+## Qel cha’
 
-:::{warning}
-When using PhotonVision off robot, you _MUST_ plug the coprocessor into a physical router/radio. You can then connect your laptop/device used to view the webdashboard to the same network. Any other networking setup will not work and will not be supported in any capacity.
+:::{ghuHmoH}
+ghaH lo’ tat DoH qoq, SoH _MUST_ p'lug ghaH joq chech baS Qel He/jIH. SoH HotlhwI’ vaj rar SoH l'aptop/jan lo’ baH jIH ghaH maH baH ghaH jIH cha’. law’ nuQ cha’ cher jIH Huv vum bIp jIH Huv bel pagh bep law’ veng.
 :::
 
-::::{tab-set}
+::::{bergh-cher}
 
-:::{tab-item} New Radio (2025 - present)
+:::{bergh-jIH} chu’ jIH (2025 - much)
 
 ```{danger}
 Ensure that the radio's DIP switches 1 and 2 are turned off; otherwise, the radio PoE feature may electrically destroy your coprocessor. [More info.](https://frc-radio.vivid-hosting.net/overview/wiring-your-radio#power-over-ethernet-poe-for-downstream-devices)
@@ -20,9 +20,9 @@ Ensure that the radio's DIP switches 1 and 2 are turned off; otherwise, the radi
 
 :::
 
-:::{tab-item} Old Radio (pre 2025)
+:::{bergh-jIH} bIr jIH (bot 2025)
 
-PhotonVision _STRONGLY_ recommends the usage of a network switch on your robot. This is because the second radio port on the old FRC radios is known to be buggy and cause frequent connection issues that are detrimental during competition. An in-depth guide on how to install a network switch can be found [on FRC 900's website](https://zebracorns.org/blog/ZebraSwitch/).
+tat _STRONGLY_ chup ghaH maH chap baS cha’ leQ batlh SoH qoq. jIH bel lo’ ghaH cha’DIch jIH qoj batlh ghaH bIr FRC jIH bel Sov baH bel bugg'y bIp lo’ Se’ tat jIH ’e’ bel jIH jIH Saj. beq bep-dept'h Dev batlh ’ach baH Hoch baS cha’ leQ HotlhwI’ bel tu’ [on FRC 900's website](https://zebracorns.org/blog/ZebraSwitch/).
 
 ```{image} images/networking-diagram.png
 :alt: Wiring using a network switch and the old open mesh radio
@@ -31,46 +31,46 @@ PhotonVision _STRONGLY_ recommends the usage of a network switch on your robot. 
 :::
 ::::
 
-## Network Hostname
+## cha’ jIH
 
-Rename each device from the default "photonvision" to a unique hostname (e.g., "Photon-OrangePi-Left" or "Photon-RPi5-Back"). This helps differentiate multiple coprocessors on your network, making it easier to manage them. Navigate to the settings page and scroll down to the network section. You will find the hostname is set to "photonvision" by default, this can only contain letters (A-Z), numeric characters (0-9), and the minus sign (-).
+jIH paQDI’norgh jan DoH ghaH pIch "tat" baH baS jIH jIH (klingon.klingon., "Phot'on-chuq-leSpoH" joq "Ph'oton-RPi5-chap"). jIH QaH differrentiat'e mul'tiple qoj batlh SoH cha’, Qagh ’oH bIt baH vu’ chaH. chIj baH ghaH jIH pag'e bIp tlhq'rroll jotlh baH ghaH cha’ ’ay’. SoH jIH tu’ ghaH jIH bel cher baH "tat" bong pIch, jIH HotlhwI’ neH jIH letterrt'lh (baS-buD), jIH vang (0-9), bIp ghaH jIH jIH (-).
 
 ```{image} images/editHostname.png
 :alt: The hostname can be edited in the settings page under the network section.
 ```
 
-## Robot Networking
+## qoq cha’
 
-PhotonVision _STRONGLY_ recommends the usage of Static IPs as it increases reliability on the field and when using PhotonVision in general. To properly set up your static IP, follow the steps below:
+tat _STRONGLY_ chup ghaH maH chap jIH jIH bel ’oH ghur laH batlh ghaH HoSchem bIp ghaH lo’ tat bep bov. baH tlhegh cher chen SoH jIH bep, tlha’ ghaH gho’ bIng:
 
-:::{warning}
-Only use a static IP when connected to the **robot radio**, and never when testing at home, unless you are well versed in networking or have the relevant "know how".
+:::{ghuHmoH}
+neH lo’ baS jIH bep ghaH rar baH ghaH **qoq jIH**, bIp not ghaH jIH bej juH, un'letlhtlh SoH bel toH ’u’ bep cha’ ghap ghaj ghaH rrele'vant "Sov ’ach".
 :::
 
-1. Ensure your robot is on and you are connected to the robot network.
-2. Navigate to `photonvision.local:5800`in your browser.
-3. Open the settings tab on the left pane.
-4. Under the Networking section, set your team number.
-5. Change your IP to Static.
-6. Set your coprocessor's IP address to “10.TE.AM.11”. More information on IP format can be found [here](https://docs.wpilib.org/en/stable/docs/networking/networking-introduction/ip-configurations.html#on-the-field-static-configuration).
-7. Click the “Save” button.
+1. SIQ SoH qoq bel batlh bIp SoH bel rar baH ghaH qoq cha’.
+2. chIj baH `tat.lo'qal:5800`bep SoH brrowtlh'err.
+3. poSmoH ghaH jIH bergh batlh ghaH leSpoH SeHlaw.
+4. bIng ghaH cha’ ’ay’, cher SoH SeS mI’.
+5. choH SoH bep baH jIH.
+6. cher SoH joq'klingon bep SoQ baH “10.be’nI’.bel.11”. ghap De’ batlh bep De’ HotlhwI’ bel tu’ [here](https://docs.wpilib.org/en/stable/docs/networking/networking-introduction/ip-configurations.html#on-the-field-static-configuration).
+7. jIH ghaH “pol” ’ach.
 
-Power-cycle your robot and then you will now be access the PhotonVision dashboard at `10.TE.AM.11:5800`.
+HoS-qy'qle SoH qoq bIp vaj SoH jIH DaH bel naw’ ghaH tat tIj bej `10.be’nI’.bel.11:5800`.
 
 ```{image} images/static.png
 :alt: Correctly set static IP
 ```
 
-The "team number" field will accept (in addition to a team number) an IP address or hostname. This is useful for testing PhotonVision on the same computer as a simulated robot program;
-you can set the team number to "localhost", and PhotonVision will send data to the network tables in the simulated robot.
+ghaH "SeS mI’" HoSchem jIH laj (bep chel baH baS SeS mI’) beq bep SoQ qoj jIH. jIH bel lI’ cha’Hu’ jIH tat batlh ghaH jIH De’wI’ bel baS tlh'imulated qoq ghun;
+SoH HotlhwI’ cher ghaH SeS mI’ baH "loqa'lhotlht", bIp tat jIH ngeH da'ta baH ghaH cha’ bergh bep ghaH tl'himulated qoq.
 
-## Port Forwarding
+## qoj pagh
 
-:::{note}
-If you are using a VH-109 radio (2025 and later, excluding China and Taiwan), you should not use port forwarding. Instead, tether to the dedicated DS ethernet port on the VH-109. The VH-109 does not exhibit the issues found in the OM5P radio with multiple ports, and with a dedicated DS port, it provides more realistic match conditions and removes the need to tether over USB.
+:::{Qo’}
+beH SoH bel lo’ baS VH-109 jIH (2025 bIp nech, exqludin'g jIH bIp jIH), SoH volchaH Huv lo’ pagh qoj. jIH, ghaH baH ghaH ded'iqated ngem ghaH ghap batlh ghaH VH-109. ghaH VH-109 baH Huv jIH ghaH jIH tu’ bep ghaH OM5P jIH batlh mult'iple pagh, bIp batlh baS dediqate'd ngem joq, ’oH jIH qoj r'realitlhtiq bej Doghjey bIp teq ghaH n'eed baH ghaH chuv loDnal.
 :::
 
-If you would like to access your Ethernet-connected vision device from a computer when tethered to the USB port on the roboRIO, you can use [WPILib's](https://docs.wpilib.org/en/stable/docs/networking/networking-utilities/portforwarding.html) `PortForwarder`.
+beH SoH QID parHa’ baH naw’ SoH ghaH-rar jIH jan DoH baS De’wI’ ghaH Doq baH ghaH loDnal joq batlh ghaH joq, SoH HotlhwI’ lo’ [WPILib's](https://docs.wpilib.org/en/stable/docs/networking/networking-utilities/portforwarding.html) `pagh`.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -88,14 +88,14 @@ If you would like to access your Ethernet-connected vision device from a compute
         # Coming Soon!
 ```
 
-:::{note}
-The address in the code above (`photonvision.local`) is the hostname of the coprocessor. This can be different depending on your hardware, and can be checked in the settings tab under "hostname".
+:::{Qo’}
+ghaH SoQ bep ghaH ngoq Dung (`tat.loq'al`) bel ghaH jIH chap ghaH joq. jIH HotlhwI’ bel pIm tlhab batlh SoH veS, bIp HotlhwI’ bel ghaH bep ghaH jIH bergh bIng "jIH".
 :::
 
-## Camera Stream Ports
+## bov SeS ghap
 
-The camera streams start at 1181 with two ports for each camera (ex. 1181 and 1182 for camera one, 1183 and 1184 for camera two, etc.). The easiest way to identify the port of the camera that you want is by double clicking on the stream, which opens it in a separate page. The port will be listed below the stream.
+ghaH bov SeS Hov bej 1181 batlh cha’ qoj cha’Hu’ paQDI’norgh bov (ghIm. 1181 bIp 1182 cha’Hu’ bov wa’, 1183 bIp 1184 cha’Hu’ bov cha’, etq.). ghaH bIt DoH baH ngu’ ghaH qoj chap ghaH bov ’e’ SoH neH bel bong Seng jIH batlh ghaH SeS, jIH poSmoH ’oH bep baS chev p'age. ghaH qoj jIH bel jIH bIng ghaH SeS.
 
-:::{warning}
-If your camera stream isn't sent to the same port as it's originally found on, its stream will not be visible in the UI.
+:::{ghuHmoH}
+beH SoH bov SeS jIH'bach ngeH baH ghaH jIH pagh bel ’oH'klingon joq tu’ batlh, jIH SeS jIH Huv bel jIH bep ghaH bup.
 :::

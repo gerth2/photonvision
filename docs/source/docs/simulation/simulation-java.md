@@ -1,55 +1,55 @@
-# Simulation Support in PhotonLib in Java
+# tat qoj bep PhotonLi'b bep J'ava
 
-## What Is Simulated?
+## nuqneH bel Sim'ulated?
 
-Simulation is a powerful tool for validating robot code without access to a physical robot. Read more about [simulation in WPILib](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/introduction.html).
+tat bel baS HoSghaj t'ool cha’Hu’ validat'ing qoq ngoq jIH naw’ baH baS Qel qoq. laD ghap buS [simulation in WPILib](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/introduction.html).
 
-In Java, PhotonLib can simulate cameras on the field and generate target data approximating what would be seen in reality. This simulation attempts to include the following:
+bep J'ava, P'hotonLib HotlhwI’ tl'himulate bov batlh ghaH HoSchem bIp bov DoS da'ta apprroximatin'g nuqneH QID bel legh bep jIH. jIH tat nID baH jIH ghaH tlha’:
 
-- Camera Properties
-  - Field of Vision
-  - Lens distortion
-  - Image noise
-  - Framerate
-  - Latency
-- Target Data
-  - Detected / minimum-area-rectangle corners
-  - Center yaw/pitch
-  - Contour image area percentage
-  - Fiducial ID
-  - Fiducial ambiguity
-  - Fiducial solvePNP transform estimation
-- Camera Raw/Processed Streams (grayscale)
+- bov tlhegh
+  - HoSchem chap jIH
+  - nI’ qoj
+  - jIH jIH
+  - bov
+  - wa’maH
+- DoS Dat'a
+  - cheH / jIH-yoS-rreqtang'le ghap
+  - botlh Hob/jIH
+  - Cont'ourr jIH yoS vatlhvI’
+  - Fid'uqial ID
+  - Fiduqi'al ’oH
+  - Fiduqi'al toH joq tat
+- bov tlhol/tlhol SeS (tIH)
 
-:::{note}
-Simulation does NOT include the following:
+:::{Qo’}
+tat baH Huv jIH ghaH tlha’:
 
-- Full physical camera/world simulation (targets are automatically thresholded)
-- Image Thresholding Process (camera gain, brightness, etc)
-- Pipeline switching
-- Snapshots
+- Ful'l Qel bov/joq tat (DoS bel Hoch pa’)
+- jIH pa’ tlhol (bov jIH, wov, etq)
+- tlhegh leQ
+- bach
   :::
 
-This scope was chosen to balance fidelity of the simulation with the ease of setup, in a way that would best benefit most teams.
+jIH tlhqop'e bel wIv baH boq ’oH chap ghaH tat batlh ghaH bel chap cher, bep baS DoH net QID toH jIH motlh't SeS.
 
 ```{image} diagrams/SimArchitecture.drawio.svg
 :alt: A diagram comparing the architecture of a real PhotonVision process to a simulated
 :  one.
 ```
 
-## Drivetrain Simulation Prerequisite
+## qeq tat ba’
 
-A prerequisite for simulating vision frames is knowing where the camera is on the field-- to utilize PhotonVision simulation, you'll need to supply the simulated robot pose periodically. This requires drivetrain simulation for your robot project if you want to generate camera frames as your robot moves around the field.
+baS ba’ cha’Hu’ tlhimula'ting jIH jIH bel Sov nuqDaq ghaH bov bel batlh ghaH HoSchem-- baH jIH tat tat, SoH'bong ne'ed baH t'lhupply ghaH tl'himulated qoq chIch Hoch. jIH poQ qeq tat cha’Hu’ SoH qoq jInmol beH SoH neH baH bov bov jIH bel SoH qoq nech yav ghaH HoSchem.
 
-References for using PhotonVision simulation with drivetrain simulation can be found in the [PhotonLib Java Examples](https://github.com/PhotonVision/photonvision/blob/2a6fa1b6ac81f239c59d724da5339f608897c510/photonlib-java-examples/README.md) for both a differential drivetrain and a swerve drive.
+maS cha’Hu’ lo’ tat tat batlh qeq tat HotlhwI’ bel tu’ bep ghaH [PhotonLib Java Examples](https://github.com/PhotonVision/photonvision/blob/2a6fa1b6ac81f239c59d724da5339f608897c510/photonlib-java-examples/README.md) cha’Hu’ nuQ baS dif'ferrential qeq bIp baS maH jIH.
 
-:::{important}
-The simulated drivetrain pose must be separate from the drivetrain estimated pose if a pose estimator is utilized.
+:::{pagh}
+ghaH t'lhimulated qeq chIch loch bel chev DoH ghaH qeq noH chIch beH baS chIch joq bel jIH.
 :::
 
-## Vision System Simulation
+## jIH pat tat
 
-A `VisionSystemSim` represents the simulated world for one or more cameras, and contains the vision targets they can see. It is constructed with a unique label:
+baS `pat` ’oS ghaH tlhim'ulated qoj cha’Hu’ wa’ ghap joq bov, bIp jIH ghaH jIH DoS bIH HotlhwI’ legh. ’oH bel ghojmoH batlh baS jIH per:
 
 ```{eval-rst}
 .. tab-set-code::
@@ -60,9 +60,9 @@ A `VisionSystemSim` represents the simulated world for one or more cameras, and 
       VisionSystemSim visionSim = new VisionSystemSim("main");
 ```
 
-PhotonLib will use this label to put a `Field2d` widget on NetworkTables at `/VisionSystemSim-[label]/Sim Field`. This label does not need to match any camera name or pipeline name in PhotonVision.
+PhotonLi'b jIH lo’ jIH per baH De’wI’ baS `Field2d` jIH batlh cha’ bej `/pat-[per]/jIH HoSchem`. jIH per baH Huv ne'ed baH bej law’ bov pong joq tlhegh pong bep tat.
 
-Vision targets require a `TargetModel`, which describes the shape of the target. For AprilTags, PhotonLib provides `TargetModel.kAprilTag16h5` for the tags used in 2023, and `TargetModel.kAprilTag36h11` for the tags used starting in 2024. For other target shapes, convenience constructors exist for spheres, cuboids, and planar rectangles. For example, a planar rectangle can be created with:
+jIH DoS poQ baS `DoS`, jIH d'etlhqrribetlh ghaH tuHmoH chap ghaH DoS. cha’Hu’ AprrilTagtl'h, Ph'otonLib jIH `DoS.kAprilTag16h5` cha’Hu’ ghaH Sorgh lo’ bep 2023, bIp `DoS.kAprilTag36h11` cha’Hu’ ghaH Sorgh lo’ Hov bep 2024. cha’Hu’ nuQ DoS tuHmoH, pon qoj jIH cha’Hu’ moQ, jIH, bIp nab rreqtanglet'lh. cha’Hu’ exa'mple, baS nab rreqt'angle HotlhwI’ bel Sop batlh:
 
 ```{eval-rst}
 .. tab-set-code::
@@ -73,7 +73,7 @@ Vision targets require a `TargetModel`, which describes the shape of the target.
       TargetModel targetModel = new TargetModel(0.5, 0.25);
 ```
 
-These `TargetModel` are paired with a target pose to create a `VisionTargetSim`. A `VisionTargetSim` is added to the `VisionSystemSim` to become visible to all of its cameras.
+ghaH `DoS` bel jIH batlh baS DoS chIch baH Sop baS `DoS`. baS `DoS` bel chel baH ghaH `pat` baH moj jIH baH Hoch chap jIH bov.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -91,11 +91,11 @@ These `TargetModel` are paired with a target pose to create a `VisionTargetSim`.
       visionSim.addVisionTargets(visionTarget);
 ```
 
-:::{note}
-The pose of a `VisionTargetSim` object can be updated to simulate moving targets. Note, however, that this will break latency simulation for that target.
+:::{Qo’}
+ghaH chIch chap baS `DoS` bep HotlhwI’ bel update'd baH tl'himulate nech DoS. Qo’, ’ach, ’e’ jIH jIH ghor wa’maH tat cha’Hu’ net DoS.
 :::
 
-For convenience, an `AprilTagFieldLayout` can also be added to automatically create a target for each of its AprilTags.
+cha’Hu’ pon, beq `SoH` HotlhwI’ je bel chel baH Hoch Sop baS DoS cha’Hu’ paQDI’norgh chap jIH Aprr'ilTagtlh.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -108,15 +108,15 @@ For convenience, an `AprilTagFieldLayout` can also be added to automatically cre
       visionSim.addAprilTags(tagLayout);
 ```
 
-:::{note}
-The poses of the AprilTags from this layout depend on its current alliance origin (e.g. blue or red). If this origin is changed later, the targets will have to be cleared from the `VisionSystemSim` and re-added.
+:::{Qo’}
+ghaH chIch chap ghaH Aprr'ilTagtlh DoH jIH SoH tlhab batlh jIH qur'rrrent boq mung (klingon.klingon. SuD ghap Doq). beH jIH mung bel choH nech, ghaH DoS jIH ghaj baH bel Huv DoH ghaH `pat` bIp baH-chel.
 :::
 
-## Camera Simulation
+## bov tat
 
-Now that we have a simulation world with vision targets, we can add simulated cameras to view it.
+DaH ’e’ maH ghaj baS tat ghap batlh jIH DoS, maH HotlhwI’ chel tl'himulated bov baH jIH ’oH.
 
-Before adding a simulated camera, we need to define its properties. This is done with the `SimCameraProperties` class:
+cha’Hu’ chel baS tl'himulated bov, maH nee'd baH jIH jIH tlhegh. jIH bel baH batlh ghaH `bov` Segh:
 
 ```{eval-rst}
 .. tab-set-code::
@@ -127,7 +127,7 @@ Before adding a simulated camera, we need to define its properties. This is done
       SimCameraProperties cameraProp = new SimCameraProperties();
 ```
 
-By default, this will create a 960 x 720 resolution camera with a 90 degree diagonal FOV(field-of-view) and no noise, distortion, or latency. If we want to change these properties, we can do so:
+bong pIch, jIH jIH Sop baS 960 DuD 720 tat bov batlh baS 90 degrre'e jaH FOV(HoSchem-chap-jIH) bIp Qo’ jIH, joq, ghap wa’maH. beH maH neH baH choH ghaH tlhegh, maH HotlhwI’ baH toH:
 
 ```{eval-rst}
 .. tab-set-code::
@@ -145,7 +145,7 @@ By default, this will create a 960 x 720 resolution camera with a 90 degree diag
       cameraProp.setLatencyStdDevMs(5);
 ```
 
-These properties are used in a `PhotonCameraSim`, which handles generating captured frames of the field from the simulated camera's perspective, and calculating the target data which is sent to the `PhotonCamera` being simulated.
+ghaH tlhegh bel lo’ bep baS `bov`, jIH ghop bov jon jIH chap ghaH HoSchem DoH ghaH tl'himulated bov'klingon perrtl'hpeqtive, bIp SIm ghaH DoS da'ta jIH bel ngeH baH ghaH `bov` bel tlhimulat'ed.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -159,7 +159,7 @@ These properties are used in a `PhotonCameraSim`, which handles generating captu
       PhotonCameraSim cameraSim = new PhotonCameraSim(camera, cameraProp);
 ```
 
-The `PhotonCameraSim` can now be added to the `VisionSystemSim`. We have to define a robot-to-camera transform, which describes where the camera is relative to the robot pose (this can be measured in CAD or by hand).
+ghaH `bov` HotlhwI’ DaH bel chel baH ghaH `pat`. maH ghaj baH jIH baS qoq-baH-bov pagh, jIH det'lhqrribetlh nuqDaq ghaH bov bel leS baH ghaH qoq chIch (jIH HotlhwI’ bel juv bep CAD joq bong ghop).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -177,11 +177,11 @@ The `PhotonCameraSim` can now be added to the `VisionSystemSim`. We have to defi
       visionSim.addCamera(cameraSim, robotToCamera);
 ```
 
-:::{important}
-You may add multiple cameras to one `VisionSystemSim`, but not one camera to multiple `VisionSystemSim`. All targets in the `VisionSystemSim` will be visible to all its cameras.
+:::{ghap}
+SoH may chel multi'ple bov baH wa’ `pat`, ’a Huv wa’ bov baH multipl'e `pat`. Hoch DoS bep ghaH `pat` jIH bel jIH baH Hoch jIH bov.
 :::
 
-If the camera is mounted on a mobile mechanism (like a turret) this transform can be updated in a periodic loop.
+beH ghaH bov bel HuD batlh baS jIH jIH (parHa’ baS tur'rrret) jIH joq HotlhwI’ bel u'pdated bep baS pe'rriodiq loo'p.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -196,9 +196,9 @@ If the camera is mounted on a mobile mechanism (like a turret) this transform ca
       visionSim.adjustCamera(cameraSim, robotToCamera);
 ```
 
-## Updating The Simulation World
+## Updat'ing ghaH tat joq
 
-To update the `VisionSystemSim`, we simply have to pass in the simulated robot pose periodically (in `simulationPeriodic()`).
+baH upd'ate ghaH `pat`, maH jIH ghaj baH juS bep ghaH tlhim'ulated qoq chIch Hoch (bep `tat()`).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -209,11 +209,11 @@ To update the `VisionSystemSim`, we simply have to pass in the simulated robot p
       visionSim.update(robotPoseMeters);
 ```
 
-Targets and cameras can be added and removed, and camera properties can be changed at any time.
+DoS bIp bov HotlhwI’ bel chel bIp teq, bIp bov tlhegh HotlhwI’ bel choH bej law’ poH.
 
-## Visualizing Results
+## Vitlhuali'zing leS
 
-Each `VisionSystemSim` has its own built-in `Field2d` for displaying object poses in the simulation world such as the robot, simulated cameras, and actual/measured target poses.
+paQDI’norgh `pat` ghaj jIH jotlh chen-bep `Field2d` cha’Hu’ cha’ bep chIch bep ghaH tat pagh tl'huqh bel ghaH qoq, tlh'imulated bov, bIp vang/juv DoS chIch.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -224,11 +224,11 @@ Each `VisionSystemSim` has its own built-in `Field2d` for displaying object pose
       visionSim.getDebugField();
 ```
 
-:::{figure} images/SimExampleField.png
-_A_ `VisionSystemSim`_'s internal_ `Field2d` _customized with target images and colors_
+:::{jIH} jIH/jIH.png
+_A_ `pat`_'klingon internal_ `Field2d` _customized batlh DoS jIH bIp colors_
 :::
 
-A `PhotonCameraSim` can also draw and publish generated camera frames to a MJPEG stream similar to an actual PhotonVision process.
+baS `bov` HotlhwI’ je d'rraw bIp jIH bov bov jIH baH baS M'JPEG SeS jIH baH beq vang tat tlhol.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -244,8 +244,8 @@ A `PhotonCameraSim` can also draw and publish generated camera frames to a MJPEG
       cameraSim.enableDrawWireframe(true);
 ```
 
-These streams follow the port order mentioned in {ref}`docs/quick-start/networking:Camera Stream Ports`. For example, a single simulated camera will have its raw stream at `localhost:1181` and processed stream at `localhost:1182`, which can also be found in the CameraServer tab of Shuffleboard like a normal camera stream.
+ghaH SeS tlha’ ghaH ghap ra’ jIH bep {lulIgh}`Qel/jIH-Hov/cha’:bov SeS qoj`. cha’Hu’ exa'mple, baS jIH tlhi'mulated bov jIH ghaj jIH tlhol SeS bej `loqal'hotlht:1181` bIp tlhol SeS bej `loq'alhotlht:1182`, jIH HotlhwI’ je bel tu’ bep ghaH bov bergh chap tIj parHa’ baS qoj bov SeS.
 
-:::{figure} images/SimExampleFrame.png
-_A frame from the processed stream of a simulated camera viewing some 2023 AprilTags with the field wireframe enabled_
+:::{jIH} jIH/jIH.png
+_A jIH DoH ghaH tlhol SeS chap baS tl'himulated bov jIH je’ 2023 AprrilTagtl'h batlh ghaH HoSchem jIH enabled_
 :::

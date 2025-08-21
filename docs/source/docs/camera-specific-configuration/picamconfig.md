@@ -1,32 +1,32 @@
-# Pi Camera Configuration
+# DIng bov tat
 
-This page covers specifics about the _Raspberry Pi_ CSI camera configuration.
+jIH pag'e tu’ tlhpeqifiq'tlh buS ghaH _Raspberry Pi_ jIH bov tat.
 
-## Background
+## yav
 
-The Raspberry Pi CSI Camera port is routed through and processed by the GPU. Since the GPU boots before the CPU, it must be configured properly for the attached camera. Additionally, this configuration cannot be changed without rebooting.
+ghaH Qagh DIng jIH bov qoj bel He thrro'ugh bIp tlhol bong ghaH GPU. jIH ghaH GPU boottl'h cha’Hu’ ghaH CPU, ’oH loch bel qonf'igurred tlhegh cha’Hu’ ghaH HIv bov. chel, jIH tat HotlhwI’ bel choH jIH rrebo'oting.
 
-The GPU is not always capable of detecting other cameras automatically. The file `/boot/config.txt` is parsed by the GPU at boot time to determine what camera, if any, is expected to be attached. This file must be updated for some cameras.
+ghaH GPU bel Huv reH bIH chap Duy’ nuQ bov Hoch. ghaH jIH `/bo'ot/jIH.txt` bel yev bong ghaH GPU bej b'oot poH baH tlhIl nuqneH bov, beH law’, bel pIH baH bel HIv. jIH jIH loch bel u'pdated cha’Hu’ je’ bov.
 
-:::{warning}
-Incorrect camera configuration will cause the camera to not be detected. It looks exactly the same as if the camera was unplugged.
+:::{ghuHmoH}
+ghap bov tat jIH lo’ ghaH bov baH Huv bel Duy’. ’oH nej vang ghaH jIH bel beH ghaH bov bel unplu'gged.
 :::
 
-## Updating `config.txt`
+## U'pdating `jIH.txt`
 
-After flashing the pi image onto an SD card, open the `boot` segment in a file browser.
+cha’leS flatlhh'ing ghaH DIng jIH o'nto beq Daq nuch, poSmoH ghaH `b'oot` jIH bep baS jIH brrowtlh'err.
 
-:::{note}
-Windows may report "There is a problem with this drive". This should be ignored.
+:::{Qo’}
+jIH may ja’ "pa’ bel baS Hej batlh jIH jIH". jIH volchaH bel pagh.
 :::
 
-Locate `config.txt` in the folder, and open it with your favorite text editor.
+Loqa'te `jIH.txt` bep ghaH choljaH, bIp poSmoH ’oH batlh SoH ghap te'xt qoj.
 
 ```{image} images/bootConfigTxt.png
 
 ```
 
-Within the file, find this block of text:
+jIH ghaH jIH, tu’ jIH bot chap tex't:
 
 ```
 ##############################################################
@@ -48,14 +48,14 @@ cameraAutoDetect=1
 ##############################################################
 ```
 
-Remove the leading `#` character to uncomment the line associated with your camera. Add a `#` in front of other cameras.
+teq ghaH Dev `#` vang baH jIH ghaH tlhegh toH batlh SoH bov. chel baS `#` bep frro'nt chap nuQ bov.
 
-:::{warning}
-Leave lines outside the PhotonVision Camera Config block untouched. They are necessary for proper raspberry pi functionality.
+:::{ghuHmoH}
+leSpoH tlhegh Hur ghaH tat bov jIH bot ghaH. bIH bel ’ut cha’Hu’ chep Qagh DIng Qap.
 :::
 
-Save the file, close the editor, and eject the drive. The boot configuration should now be ready for your selected camera.
+toD ghaH jIH, SoQmoH ghaH joq, bIp ej'eqt ghaH jIH. ghaH b'oot tat volchaH DaH bel Su’ cha’Hu’ SoH wIv bov.
 
-## Additional Information
+## chel De’
 
-See [the libcamera documentation](https://github.com/raspberrypi/documentation/blob/679fab721855a3e8f17aa51819e5c2a7c447e98d/documentation/asciidoc/computers/camera/rpicam_configuration.adoc) for more details on configuring cameras.
+legh [the libcamera documentation](https://github.com/raspberrypi/documentation/blob/679fab721855a3e8f17aa51819e5c2a7c447e98d/documentation/asciidoc/computers/camera/rpicam_configuration.adoc) cha’Hu’ ghap jIH batlh qonfigurrin'g bov.

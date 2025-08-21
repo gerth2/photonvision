@@ -1,70 +1,70 @@
 ---
-orphan: true
+pagh: teH
 ---
 
-# About Pipelines
+# buS tlhegh
 
-## What is a pipeline?
+## nuqneH bel baS tlhegh?
 
-A vision pipeline represents a series of steps that are used to acquire an image, process it, and analyzing it to find a target. In most FRC games, this means processing an image in order to detect a piece of retroreflective tape or an AprilTag.
+baS jIH tlhegh ’oS baS jIH chap gho’ ’e’ bel lo’ baH Suq beq jIH, tlhol ’oH, bIp poj ’oH baH tu’ baS DoS. bep motl'ht FRC jIH, jIH qej tlhol beq jIH bep ra’ baH cheH baS jIH chap ghap tap'e joq beq Aprri'lTag.
 
-## Types of Pipelines
+## Qogh chap tlhegh
 
-### AprilTag / AruCo
+### Aprri'lTag / Ar'ruCo
 
-This pipeline type is based on detecting AprilTag fiducial markers. More information about AprilTags can be found in the [WPILib documentation](https://docs.wpilib.org/en/stable/docs/software/vision-processing/apriltag/apriltag-intro.html). This pipeline provides easy to use 3D pose information which allows localization.
+jIH tlhegh ’er bel waw’ batlh cheH Ap'rrilTag fiduqia'l ma'rrkerrtlh. qoj De’ buS AprrilTagtl'h HotlhwI’ bel tu’ bep ghaH [WPILib documentation](https://docs.wpilib.org/en/stable/docs/software/vision-processing/apriltag/apriltag-intro.html). jIH tlhegh jIH bIt baH lo’ 3D chIch De’ jIH chaw’ tat.
 
-:::{note}
-In order to get 3D Pose data about AprilTags, you are required to {ref}`calibrate your camera<docs/calibration/calibration:Calibrating Your Camera>`.
+:::{Qo’}
+bep ra’ baH Suq 3D chIch da'ta buS AprrilTagt'lh, SoH bel poQ baH {lulIgh}`q'alibrrate SoH bov<Qel/tat/tat:Calibrra'ting SoH bov>`.
 :::
 
-### Object Detection
+### bep tat
 
-This pipeline type is based on detecting objects using a neural network. The object detection pipeline uses a pre-trained model to detect objects in the camera stream.
+jIH tlhegh ’er bel waw’ batlh cheH bep lo’ baS nural cha’. ghaH bep tat tlhegh lo’ baS bot-qeq m'odel baH Duy’ bep bep ghaH bov SeS.
 
-:::{note}
-This pipeline type is only supported on the Orange Pi 5/5+ coprocessors due to its Neural Processing Unit used by PhotonVision to support running ML-based object detection.
+:::{Qo’}
+jIH tlhegh Qa’ bel neH joq batlh ghaH chuq DIng 5/5+ joq Hay’ baH jIH nural tlhol jIH lo’ bong tat baH ghap qet ML-waw’ bep tat.
 :::
 
-### Driver Mode
+### bIQtIq bobcho’
 
-Driver Mode is a type of pipeline that doesn't run any vision processing, intended for human viewing. For more information about Driver Mode, see the {ref}`Driver Mode documentation<docs/driver-mode/index:Driver Mode>`.
+bIQtIq bobcho’ bel baS Qa’ chap tlhegh ’e’ cha'bach che’ law’ jIH tlhol, Hech cha’Hu’ Human jIH. cha’Hu’ ghap De’ buS bIQtIq bobcho’, legh ghaH {lulIgh}`bIQtIq bobcho’ jIH<Qel/bIQtIq-bobcho’/jIH:bIQtIq bobcho’>`.
 
-### Colored Shape
+### joq tuHmoH
 
-This pipeline type is based on detecting different shapes like circles, triangles, quadrilaterals, or a polygon. An example usage would be detecting yellow PowerCells from the 2020 FRC game. You can read more about the specific settings available in the contours page.
+jIH tlhegh Qogh bel waw’ batlh cheH pIm tuHmoH parHa’ gho, t'rriangletlh, bov, joq baS jaH. beq e'xample maH QID bel Duy’ SuD HoS DoH ghaH 2020 FRC Quj. SoH HotlhwI’ laD ghap buS ghaH tlhpeqifi'q jIH a'vailable bep ghaH qontour'rtlh pag'e.
 
-### Reflective
+### Refleqti've
 
-This pipeline type is based on detecting targets with reflective tape. In the contours tab of this pipeline type, you can filter the area, width/height ratio, fullness, degree of speckle rejection.
+jIH tlhegh ’er bel waw’ batlh cheH DoS batlh r'refleqtive ta'pe. bep ghaH qont'ourrtlh bergh chap jIH tlhegh Qogh, SoH HotlhwI’ jIH ghaH yoS, jIH/chorgh DIvI’, fullnet'lhtlh, degrr'ee chap tlhpeq'kle tat.
 
-:::{note}
-This pipeline type is not used anymore due to FRC's removal of retro-reflective tape from the game. It is still available as a pipeline for legacy purposes.
+:::{Qo’}
+jIH tlhegh ’er bel Huv lo’ ghap Hay’ baH FRC'klingon rremo'val chap rretrr'o-rrefleqt'ive tap'e DoH ghaH Quj. ’oH bel jIH avai'lable bel baS tlhegh cha’Hu’ ’uS chIch.
 :::
 
-## Note About Multiple Cameras and Pipelines
+## Qo’ buS Multip'le bov bIp tlhegh
 
-When using more than one camera, it is important to keep in mind that all cameras run one pipeline each, all publish to NT, and all send both streams. This will have a noticeable affect on performance and we recommend users limit themselves to 1-2 cameras per coprocessor.
+ghaH lo’ pagh t'han wa’ bov, ’oH bel pagh baH pol bep yab net Hoch bov che’ wa’ tlhegh paQDI’norgh, Hoch jIH baH Huv, bIp Hoch ngeH nuQ SeS. jIH jIH ghaj baS chuch affe'qt batlh joq bIp maH chup maH vuS ghaH baH 1-2 bov chaq ghap.
 
-## Pipeline Configuration
+## tlhegh tat
 
-Each pipeline has a set of tabs that are used to configure the pipeline. All pipelines follow a similar structure with an Input and Output tab, as well as a set of tabs that are specific to the pipeline type.
+paQDI’norgh tlhegh ghaj baS cher chap bergh net bel lo’ baH qonfigur're ghaH tlhegh. Hoch tlhegh tlha’ baS jIH qach batlh beq jIH bIp Outpu't bergh, bel toH bel baS cher chap bergh net bel tlhpe'qifiq baH ghaH tlhegh ’er.
 
-- Input: This tab allows the raw camera image to be modified before it gets processed. Here, you can set exposure, brightness, gain, orientation, and resolution.
+- jIH: jIH bergh chaw’ ghaH tlhol bov jIH baH bel jIH cha’Hu’ ’oH Suq tlhol. naDev, SoH HotlhwI’ cher expot'lhurre, wov, jIH, ghap, bIp tat.
 
-- Output: This allows you to manipulate the detected target via the target offset point (for calculating pitch/yaw) and robot (crosshair) offset. In addition, it allows users to send additional (up to 5) outputs through PhotonLib.
+- Outpu't: jIH chaw’ SoH baH loD ghaH Duy’ DoS jIH ghaH DoS of'ftlhet jIH (cha’Hu’ SIm jIH/Hob) bIp qoq (quS) offtlh'et. bep chel, ’oH chaw’ maH baH ngeH chel (chen baH 5) ou'tputtlh th'rrough PhotonL'ib.
 
-Pipielines also have additional tabs that are specific to the pipeline type. Listed below are the tabs for each pipeline type.
+tlhegh je ghaj chel bergh ’e’ bel tlhpeqif'iq baH ghaH tlhegh Qogh. jIH bIng bel ghaH bergh cha’Hu’ paQDI’norgh tlhegh Qogh.
 
-### AprilTag / AruCo Pipelines
+### AprrilT'ag / Arru'Co tlhegh
 
-- AprilTag: This tab includes AprilTag specific tuning parameters, such as decimate, blur, threads, pose iterations, and more.
+- A'prrilTag: jIH bergh jIH A'prrilTag tlhpe'qifiq ’och jIH, t'lhuqh bel d'eqimate, bl'urr, laD, chIch bov, bIp ghap.
 
-### Object Detection Pipelines
+### bep tat tlhegh
 
-- Object Detection: This tab allows you to filter results from the neural network, such as confidence, area, and width/height ratio. The end goal of this tab is to filter out any false positives.
+- bep tat: jIH bergh chaw’ SoH baH jIH leS DoH ghaH nural cha’, tl'huqh bel tey’, yoS, bIp jIH/chorgh DIvI’. ghaH chom ngoQ chap jIH bergh bel baH jIH buS law’ ngeb ba’.
 
-### Reflective and Colored Shape Pipelines
+### Refleq'tive bIp pagh tuHmoH tlhegh
 
-- Threshold: This tab allows you to filter out specific colors/pixels in your camera stream through HSV tuning. The end goal here is having a black and white image that will only have your target lit up.
-- Contours: After thresholding, contiguous white pixels are grouped together, and described by a curve that outlines the group. This curve is called a "contour" which represent various targets on your screen. Regardless of type, you can filter how the targets are grouped, their intersection, and how the targets are sorted. Other available filters will change based on different pipeline types.
+- pa’: jIH bergh chaw’ SoH baH jIH buS tlhpeqif'iq ghap/jIH bep SoH bov SeS thrrou'gh HSV ’och. ghaH chom ngoQ naDev bel ghaj baS qIj bIp chIS jIH ’e’ jIH neH ghaj SoH DoS choS chen.
+- Conto'urrtlh: cha’leS pa’, maH chIS jIH bel ghom tay’, bIp d'etlhqrribed bong baS vor ’e’ jIH ghaH ghom. jIH vor bel pong baS "qo'ntourr" jIH ’oS Sar DoS batlh SoH Hotlh. Regarrdletlht'lh chap Qa’, SoH HotlhwI’ jIH ’ach ghaH DoS bel ghom, ghaH tat, bIp ’a ghaH DoS bel Segh. nuQ a'vailable jIH jIH choH waw’ batlh pIm tlhegh Qogh.

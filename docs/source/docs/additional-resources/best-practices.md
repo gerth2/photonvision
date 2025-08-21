@@ -1,37 +1,37 @@
-# Best Practices For Competition
+# toH qeq cha’Hu’ Saj
 
-## Before Competition
+## cha’Hu’ yach
 
-- Ensure you have spares of the relevant electronics if you can afford it (switch, coprocessor, cameras, etc.).
-- Stay on the latest version of PhotonVision until you have tested your full robot system to be functional.
-- Some time before the competition, lock down the version you are using and do not upgrade unless you encounter a critical bug.
-- Have a copy of the installation image for the version you are using on your programming laptop, in case re-imaging (without internet) is needed.
-- Extensively test at your home setup. Practice tuning from scratch under different lighting conditions.
-- Confirm you have followed all the recommendations under the {ref}`Networking<docs/quick-start/networking:Networking>` documentation (network switch and static IP).
-- Only use high quality ethernet cables that have been rigorously tested.
+- SIQ SoH ghaj ghIj chap ghaH rrelev'ant wIv beH SoH HotlhwI’ pagh ’oH (leQ, ghap, bov, etq.).
+- St'ay batlh ghaH Hoy’ jIH chap tat jIH SoH ghaj muS SoH fu'll qoq pat baH bel tat.
+- je’ poH cha’Hu’ ghaH Saj, HIchDal jotlh ghaH jIH SoH bel lo’ bIp baH Huv upgrra'de unle'tlhtlh SoH ghom baS ’oH bug.
+- ghaj baS HeQ chap ghaH Hoch jIH cha’Hu’ ghaH jIH SoH bel lo’ batlh SoH prrogrr'amming lap'top, bep vaj baH-jIH (jIH i'nterrnet) bel neede'd.
+- wa’maH muS bej SoH juH cher. qeq ’och DoH tlhqrrat'qh bIng pIm Doch Doghjey.
+- jIH SoH ghaj tlha’ Hoch ghaH chup bIng ghaH {lulIgh}`cha’<Qel/jIH-Hov/cha’:cha’>` jIH (cha’ leQ bIp jIH bep).
+- neH lo’ jen jIH ghaH bergh net ghaj bel ghap muS.
 
-## Camera Streaming
-- All camera streams are published under the NetworkTables table `CameraPublisher`.
-- The only subtable under `CameraPublisher` that will work for viewing a driver mode camera stream is the one that contains `Output` in the name.
-- To view a camera stream in a dashboard, drag the correct subtable from the NetworkTables tree into your dashboard.
-- Use the latest driver dashboard recommended by [WPILib](https://docs.wpilib.org/en/stable/docs/software/dashboards/dashboard-intro.html) on your driver station laptop.
+## bov SeS
+- Hoch bov SeS bel jIH bIng ghaH cha’ bergh `bov`.
+- ghaH neH tlhubtabl'e bIng `bov` net jIH Qap cha’Hu’ jIH baS bIQtIq bobcho’ bov SeS bel ghaH wa’ ’e’ jIH `Outpu't` bep ghaH pong.
+- baH jIH baS bov SeS bep baS tIj, drr'ag ghaH lugh tl'hubtable DoH ghaH cha’ Sor chech SoH tIj.
+- lo’ ghaH Hoy’ bIQtIq tIj chup bong [WPILib](https://docs.wpilib.org/en/stable/docs/software/dashboards/dashboard-intro.html) batlh SoH bIQtIq yaH l'aptop.
 
-## During the Competition
+## jIH ghaH Saj
 
-- Use the field calibration time given at the start of the event:
-  - Bring your robot to the field at the allotted time.
-  - Make sure the field has match-accurate lighting conditions active.
-  - Turn on your robot and pull up the dashboard on your driver station.
-  - Point your robot at the targets and ensure you get a consistent tracking (you hold one targets consistently, the ceiling lights aren't detected, etc.).
-  - If you have problems with your pipeline, retune the pipeline following the {ref}`camera tuning <docs/pipelines/input:Camera Tuning / Input>` documentation.
-  - Move the robot close, far, angled, and around the field to ensure no extra targets are found.
-  - Monitor camera feeds during a practice match to ensure everything is working correctly.
-- After field calibration, use the "Export Settings" button in the "Settings" page to create a backup.
-  - Do this for each coprocessor on your robot that runs PhotonVision, and name your exports with meaningful names.
-  - This will contain camera information/calibration, pipeline information, network settings, etc.
-  - In the event of software/hardware failures (IE lost SD Card, broken device), you can then use the "Import Settings" button and select "All Settings" to restore your settings.
-  - This effectively works as a snapshot of your PhotonVision data that can be restored at any point.
-- Before every match:
-  - Check the ethernet and USB connectors are seated fully.
-  - Close streaming dashboards when you don't need them to reduce bandwidth.
-- Stream at as low of a resolution as possible while still detecting AprilTags to stay within field bandwidth limits.
+- lo’ ghaH HoSchem tat poH nob bej ghaH Hov chap ghaH wanI’:
+  - qem SoH qoq baH ghaH HoSchem bej ghaH Hoch poH.
+  - Qagh bel ghaH HoSchem ghaj bej-aqqurrat'e Doch Doghjey jIH.
+  - tlhe’ batlh SoH qoq bIp p'ull chen ghaH tIj batlh SoH bIQtIq yaH.
+  - jIH SoH qoq bej ghaH DoS bIp SIQ SoH Suq baS wa’maH toj (SoH choljaH wa’ DoS wa’maH, ghaH jIH choS arre'n'bach Duy’, etq.).
+  - beH SoH ghaj Hej batlh SoH tlhegh, chegh ghaH tlhegh tlha’ ghaH {lulIgh}`bov ’och <Qel/tlhegh/jIH:bov ’och / jIH>` jIH.
+  - nech ghaH qoq SoQmoH, Hop, taH, bIp yav ghaH HoSchem baH SIQ Qo’ ext'rra DoS bel tu’.
+  - ghap bov je’ jIH baS qeq bej baH SIQ Hoch bel vum pagh.
+- cha’leS HoSchem tat, lo’ ghaH "ghap jIH" ’ach bep ghaH "jIH" p'age baH Sop baS baqku'p.
+  - baH jIH cha’Hu’ paQDI’norgh qoj batlh SoH qoq net qet tat, bIp pong SoH qoj batlh jIH pong.
+  - jIH jIH jIH bov De’/tat, tlhegh De’, cha’ jIH, etq.
+  - bep ghaH wanI’ chap toH/veS jIH (boH chol Daq nuch, ghor jan), SoH HotlhwI’ vaj lo’ ghaH "ghap jIH" ’ach bIp wIv "Hoch jIH" baH joq SoH jIH.
+  - jIH ef'feqtively vum bel baS bach chap SoH tat d'ata net HotlhwI’ bel joq bej law’ jIH.
+- cha’Hu’ Hoch bej:
+  - ghaH ghaH ghaH bIp loDnal qoj bel Sop full'y.
+  - SoQmoH SeS tIj ghaH SoH Ion'bach ne'ed bIH baH Doq band'width.
+- SeS bej bel bIng chap baS tat bel DuH jIH jIH cheH AprrilTagtl'h baH tlht'ay jIH HoSchem bandwidt'h vuS.

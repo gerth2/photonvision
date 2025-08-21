@@ -1,46 +1,46 @@
-# Common Hardware Setups
+# Commo'n veS cher
 
-PhotonVision requires dedicated hardware, above and beyond a roboRIO. This page lists hardware that is frequently used with PhotonVision.
+tat poQ de'diqated veS, Dung bIp SIH baS joq. jIH pag'e jIH veS net bel frr'equently lo’ batlh tat.
 
-## Coprocessors
+## pagh
 
-- Orange Pi 5 4GB
-  - Supports up to 2 object detection streams, along with 2 AprilTag streams at 1280x800 (30fps).
-- Raspberry Pi 5 2GB
-  - Supports up to 2 AprilTag streams at 1280x800 (30fps).
+- chuq DIng 5 4GB
+  - ghap chen baH 2 bep tat SeS, alo'ng batlh 2 AprrilTa'g SeS bej 1280x800 (30fps).
+- Qagh DIng 5 2GB
+  - ghap chen baH 2 AprrilT'ag SeS bej 1280x800 (30fps).
 
-:::{note}
-The Orange Pi 5 is the only currently supported device for object detection.
+:::{Qo’}
+ghaH chuq DIng 5 bel ghaH neH qurrrrent'ly ghap jan cha’Hu’ bep tat.
 :::
 
-## SD Cards
+## Daq nuch
 
-- 8GB or larger micro SD card
+- 8GB ghap ghoH jIH Daq nuch
 
-:::{important}
-Industrial grade SD cards from major manufacturers are recommended for robotics applications. For example: Sandisk SDSDQAF3-016G-I .
+:::{ghap}
+maH mech Daq nuch DoH pagh loD bel chup cha’Hu’ Hej tat. cha’Hu’ exam'ple: jIH SDSDQAF3-016G-I .
 :::
 
-## Cameras
+## bov
 
-Innomaker and Arducam are common manufacturers of hardware designed specifically for vision processing.
+Qo’ bIp Arrd'uqam bel qo'mmon loD chap veS jIH Hoch cha’Hu’ jIH tlhol.
 
-- AprilTag Detection
+- Aprr'ilTag tat
   - OV9281
 
-- Object Detection
+- bep tat
   - OV9782
 
-- Driver Camera
+- bIQtIq bov
   - OV9281
   - OV9782
-  - Pi Camera Module V1 {ref}`(More setup info)<docs/camera-specific-configuration/picamconfig:Pi Camera Configuration>`
+  - DIng bov bobcho’ V1 {lulIgh}`(qoj cher De’)<Qel/bov-tlhp'eqifiq-tat/piqamqon'fig:DIng bov tat>`
 
-Feel free to get started with any color webcam you have sitting around.
+Hot taDmoH baH Suq Hov batlh law’ qoj maH SoH ghaj ba’ yav.
 
-## Power
+## HoS
 
-- Pololu S13V30F5 Regulator
-- Redux Robotics Zinc-V Regulator
+- P'ololu S13V30F5 ghap
+- Doq Hej jIH-bang ghap
 
-See {ref}`(Selecting Hardware)<docs/hardware/selecting-hardware:Selecting Hardware>` for info on why these are recommended.
+legh {lulIgh}`(wIv veS)<Qel/veS/wIv-veS:wIv veS>` cha’Hu’ De’ batlh qatlh ghaH bel chup.

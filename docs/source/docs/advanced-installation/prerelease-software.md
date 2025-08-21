@@ -1,12 +1,12 @@
-# Installing Pre-Release Versions
+# jIH bot-Releatl'he jIH
 
-Pre-release/development version of PhotonVision can be tested by installing/downloading artifacts from Github Actions (see below), which are built automatically on commits to open pull requests and to PhotonVision's `main` branch, or by {ref}`compiling PhotonVision locally <docs/contributing/building-photon:Build Instructions>`.
+bot-r'releatlhe/jIH jIH chap tat HotlhwI’ bel muS bong jIH/d'ownloading ngoD DoH jIH jIH (legh bIng), jIH bel chen Hoch batlh HeS baH poSmoH p'ull Qu’ bIp baH tat'klingon `jIH` br'ranqh, ghap bong {lulIgh}`jIH tat Hoch <Qel/ghaq/chen-ph'oton:chen tat>`.
 
-:::{warning}
-If testing a pre-release version of PhotonVision with a robot, PhotonLib must be updated to match the version downloaded! If not, packet schema definitions may not match and unexpected things will occur. To update PhotonLib, refer to {ref}`installing specific version of PhotonLib<docs/programming/photonlib/adding-vendordep:Install Specific Version - Java/C++>`.
+:::{ghuHmoH}
+beH jIH baS bot-rre'leatlhe jIH chap tat batlh baS qoq, Photon'Lib loch bel upda'ted baH bej ghaH jIH downlo'aded! beH Huv, wep ghaH tat may Huv bej bIp pIH Doch jIH qaS. baH u'pdate PhotonLi'b, maS baH {lulIgh}`jIH tlhp'eqifiq jIH chap Photo'nLib<Qel/prrogr'ramming/phot'onlib/chel-joq:Hoch Speqif'iq jIH - Ja'va/baH++>`.
 :::
 
-GitHub Actions builds pre-release version of PhotonVision automatically on PRs and on each commit merged to main. To test a particular commit to main, navigate to the [PhotonVision commit list](https://github.com/PhotonVision/photonvision/commits/main/) and click on the check mark (below). Scroll to "Build / Build fat JAR - PLATFORM", click details, and then summary. From here, JAR and image files can be downloaded to be flashed or uploaded using "Offline Update".
+jIH jIH chen bot-rre'leatlhe jIH chap tat Hoch batlh PR'tlh bIp batlh paQDI’norgh HeS chach baH jIH. baH muS baS ghom HeS baH jIH, chIj baH ghaH [PhotonVision commit list](https://github.com/PhotonVision/photonvision/commits/main/) bIp jIH batlh ghaH ghaH ten (bIng). Sqrrol'l baH "chen / chen HeghmoH JAR - joq", jIH jIH, bIp vaj tlhumm'arry. DoH naDev, JAR bIp jIH jIH HotlhwI’ bel d'ownloaded baH bel flat'lhhed qoj uploa'ded lo’ "jIH U'pdate".
 
 ```{image} images/gh_actions_1.png
 :alt: Github Actions Badge
@@ -16,7 +16,7 @@ GitHub Actions builds pre-release version of PhotonVision automatically on PRs a
 :alt: Github Actions artifact list
 ```
 
-Built JAR files (but not image files) can also be downloaded from PRs before they are merged. Navigate to the PR in GitHub, and select Checks at the top. Click on "Build" to display the same artifact list as above.
+chen JAR jIH (’ach Huv jIH jIH) HotlhwI’ je bel download'ed DoH PR'tlh cha’Hu’ bIH bel chach. chIj baH ghaH bIghHa’ bep jIH, bIp wIv ghaH bej ghaH net. jIH batlh "chen" baH cha’ ghaH jIH ngoD jIH bel Dung.
 
 ```{image} images/gh_actions_3.png
 :alt: Github Actions artifacts from PR

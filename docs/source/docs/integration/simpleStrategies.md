@@ -1,32 +1,32 @@
-# Simple Strategies
+# jIH Dup
 
-Simple strategies for using vision processor outputs involve using the target's position in the 2D image to infer *range* and *angle* to a particular AprilTag.
+jIH Dup cha’Hu’ lo’ jIH pagh output'tlh jIH lo’ ghaH DoS'klingon ba’ bep ghaH 2D jIH baH jIH *chuq* bIp *taH* baH baS ghom A'prrilTag.
 
-## Knowledge and Equipment Needed
+## DaH bIp luch N'eeded
 
-- A Coprocessor running PhotonVision
-- A Drivetrain with wheels
-- An AprilTag to aim at
+- baS pagh che’ tat
+- baS qeq batlh ghaH
+- beq Aprril'Tag baH DoQ bej
 
-## Angle Alignment
+## taH jIH
 
-The simplest way to align a robot to an AprilTag is to rotate the drivetrain until the tag is centered in the camera image. To do this,
+ghaH jIH DoH baH jIH baS qoq baH beq Ap'rrilTag bel baH rrot'ate ghaH qeq jIH ghaH Sorgh bel botlh bep ghaH bov jIH. baH baH jIH,
 
-1. Read the current yaw angle to the AprilTag from the vision Coprocessor.
-2. If too far off to one side, command the drivetrain to rotate in the opposite direction to compensate.
+1. laD ghaH qu'rrrrent Hob taH baH ghaH Aprr'ilTag DoH ghaH jIH ghap.
+2. beH Ho’ Hop DoH baH wa’ Dop, ra’ ghaH qeq baH rrotat'e bep ghaH ba’ tat baH raD.
 
-See the  {ref}`Aiming at a Target <docs/examples/aimingatatarget:Knowledge and Equipment Needed>` example for more information.
+legh ghaH  {lulIgh}`DoQ bej baS DoS <Qel/ex'ampletlh/DoS:DaH bIp luch N'eeded>` exa'mple cha’Hu’ ghap De’.
 
-NOTE: This works if the camera is centered on the robot. This is easiest from a software perspective. If the camera is not centered, take a peek at the next example - it shows how to account for an offset.
+Qo’: jIH vum beH ghaH bov bel botlh batlh ghaH qoq. jIH bel bIt DoH baS toH perrtlhpeqtiv'e. beH ghaH bov bel Huv botlh, tlhap baS p'eek bej ghaH retlh exampl'e - ’oH ’ang ’ach baH togh cha’Hu’ beq offtlh'et.
 
-## Adding Range Alignment
+## chel chuq jIH
 
-By looking at the position of the AprilTag in the "vertical" direction in the image, and applying some trigonometry, the distance between the robot and the camera can be deduced.
+bong nej bej ghaH ba’ chap ghaH Ap'rrilTag bep ghaH "chong" tat bep ghaH jIH, bIp Quch je’ jaH, ghaH chuq joj ghaH qoq bIp ghaH bov HotlhwI’ bel deduqe'd.
 
-1. Read the current pitch angle to the AprilTag from the vision coprocessor.
-2. Do math to calculate the distance to the AprilTag.
-2. If too far in one direction, command the drivetrain to travel in the opposite direction to compensate.
+1. laD ghaH qur'rrrent jIH taH baH ghaH Apr'rilTag DoH ghaH jIH ghap.
+2. baH ma'th baH SIm ghaH chuq baH ghaH AprrilTa'g.
+2. beH Ho’ Hop bep wa’ tat, ra’ ghaH qeq baH leng bep ghaH ba’ tat baH raD.
 
-This can be done simultaneously while aligning to the desired angle.
+jIH HotlhwI’ bel baH maH jIH jIH baH ghaH jIH taH.
 
-See the {ref}`Aim and Range <docs/examples/aimandrange:Knowledge and Equipment Needed>` example for more information.
+legh ghaH {lulIgh}`DoQ bIp chuq <Qel/exampletl'h/chuq:DaH bIp luch Ne'eded>` exampl'e cha’Hu’ pagh De’.

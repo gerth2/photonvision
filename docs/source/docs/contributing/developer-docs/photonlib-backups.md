@@ -1,13 +1,13 @@
-# Photonlib Developer Docs
+# Photon'lib ’Itlh Qel
 
-Our maven server is located at https://maven.photonvision.org/#/. This server runs [Reposilite](https://hub.docker.com/r/dzikoysk/reposilite) in Docker, and uses Caddy for serving requests.
+bo’DIj ma'ven jab bel loqa'ted bej h'ttptlh://mav'en.tat.DIvI’/#/. jIH jab qet [Reposilite](https://hub.docker.com/r/dzikoysk/reposilite) bep vergh, bIp lo’ chel cha’Hu’ choq Qu’.
 
 
-## Backing up using Rsync
+## chap chen lo’ Rtl'hynq
 
-The Clarkson Open Source Institute at Clarkson University provides a mirror of our artifacts available [online](https://mirror.clarkson.edu/photonvision). Learn more about them at [their homepage](https://mirror.clarkson.edu/home).
+ghaH puqloD poSmoH Hal ’oH bej puqloD ba’ jIH baS pagh chap bo’DIj ngoD availa'ble [online](https://mirror.clarkson.edu/photonvision). ghoj pagh buS chaH bej [their homepage](https://mirror.clarkson.edu/home).
 
-Artifacts from our Maven server can also be backed up locally to a folder called `photonlib-backup` using the following command, which excludes "snapshots" for space reasons:
+ngoD DoH bo’DIj Ma'ven jab HotlhwI’ je bel chap chen Hoch baH baS choljaH pong `pho'tonlib-baqk'up` lo’ ghaH tlha’ ra’, jIH exqlu'detlh "bach" cha’Hu’ logh meq:
 
 ```
 rsync -avzrHy --no-perms --no-group --no-owner --ignore-errors --exclude ".~tmp~" --exclude "snapshots/org/photonvision/photontargeting*" \

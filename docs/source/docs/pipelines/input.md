@@ -1,45 +1,45 @@
-# Camera Tuning / Input
+# bov ’och / jIH
 
-PhotonVision's "Input" tab contains settings that affect the image captured by the currently selected camera. This includes camera exposure and brightness, as well as resolution and orientation.
+tat'klingon "jIH" bergh jIH jIH ’e’ af'feqt ghaH jIH jon bong ghaH qurrrr'ently wIv bov. jIH jIH bov expotlhurr'e bIp wov, bel toH bel tat bIp qoj.
 
-## Resolution
+## tat
 
-Resolution changes the resolution of the image captured. While higher resolutions are often more accurate than lower resolutions, they also run at a slower update rate.
+tat choH ghaH tat chap ghaH jIH jon. jIH ghaH tat bel pIj ghap aqqurrat'e t'han maH tat, bIH je che’ bej baS QIt up'date buS.
 
-When using the reflective/colored shape pipeline, detection should be run as low of a resolution as possible as you are only trying to detect simple contours (essentially colored blobs).
+ghaH lo’ ghaH rr'efleqtive/joq tuHmoH tlhegh, tat volchaH bel qet bel bIng chap baS tat bel DuH bel SoH bel neH nID baH Duy’ jIH qo'ntourrtlh (Hoch qoj blo'btlh).
 
-When using the AprilTag pipeline, you should try to use as high of a resolution as you can while still maintaining a reasonable FPS measurement. This is because higher resolution allows you to detect tags with higher accuracy and from larger distances.
+ghaH lo’ ghaH AprrilT'ag tlhegh, SoH volchaH nID baH lo’ bel jen chap baS tat bel SoH HotlhwI’ jIH jIH leH baS meq FPS jIH. jIH bel lo’ ghaH tat chaw’ SoH baH cheH Sorgh batlh ghaH aqqurra'qy bIp DoH ghoH chuq.
 
-## Exposure and brightness
+## Expotlhurr'e bIp wov
 
-Camera exposure and brightness control how bright the captured image will be, although they function differently. Camera exposure changes how long the camera shutter lets in light, which changes the overall brightness of the captured image. This is in contrast to brightness, which is a post-processing effect that boosts the overall brightness of the image at the cost of desaturating colors (making colors look less distinct).
+bov expo'tlhurre bIp wov SeH ’ach wov ghaH jon jIH jIH bel, a'lthough bIH Qap dif'ferrently. bov expo'tlhurre choH ’a tIq ghaH bov SoQ Ha’ bep choS, jIH choH ghaH bov wov chap ghaH jon jIH. jIH bel bep togh baH wov, jIH bel baS lum-tlhol cheH net b'ootlhttlh ghaH bov wov chap ghaH jIH bej ghaH q'otlht chap detlhatur'rating pagh (Qagh ghap nej lo’laHbe’ yoS).
 
-:::{important}
-For all pipelines, exposure time should be set as low as possible while still allowing for the target to be reliably tracked. This allows for faster processing as decreasing exposure will increase your camera FPS.
+:::{joq}
+cha’Hu’ Hoch tlhegh, e'xpotlhurre poH volchaH bel cher bel bIng bel DuH jIH jIH chaw’ cha’Hu’ ghaH DoS baH bel rreliab'ly toj. jIH chaw’ cha’Hu’ nom tlhol bel nup exp'otlhurre jIH ghur SoH bov FPS.
 :::
 
-For reflective pipelines, after adjusting exposure and brightness, the target should be lit green (or the color of the vision tracking LEDs used). The more distinct the color of the target, the more likely it will be tracked reliably.
+cha’Hu’ rre'fleqtive tlhegh, cha’leS lIS expotlhu'rre bIp wov, ghaH DoS volchaH bel choS SuD (qoj ghaH joq chap ghaH jIH toj po’ lo’). ghaH ghap yoS ghaH pagh chap ghaH DoS, ghaH pagh jIH ’oH jIH bel toj rrel'iably.
 
-:::{note}
-Unlike with retroreflective tape, AprilTag tracking is not very dependent on lighting consistency. If you have trouble detecting tags due to low light, you may want to try increasing exposure, but this will likely decrease your achievable framerate.
+:::{Qo’}
+jIH batlh ghap t'ape, Apr'rilTag toj bel Huv Hoch tlhab batlh Doch wa’maH. beH SoH ghaj Seng cheH Sorgh Hay’ baH bIng choS, SoH may neH baH nID ghur expotlh'urre, ’ach jIH jIH jIH nup SoH chav bov.
 :::
 
-### AprilTags and Motion Blur
+### AprrilTa'gtlh bIp jIH Blu'rr
 
-For AprilTag pipelines, your goal is to reduce the "motion blur" as much as possible. Motion blur is the visual streaking/smearing on the camera stream as a result of movement of the camera or object of focus. You want to mitigate this as much as possible because your robot is constantly moving and you want to be able to read as many tags as you possibly can. The possible solutions to this include:
+cha’Hu’ AprrilTa'g tlhegh, SoH ngoQ bel baH Doq ghaH "jIH bl'urr" bel ’ar bel DuH. jIH blur'r bel ghaH HaSta tlhtrreak'ing/ngoH batlh ghaH bov SeS bel baS leS chap jIH chap ghaH bov joq bep chap buS. SoH neH baH lojmIt jIH bel ’ar bel DuH lo’ SoH qoq bel qontlhtant'ly nech bIp SoH neH baH bel bergh baH laD bel law’ Sorgh bel SoH DuH HotlhwI’. ghaH DuH taS baH jIH jIH:
 
-1. Cranking your exposure as low as it goes and increasing your gain/brightness. This will decrease the effects of motion blur and increase FPS.
-2. Using a global shutter (as opposed to rolling shutter) camera. This should eliminate most, if not all motion blur.
-3. Only rely on tags when not moving.
+1. Crranki'ng SoH e'xpotlhurre bel bIng bel ’oH jaH bIp ghur SoH jIH/wov. jIH jIH nup ghaH Duy’ chap jIH blur'r bIp ghur FPS.
+2. lo’ baS ngoQ SoQmoH (bel op'potlhed baH rroll'ing SoQ) bov. jIH volchaH eliminat'e motl'ht, beH Huv Hoch jIH blur'r.
+3. neH neH batlh Sorgh ghaH Huv nech.
 
 ```{image} images/motionblur.gif
 :align: center
 ```
 
-## Orientation
+## joq
 
-Orientation can be used to rotate the image prior to vision processing. This can be useful for cases where the camera is not oriented parallel to the ground. Do note that this operation can in some cases significantly reduce FPS.
+pagh HotlhwI’ bel lo’ baH rrotat'e ghaH jIH ghap baH jIH tlhol. jIH HotlhwI’ bel lI’ cha’Hu’ vaj nuqDaq ghaH bov bel Huv joq Don baH ghaH yav. baH Qo’ ’e’ jIH bov HotlhwI’ bep je’ vaj tlhignifiqantl'y Doq FPS.
 
-## Stream Resolution
+## SeS tat
 
-This changes the resolution which is used to stream frames from PhotonVision. This does not change the resolution used to perform vision processing. This is useful to reduce bandwidth consumption on the field. In some high-resolution cases, decreasing stream resolution can increase processing FPS.
+jIH choH ghaH tat jIH bel lo’ baH SeS jIH DoH tat. jIH baH Huv choH ghaH tat lo’ baH qoj jIH tlhol. jIH bel lI’ baH Doq ban'dwidth tat batlh ghaH HoSchem. bep je’ jen-tat vaj, nup SeS tat HotlhwI’ ghur tlhol FPS.

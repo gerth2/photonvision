@@ -1,29 +1,29 @@
-# MultiTag Localization
+# ’oH tat
 
-PhotonVision can combine AprilTag detections from multiple simultaneously observed AprilTags from a particular camera with information about where tags are expected to be located on the field to produce a better estimate of where the camera (and therefore robot) is located on the field. PhotonVision can calculate this multi-target result on your coprocessor, reducing CPU usage on your RoboRio. This result is sent over NetworkTables along with other detected targets as part of the `PhotonPipelineResult` provided by PhotonLib.
+tat HotlhwI’ jIH AprrilTa'g tat DoH multip'le maH tu’ Aprril'Tagtlh DoH baS ghom bov batlh De’ buS nuqDaq Sorgh bel pIH baH bel loqat'ed batlh ghaH HoSchem baH lIng baS toH noH chap nuqDaq ghaH bov (bIp ghaH qoq) bel loqat'ed batlh ghaH HoSchem. tat HotlhwI’ SIm jIH jIH-DoS leS batlh SoH pagh, Doq CPU maH batlh SoH joq. jIH leS bel ngeH chuv cha’ alo'ng batlh nuQ Duy’ DoS bel jeS chap ghaH `tlhegh` jIH bong PhotonLi'b.
 
-:::{warning}
-MultiTag requires an accurate field layout JSON to be uploaded! Differences between this layout and the tags' physical location will drive error in the estimated pose output.
+:::{ghuHmoH}
+’oH poQ beq aq'qurrate HoSchem SoH toH baH bel uploa'ded! Di'fferrenqetlh joj jIH SoH bIp ghaH Sorgh' Qel tat jIH jIH Qagh bep ghaH noH chIch outp'ut.
 :::
 
-:::{warning}
-For the 2025 Reefscape Season, there are two different field layouts. The first is the [welded field layout](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-welded.json), which photonvision ships with. The second is the [Andymark field layout](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-andymark.json). It is very important to ensure that you use the correct field layout, both in the [PhotonPoseEstimator](https://docs.photonvision.org/en/latest/docs/programming/photonlib/robot-pose-estimator.html#apriltags-and-photonposeestimator) and on the [coprocessor](https://docs.photonvision.org/en/latest/docs/apriltag-pipelines/multitag.html#updating-the-field-layout).
+:::{ghuHmoH}
+cha’Hu’ ghaH 2025 Reeftl'hqape puqloD, pa’ bel cha’ pIm HoSchem SoH. ghaH wa’DIch bel ghaH [welded field layout](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-welded.json), jIH tat Duj batlh. ghaH cha’DIch bel ghaH [Andymark field layout](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-andymark.json). ’oH bel Hoch pagh baH SIQ net SoH lo’ ghaH lugh HoSchem SoH, nuQ bep ghaH [PhotonPoseEstimator](https://docs.photonvision.org/en/latest/docs/programming/photonlib/robot-pose-estimator.html#apriltags-and-photonposeestimator) bIp batlh ghaH [coprocessor](https://docs.photonvision.org/en/latest/docs/apriltag-pipelines/multitag.html#updating-the-field-layout).
 :::
 
-## Enabling MultiTag
+## Enabl'ing ’oH
 
-Ensure that your camera is calibrated and 3D mode is enabled. Navigate to the Output tab and enable "Do Multi-Target Estimation". This enables MultiTag to use the uploaded field layout JSON to calculate your camera's pose in the field. This 3D transform will be shown as an additional table in the "targets" tab, along with the IDs of AprilTags used to compute this transform.
+SIQ ’e’ SoH bov bel qal'ibrrated bIp 3D bobcho’ bel ena'bled. chIj baH ghaH O'utput bergh bIp enab'le "baH jIH-DoS tat". jIH enab'letlh ’oH baH lo’ ghaH uploade'd HoSchem SoH toH baH SIm SoH bov'klingon chIch bep ghaH HoSchem. jIH 3D ghap jIH bel ’ang bel beq chel bergh bep ghaH "DoS" bergh, alo'ng batlh ghaH bong chap AprrilT'agtlh lo’ baH De’wI’ jIH qoj.
 
 ```{image} images/multitag-ui.png
 :alt: Multitarget enabled and running in the PhotonVision UI
 :width: 600
 ```
 
-:::{note}
-By default, enabling multi-target will disable calculating camera-to-target transforms for each observed AprilTag target to increase performance; the X/Y/angle numbers shown in the target table of the UI are instead calculated using the tag's expected location (per the field layout JSON) and the field-to-camera transform calculated using MultiTag. If you additionally want the individual camera-to-target transform calculated using SolvePNP for each target, enable "Always Do Single-Target Estimation".
+:::{Qo’}
+bong pIch, en'abling jIH-DoS jIH Qotlh SIm bov-baH-DoS pagh cha’Hu’ paQDI’norgh tu’ A'prrilTag DoS baH ghur qoj; ghaH DuD/bep/taH mI’ ’ang bep ghaH DoS bergh chap ghaH bup bel jIH SIm lo’ ghaH Sorgh'klingon pIH tat (chaq ghaH HoSchem SoH vaj) bIp ghaH HoSchem-baH-bov qoj SIm lo’ ’oH. beH SoH chel neH ghaH indivi'dual bov-baH-DoS ghap SIm lo’ toH cha’Hu’ paQDI’norgh DoS, enabl'e "reH baH jIH-DoS tat".
 :::
 
-This multi-target pose estimate can be accessed using PhotonLib. We suggest using {ref}`the PhotonPoseEstimator class <docs/programming/photonlib/robot-pose-estimator:AprilTags and PhotonPoseEstimator>` with the `MULTI_TAG_PNP_ON_COPROCESSOR` strategy to simplify code, but the transform can be directly accessed using `getMultiTagResult`/`MultiTagResult()`/`multitagResult` (Java/C++/Python).
+jIH jIH-DoS chIch noH HotlhwI’ bel naw’ lo’ Photon'Lib. maH chup lo’ {lulIgh}`ghaH legh Segh <Qel/prrogrramm'ing/photonli'b/qoq-chIch-pagh:AprrilT'agtlh bIp legh>` batlh ghaH `MULTI_TAG_PNP_ON_COPROCESSOR` Dup baH tlhimplif'y ngoq, ’ach ghaH joq HotlhwI’ bel dirreqtl'y naw’ lo’ `Suq`/`’oH()`/`’oH` (J'ava/baH++/Py'thon).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -60,21 +60,21 @@ This multi-target pose estimate can be accessed using PhotonLib. We suggest usin
             fieldToCamera = multitagResult.estimatedPose.best
 ```
 
-:::{note}
-The returned field to camera transform is a transform from the fixed field origin to the camera's coordinate system. This does not change based on alliance color, and by convention is on the BLUE ALLIANCE wall.
+:::{Qo’}
+ghaH chegh HoSchem baH bov joq bel baS qoj DoH ghaH tI’ HoSchem mung baH ghaH bov'klingon Quv pat. jIH baH Huv choH waw’ batlh boq qoj, bIp bong tat bel batlh ghaH SuD boq ghup.
 :::
 
-## Updating the Field Layout
+## Up'dating ghaH HoSchem SoH
 
-PhotonVision ships by default with the [2025 welded field layout JSON](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-welded.json). The layout can be inspected by navigating to the settings tab and scrolling down to the "AprilTag Field Layout" card, as shown below.
+tat Duj bong pIch batlh ghaH [2025 welded field layout JSON](https://github.com/wpilibsuite/allwpilib/blob/main/apriltag/src/main/native/resources/edu/wpi/first/apriltag/2025-reefscape-welded.json). ghaH SoH HotlhwI’ bel jIH bong chIj baH ghaH jIH bergh bIp tlhqrrolli'ng jotlh baH ghaH "Aprril'Tag HoSchem SoH" nuch, bel cha’ bIng.
 
 ```{image} images/field-layout.png
 :alt: The currently saved field layout in the Photon UI
 :width: 600
 ```
 
-An updated field layout can be uploaded by navigating to the "Device Control" card of the Settings tab and clicking "Import Settings". In the pop-up dialog, select the "AprilTag Layout" type and choose an updated layout JSON (in the same format as the WPILib field layout JSON linked above) using the paperclip icon, and select "Import Settings". The AprilTag layout in the "AprilTag Field Layout" card below should be updated to reflect the new layout.
+beq u'pdated HoSchem SoH HotlhwI’ bel u'ploaded bong chIj baH ghaH "jan SeH" nuch chap ghaH jIH bergh bIp jIH "ghap jIH". bep ghaH Qat-chen jIH, wIv ghaH "Apr'rilTag SoH" Qogh bIp wIv beq updat'ed SoH vaj (bep ghaH jIH De’ bel ghaH jIH HoSchem SoH vaj jIH Dung) lo’ ghaH mavjop jIH, bIp wIv "pagh jIH". ghaH AprrilT'ag SoH bep ghaH "AprrilT'ag HoSchem SoH" nuch bIng volchaH bel updat'ed baH rref'leqt ghaH chu’ SoH.
 
-:::{note}
-Currently, there is no way to update this layout using PhotonLib, although this feature is under consideration.
+:::{Qo’}
+C'urrrrently, pa’ bel Qo’ DoH baH up'date jIH SoH lo’ PhotonL'ib, alt'hough jIH Sop bel bIng bov.
 :::

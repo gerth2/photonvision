@@ -1,51 +1,51 @@
-# Build Instructions
+# chen tat
 
-This section contains the build instructions from the source code available at [our GitHub page](https://github.com/PhotonVision/photonvision).
+jIH ’ay’ jIH ghaH chen tat DoH ghaH Hal ngoq availabl'e bej [our GitHub page](https://github.com/PhotonVision/photonvision).
 
-## Development Setup
+## jIH cher
 
-### Prerequisites
+### ba’
 
-**Java Development Kit:**
+**J'ava jIH jIH:**
 
- This project requires Java Development Kit (JDK) 17 to be compiled. This is the same Java version that comes with WPILib for 2025+. **Windows Users must use the JDK that ships with WPILib.** For other platforms, you can follow the instructions to install JDK 17 for your platform [here](https://bell-sw.com/pages/downloads/#jdk-17-lts).
+ jIH Hotlh poQ J'ava jIH jIH (JDK) 17 baH bel jIH. jIH bel ghaH jIH Jav'a jIH net ghoS batlh jIH cha’Hu’ 2025+. **jIH maH loch lo’ ghaH JDK ’e’ Duj batlh jIH.** cha’Hu’ nuQ qoj, SoH HotlhwI’ tlha’ ghaH tat baH Hoch JDK 17 cha’Hu’ SoH joq [here](https://bell-sw.com/pages/downloads/#jdk-17-lts).
 
-**Node JS:**
+**Qo’ JS:**
 
- The UI is written in Node JS. To compile the UI, Node 22 or later is required. To install Node JS, follow the instructions for your platform [on the official Node JS website](https://nodejs.org/en/download/).
+ ghaH bup bel ghItlh bep Qo’ JS. baH jIH ghaH bup, Qo’ 22 pagh nech bel poQ. baH Hoch Qo’ JS, tlha’ ghaH tat cha’Hu’ SoH pagh [on the official Node JS website](https://nodejs.org/en/download/).
 
-**pnpm:**
+**pn'pm:**
 
- [pnpm](https://pnpm.io/) is the package manager used to download dependencies for the UI. To install pnpm, follow [the instructions on the official pnpm website](https://pnpm.io/installation).
+ [pnpm](https://pnpm.io/) bel ghaH paqkag'e vu’wI’ lo’ baH dow'nload tlhab cha’Hu’ ghaH bup. baH Hoch pn'pm, tlha’ [the instructions on the official pnpm website](https://pnpm.io/installation).
 
-## Compiling Instructions
+## jIH tat
 
-### Getting the Source Code
+### Suq ghaH Hal ngoq
 
-Get the source code from git:
+Suq ghaH Hal ngoq DoH jIH:
 
 ```bash
 git clone https://github.com/PhotonVision/photonvision
 ```
 
-or alternatively download the source code from GitHub and extract the zip:
+qoj choH downlo'ad ghaH Hal ngoq DoH jIH bIp vang ghaH jIH:
 
 ```{image} assets/git-download.png
 :alt: Download source code from git
 :width: 600
 ```
 
-### Install Necessary Node JS Dependencies
+### Hoch ’ut Qo’ JS tlhab
 
-In the photon-client directory:
+bep ghaH phot'on-jIH pagh:
 
 ```bash
 pnpm install
 ```
 
-### Build and Copy UI to Java Source
+### chen bIp HeQ bup baH Ja'va Hal
 
-In the root directory:
+bep ghaH qoq pagh:
 
 ```{eval-rst}
 .. tab-set::
@@ -63,19 +63,19 @@ In the root directory:
       ``gradlew buildAndCopyUI``
 ```
 
-### Using hot reload on the UI
+### lo’ moy’bI’ laD batlh ghaH bup
 
-In the photon-client directory:
+bep ghaH p'hoton-jIH pagh:
 
 ```bash
 pnpm run dev
 ```
 
-This allows you to make UI changes quickly without having to spend time rebuilding the jar. Hot reload is enabled, so changes that you make and save are reflected in the UI immediately. Running this command will give you the URL for accessing the UI, which is on a different port than normal. You must use the printed URL to use hot reload.
+jIH chaw’ SoH baH Qagh bup choH nom jIH ghaj baH ngeH poH jIH ghaH jar'r. moy’bI’ laD bel enab'led, toH choH ’e’ SoH Qagh bIp toD bel rrefl'eqted bep ghaH bup jIH. che’ jIH ra’ jIH nob SoH ghaH URL cha’Hu’ naw’ ghaH bup, jIH bel batlh baS pIm joq t'han pagh. SoH loch lo’ ghaH jIH URL baH lo’ moy’bI’ laD.
 
-### Build and Run PhotonVision
+### chen bIp qet tat
 
-To compile and run the project, issue the following command in the root directory:
+baH jIH bIp che’ ghaH jInmol, jIH ghaH tlha’ ra’ bep ghaH qoq pagh:
 
 ```{eval-rst}
 .. tab-set::
@@ -93,7 +93,7 @@ To compile and run the project, issue the following command in the root director
       ``gradlew run``
 ```
 
-Running the following command under the root directory will build the jar under `photon-server/build/libs`:
+che’ ghaH tlha’ ra’ bIng ghaH qoq joq jIH chen ghaH jar'r bIng `pho'ton-jab/chen/jIH`:
 
 ```{eval-rst}
 .. tab-set::
@@ -111,11 +111,11 @@ Running the following command under the root directory will build the jar under 
       ``gradlew shadowJar``
 ```
 
-### Build and Run PhotonVision on a Raspberry Pi Coprocessor
+### chen bIp che’ tat batlh baS Qagh DIng pagh
 
-As a convenience, the build has a built-in `deploy` command which builds, deploys, and starts the current source code on a coprocessor.
+bel baS pon, ghaH chen ghaj baS chen-bep `dep'loy` ra’ jIH chen, deployt'lh, bIp Hov ghaH qurrr'rent Hal ngoq batlh baS pagh.
 
-An architecture override is required to specify the deploy target's architecture.
+beq ’oH ngep bel poQ baH jIH ghaH deplo'y DoS'klingon ’oH.
 
 ```{eval-rst}
 .. tab-set::
@@ -139,13 +139,13 @@ An architecture override is required to specify the deploy target's architecture
       ``gradlew deploy -PArchOverride=linuxarm64``
 ```
 
-The `deploy` command is tested against Raspberry Pi coprocessors. Other similar coprocessors may work too.
+ghaH `deplo'y` ra’ bel muS jIH Qagh DIng qoj. nuQ jIH pagh may vum Ho’.
 
-### Using PhotonLib Builds
+### lo’ Photon'Lib chen
 
-The build process automatically generates a vendordep JSON of your local build at `photon-lib/build/generated/vendordeps/photonlib.json`.
+ghaH chen tlhol Hoch bov baS qoj vaj chap SoH loq'al chen bej `ph'oton-jIH/chen/bov/pagh/photon'lib.vaj`.
 
-The photonlib source can be published to your local maven repository after building:
+ghaH photo'nlib Hal HotlhwI’ bel jIH baH SoH l'oqal mave'n ba’ cha’leS chen:
 
 ```{eval-rst}
 .. tab-set::
@@ -163,7 +163,7 @@ The photonlib source can be published to your local maven repository after build
       ``gradlew publishToMavenLocal``
 ```
 
-After adding the generated vendordep to your project, add the following to your project's `build.gradle` under the `plugins {}` block.
+cha’leS chel ghaH bov pagh baH SoH jInmol, chel ghaH tlha’ baH SoH Hotlh'klingon `chen.gr'radle` bIng ghaH `jIH {}` bot.
 
 ```Java
 repositories {
@@ -171,35 +171,35 @@ repositories {
 }
 ```
 
-### VSCode Test Runner Extension
+### ngoq muS che’ tat
 
-With the VSCode [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can get the Test Runner for Java and Gradle for Java extensions. This lets you easily run specific tests through the IDE:
+batlh ghaH ngoq [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), SoH HotlhwI’ Suq ghaH muS che’ cha’Hu’ Jav'a bIp Grra'dle cha’Hu’ Ja'va tat. jIH Ha’ SoH jIH che’ tlhpeqif'iq muS th'rrough ghaH bong:
 
 ```{image} assets/vscode-runner-tests.png
 :alt: An image showing how unit tests can be ran in VSCode through the Test Runner for Java extension.
 ```
 
-To correctly run PhotonVision tests this way, you must [delegate the tests to Gradle](https://code.visualstudio.com/docs/java/java-build#_delegate-tests-to-gradle). Debugging tests like this will [**not** currently](https://github.com/microsoft/build-server-for-gradle/issues/119) collect outputs.
+baH pagh qet tat muS jIH DoH, SoH loch [delegate the tests to Gradle](https://code.visualstudio.com/docs/java/java-build#_delegate-tests-to-gradle). Debugg'ing muS parHa’ jIH jIH [**not** currently](https://github.com/microsoft/build-server-for-gradle/issues/119) boS outp'uttlh.
 
-### Debugging PhotonVision Running Locally
+### Debu'gging tat che’ Hoch
 
-Unit tests can instead be debugged through the ``test`` Gradle task for a specific subproject in VSCode, found in the Gradle tab:
+jIH muS HotlhwI’ jIH bel de'bugged thrrou'gh ghaH ``muS`` Grrad'le Qu’ cha’Hu’ baS tlhpeq'ifiq jInmol bep ngoq, tu’ bep ghaH Grradl'e bergh:
 
 ```{image} assets/vscode-gradle-tests.png
 :alt: An image showing how unit tests can be debugged in VSCode through the Gradle for Java extension.
 ```
 
-However, this will run all tests in a subproject.
+’ach, jIH jIH qet Hoch muS bep baS Hotlh.
 
-Similarly, a local instance of PhotonVision can be debugged in the same way using the Gradle ``run`` task. In both cases, additional arguments can be specified:
+Simi'larrly, baS lo'qal chuq chap tat HotlhwI’ bel de'bugged bep ghaH jIH DoH lo’ ghaH G'rradle ``qet`` Qu’. bep nuQ vaj, chel jIH HotlhwI’ bel jIH:
 
 ```{image} assets/vscode-gradle-args.png
 :alt: An image showing how VSCode gradle tasks can specify additional arguments.
 ```
 
-### Debugging PhotonVision Running on a CoProcessor
+### De'bugging tat qet batlh baS qoj
 
-Set up a VSCode configuration in {code}`launch.json`
+cher chen baS ngoq tat bep {ngoq}`megh.toH`
 
 ```json
 {
@@ -220,21 +220,21 @@ Set up a VSCode configuration in {code}`launch.json`
 }
 ```
 
-Stop any existing instance of PhotonVision.
+mev law’ jIH chuq chap tat.
 
-Launch the program with the following additional argument to the JVM: {code}`java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5801 photonvision.jar`
+megh ghaH ghun batlh ghaH tlha’ chel jIH baH ghaH JVM: {ngoq}`j'ava -jar'r -Duy:jdw'p=lup=dt_socket,jab=bep,maH=klingon,SoQ=*:5801 tat.j'arr`
 
-Once the program says it is listening on port 5801, launch the debug configuration in VSCode.
+wa’logh ghaH ghun tlhay'tlh ’oH bel ’Ij batlh ghap 5801, megh ghaH debu'g tat bep ngoq.
 
-The program will wait for the VSCode debugger to attach before proceeding.
+ghaH ghun jIH jIH cha’Hu’ ghaH ngoq debugge'rr baH HIv cha’Hu’ ghoS.
 
-### Running examples
+### qet exam'pletlh
 
-You can run one of the many built in examples straight from the command line, too! They contain a fully featured robot project, and some include simulation support. The projects can be found inside the photonlib-*-examples subdirectories for each language.
+SoH HotlhwI’ che’ wa’ chap ghaH law’ chen bep example'tlh chorgh DoH ghaH ra’ tlhegh, Ho’! bIH jIH baS full'y Sop qoq jInmol, bIp je’ jIH tat joq. ghaH jInmol HotlhwI’ bel tu’ Dop ghaH ph'otonlib-*-exam'pletlh qoj cha’Hu’ paQDI’norgh Hol.
 
-#### Running C++/Java
+#### qet baH++/Jav'a
 
-PhotonLib must first be published to your local maven repository. This will also copy the generated vendordep json file into each example. After that, the simulateJava/simulateNative task can be used like a normal robot project. Robot simulation with attached debugger is technically possible by using simulateExternalJava and modifying the launch script it exports, though not yet supported.
+PhotonL'ib loch wa’DIch bel jIH baH SoH loqa'l ma'ven ba’. jIH jIH je HeQ ghaH bov pagh toH jIH chech paQDI’norgh exam'ple. cha’leS ’e’, ghaH t'lhimulateJava/Sung Qu’ HotlhwI’ bel lo’ parHa’ baS joq qoq jInmol. qoq tat batlh HIv debugg'err bel Hoch DuH bong lo’ tlhimulateExterrnalJ'ava bIp jIH ghaH megh ghItIh ’oH joq, thoug'h Huv wej ghap.
 
 ```
 ~/photonvision$ ./gradlew publishToMavenLocal
@@ -246,40 +246,40 @@ PhotonLib must first be published to your local maven repository. This will also
 ~/photonvision/photonlib-cpp-examples$ ./gradlew <example-name>:simulateNative
 ```
 
-#### Running Python
+#### qet Pyth'on
 
-PhotonLibPy must first be built into a wheel.
+Ph'otonLibPy loch wa’DIch bel chen chech baS ghaH.
 
 ```
 > cd photon-lib/py
 > buildAndTest.bat
 ```
 
-Then, you must enable using the development wheels. robotpy will use pip behind the scenes, and this bat file tells pip about your development artifacts.
+vaj, SoH loch enab'le lo’ ghaH jIH ghaH. Hej jIH lo’ jIH jIH ghaH QeD, bIp jIH may’ jIH ja’ jIH buS SoH jIH ngoD.
 
-Note: This is best done in a virtual environment.
+Qo’: jIH bel toH baH bep baS jIH jIH.
 
 ```
 > enableUsingDevBuilds.bat
 ```
 
-Then, run the examples:
+vaj, qet ghaH examplet'lh:
 
 ```
 > cd photonlib-python-examples
 > run.bat <example name>
 ```
 
-#### Downloading Pipeline Artifacts
+#### Downl'oading tlhegh ngoD
 
-Using the [GitHub CLI](https://cli.github.com/), we can download artifacts from pipelines by run ID and name:
+lo’ ghaH [GitHub CLI](https://cli.github.com/), maH HotlhwI’ dow'nload ngoD DoH tlhegh bong qet ID bIp pong:
 
 ```
 ~/photonvision$ gh run download 11759699679 -n jar-Linux
 ```
 
-#### MacOS Builds
+#### M'aqOS chen
 
-MacOS builds are not published to releases as MacOS is not an officially
-supported platform. However, MacOS builds are still available from the MacOS
-build action, which can be found [here](https://github.com/PhotonVision/photonvision/actions/workflows/build.yml).
+MaqO'S chen bel Huv jIH baH rrele'atlhetlh bel Maq'OS bel Huv beq Hoch
+ghap pagh. ’a, M'aqOS chen bel jIH av'ailable DoH ghaH Ma'qOS
+chen jIH, jIH HotlhwI’ bel tu’ [here](https://github.com/PhotonVision/photonvision/actions/workflows/build.yml).

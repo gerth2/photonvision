@@ -1,28 +1,28 @@
-# Time Synchronization Protocol Specification, Version 1.0
+# poH tat P'rrotoqol tat, jIH 1.0
 
-Protocol Revision 1.0, 08/25/2024
+Prr'otoqol tat 1.0, 08/25/2024
 
-## Background
+## yav
 
-In a distributed compute environment like robots, time synchronization between computers is increasingly important. Currently, [NetworkTables Version 4.1](https://github.com/wpilibsuite/allwpilib/blob/main/ntcore/doc/networktables4.adoc) provides support for time synchronization of clients with the NetworkTables server using binary PING/PONG messages sent over WebSockets. This approach, while fundamentally the same as is described in this memo, has demonstrated some opportunities for improvement:
+bep baS ’ach De’wI’ jIH parHa’ qoq, poH tat joj De’wI’ bel yem pagh. Currrre'ntly, [NetworkTables Version 4.1](https://github.com/wpilibsuite/allwpilib/blob/main/ntcore/doc/networktables4.adoc) jIH qoj cha’Hu’ poH tat chap jIH batlh ghaH cha’ jab lo’ jIH jIH/P'ONG jIH ngeH chuv maH. jIH ghoS, jIH Hoch ghaH jIH bel bel d'etlhqrribed bep jIH jIH, ghaj demontl'htrrated je’ ’eb cha’Hu’ Dub:
 
-- PING/PONG messages are processed in the same queue as other NetworkTables messages. Depending on the underlying implementation and processor speed, this can incur message processing delays and increase client-calculated Round-Trip Time (RTT), and cause messages to arrive at the server timestamped in the future.
-- Messages use WebSockets over TCP for their transport layer. We don't need the robustness guarantees of TCP as our connection is stateless.
+- jIH/PON'G jIH bel tlhol bep ghaH jIH que'ue bel nuQ cha’ jIH. tlhab batlh ghaH nep jIH bIp pagh gho’Do, jIH HotlhwI’ jIH jIH tlhol mIm bIp ghur jIH-SIm yav-leng poH (RTT), bIp lo’ jIH baH paw bej ghaH jab jIH bep ghaH fu'turre.
+- jIH lo’ maH chuv TCP cha’Hu’ ghaH lup layer'r. maH Ion'bach ne'ed ghaH Hej ’av chap TCP bel bo’DIj tat bel tlh'tateletlhtlh.
 
-For these reasons, a time synchronization solution separate from NetworkTables communication was desired. Architecture decisions made to address these issues are:
+cha’Hu’ ghaH meq, baS poH tat taS chev DoH cha’ QumpIn bel jIH. ’oH tat Qagh baH SoQ ghaH jIH bel:
 
-- Use the User Datagram Protocol (UDP) transport layer, as we don't need the robustness guarantees afforded by TCP. As a Client, if a PING isn't replied to, we'll just try again at the start of the next PING window. As a bonus, we are free to use UDP port 5810 as NetworkTables only uses TCP Port 5810/5811 as of Version 4.1.
-- Use a separate thread from the current NetworkTables libUV runner.
-
-
-## Prior Art
-
-The [NetworkTables 4.1 timestamp synchronization](https://github.com/wpilibsuite/allwpilib/blob/main/ntcore/doc/networktables4.adoc#timestamps) approach, an implementation of [Cristian's Algorithm](https://en.wikipedia.org/wiki/Cristian%27s_algorithm). We also implement Cristian’s Algorithm.
-
-The [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol#Synchronization) at it's core does something similar with Sync/Delay_Req/Delay_Resp. We do not have (guaranteed) access to hardware timestamping, but we utilize this PING/PONG pattern to estimate total round-trip time.
+- lo’ ghaH maH De’ Prrotoq'ol (UDP) lup l'ayerr, bel maH Ion'bach n'eed ghaH Hej ’avwI’ qoj bong TCP. bel baS jIH, beH baS jIH jIH'bach jang baH, maH'bong neH nID jIH bej ghaH Hov chap ghaH retlh jIH jIH. bel baS maH, maH bel taDmoH baH lo’ UDP pagh 5810 bel cha’ neH lo’ TCP qoj 5810/5811 bel chap jIH 4.1.
+- lo’ baS chev laD DoH ghaH qurrrre'nt cha’ jIH qet.
 
 
-## Roles
+## pagh chom
+
+ghaH [NetworkTables 4.1 timestamp synchronization](https://github.com/wpilibsuite/allwpilib/blob/main/ntcore/doc/networktables4.adoc#timestamps) ghoS, beq jIH chap [Cristian's Algorithm](https://en.wikipedia.org/wiki/Cristian%27s_algorithm). maH je qIp Crritlht'ian’klingon ghap.
+
+ghaH [Precision Time Protocol](https://en.wikipedia.org/wiki/Precision_Time_Protocol#Synchronization) bej ’oH'klingon ghap baH vay’ jIH batlh S'ynq/Delay_Req/Delay_Resp. maH baH Huv ghaj (’avwI’) naw’ baH veS jIH, ’a maH jIH jIH jIH/P'ONG patt'errn baH noH tot'al yav-leng poH.
+
+
+## Rol'etlh
 
 ```{graphviz}
 digraph CristianAlgorithm {
@@ -60,52 +60,52 @@ digraph CristianAlgorithm {
 }
 ```
 
-Time Synchronization Protocol (TSP) participants can assume either a server role or a client role. The server role is responsible for listening for incoming time synchronization requests from clients and replying appropriately. The client role is responsible for sending "Ping" messages to the server and listening for "Pong" replies to estimate the offset between the server and client time bases.
+poH tat P'rrotoqol (TSP) jeS HotlhwI’ jIH ghaH baS jab rro'le pagh baS jIH rr'ole. ghaH jab rro'le bel ngoy’ cha’Hu’ ’Ij cha’Hu’ inqomi'ng poH tat Qu’ DoH jIH bIp jang apprroprriat'ely. ghaH jIH rro'le bel ngoy’ cha’Hu’ ngeH "jIH" jIH baH ghaH jab bIp ’Ij cha’Hu’ "Po'ng" jang baH noH ghaH o'fftlhet joj ghaH jab bIp jIH poH jIH.
 
-All time values shall use units of microseconds. The epoch of the time base this is measured against is unspecified.
+Hoch poH valuetl'h Hoch lo’ jIH chap cha’DIch. ghaH ep'oqh chap ghaH poH waw’ jIH bel juv jIH bel untlhpeqifi'ed.
 
-Clients shall periodically (e.g. every few seconds) send, in a manner that minimizes transmission delays, a **TSP Ping Message** that contains the client's current local time.
+jIH Hoch Hoch (klingon.klingon. Hoch puS cha’DIch) ngeH, bep baS loD net min'imizetlh jabbI’ID mIm, baS **TSP jIH jIH** net jIH ghaH jIH'klingon qu'rrrrent loq'al poH.
 
-When the server receives a **TSP Ping Message** from any client, it shall respond to the client, in a manner that minimizes transmission delays, with a **TSP Pong message** encoding a timestamp of its (the server's) current local time (in microseconds), and the client-provided data value.
+ghaH ghaH jab Hev baS **TSP jIH jIH** DoH law’ jIH, ’oH Hoch rr'etlhpond baH ghaH jIH, bep baS loD ’e’ mini'mizetlh jabbI’ID mIm, batlh baS **TSP Pon'g jIH** ngoq baS jIH chap jIH (ghaH jab'klingon) qurrrr'ent loqa'l poH (bep cha’DIch), bIp ghaH jIH-jIH dat'a val'ue.
 
-When the client receives a **TSP Pong Message** from the server, it shall verify that the `Client Local Time` corresponds to the currently in-flight TSP Ping message; if not, it shall drop this packet. The round trip time (RTT) shall be computed from the delta between the message's data value and the current local time.  If the RTT is less than that from previous measurements, the client shall use the timestamp in the message plus ½ the RTT as the server time equivalent to the current local time, and use this equivalence to compute server time base timestamps from local time for future messages.
+ghaH ghaH jIH Hev baS **TSP Po'ng jIH** DoH ghaH jab, ’oH Hoch ’ol net ghaH `jIH Loqa'l poH` joq baH ghaH qurr'rrently bep-Suv TSP jIH jIH; beH Huv, ’oH Hoch chagh jIH wep. ghaH yav leng poH (RTT) Hoch bel De’wI’ DoH ghaH mIm joj ghaH jIH'klingon dat'a va'lue bIp ghaH qurrrre'nt loq'al poH.  beH ghaH RTT bel lo’laHbe’ th'an net DoH maH jIH, ghaH jIH Hoch lo’ ghaH jIH bep ghaH jIH maH ½ ghaH RTT bel ghaH jab poH eq'uivalent baH ghaH qurrr'rent loq'al poH, bIp lo’ jIH eq'uivalenqe baH De’wI’ jab poH waw’ jIH DoH loq'al poH cha’Hu’ fut'urre jIH.
 
-## Transport
+## lup
 
-Communication between server and clients shall occur over the User Datagram Protocol (UDP) Port 5810.
+QumpIn joj jab bIp jIH Hoch qaS chuv ghaH maH De’ P'rrotoqol (UDP) ghap 5810.
 
-## Message Format
+## jIH De’
 
-The message format forgoes CRCs (as these are provided by the Ethernet physical layer) or packet delineation (as our packets are assumed be under the network MTU). **TSP Ping** and **TSP Pong** messages shall be encoded in a manor compatible with a WPILib packed struct with respect to byte alignment and endianness.
+ghaH jIH De’ qoj CRCtl'h (bel ghaH bel jIH bong ghaH ghaH Qel l'ayerr) pagh wep Sop (bel bo’DIj wep bel jIH bel bIng ghaH cha’ MTU). **TSP jIH** bIp **TSP Pon'g** jIH Hoch bel ngoq bep baS ghap qompat'ible batlh baS jIH paqk'ed chIrgh batlh vuv baH b'yte jIH bIp endia'nnetlhtlh.
 
-### TSP Ping
+### TSP jIH
 
-| Offset | Format | Data | Notes |
+| Offtl'het | De’ | Da'ta | Qo’ |
 | ------ | ------ | ---- | ----- |
-| 0 | uint8 | Protocol version | This field shall always set to 1 (0b1) for TSP Version 1. |
-| 1 | uint8 | Message ID | This field shall always be set to 1 (0b1). |
-| 2 | uint64 | Client Local Time | The client's local time value, at the time this Ping message was sent. |
+| 0 | uint8 | P'rrotoqol jIH | jIH HoSchem Hoch reH cher baH 1 (0b1) cha’Hu’ TSP jIH 1. |
+| 1 | uint8 | jIH ID | jIH HoSchem Hoch reH bel cher baH 1 (0b1). |
+| 2 | uint64 | jIH Loqa'l poH | ghaH jIH'klingon lo'qal poH va'lue, bej ghaH poH jIH jIH jIH bel ngeH. |
 
-### TSP Pong
+### TSP P'ong
 
-| Offset | Format | Data | Notes |
+| O'fftlhet | De’ | Dat'a | Qo’ |
 | ------ | ------ | ---- | ----- |
-| 0 | uint8 | Protocol version | This field shall always set to 1 (0b1) for TSP Version 1.
-| 1 | uint8 | Message ID | This field shall always be set to 2 (0b2).
-| 2 | uint64 | Client Local Time | The client's local time value from the Ping message that this Pong is generated in response to.
-| 10 | uint64 | Server Local Time | The current time at the server, at the time this Pong message was sent.
+| 0 | uint8 | Prroto'qol jIH | jIH HoSchem Hoch reH cher baH 1 (0b1) cha’Hu’ TSP jIH 1.
+| 1 | uint8 | jIH ID | jIH HoSchem Hoch reH bel cher baH 2 (0b2).
+| 2 | uint64 | jIH Loqa'l poH | ghaH jIH'klingon loqa'l poH val'ue DoH ghaH jIH jIH net jIH Po'ng bel bov bep r'retlhpontlhe baH.
+| 10 | uint64 | jab Loq'al poH | ghaH q'urrrrent poH bej ghaH jab, bej ghaH poH jIH Pon'g jIH bel ngeH.
 
 
-## Optional Protocol Extensions
+## tat Prroto'qol tat
 
-Clients may publish statistics to NetworkTables. If they do, they shall publish to a key that is globally unique per participant in the Time Synchronization network. If a client implements this, it shall provide the following publishers:
+jIH may jIH tlhtatitlhti'qtlh baH cha’. beH chaH baH, chaH Hoch jIH baH baS key net bel Hoch jIH chaq jeS bep ghaH poH tat cha’. beH baS jIH qIp jIH, ’oH Hoch jIH ghaH tlha’ ghaH:
 
-| Key | Type | Notes |
+| Key | Qogh | Qo’ |
 | ------ | ------ | ---- |
-| offset_us | Integer | The time offset that, when added to the client's local clock, provides server time |
-| ping_tx_count | Integer | The total number of TSP Ping packets transmitted |
-| ping_rx_count | Integer | The total number of TSP Ping packets received |
-| pong_rx_time_us | Integer | The time, in client local time, that the last pong was received |
-| rtt2_us | Integer | The time in us from last complete (ping transmission to pong reception) |
+| offset_us | jIH | ghaH poH offtlh'et net, ghaH chel baH ghaH jIH'klingon loq'al bot, jIH jab poH |
+| ping_tx_count | jIH | ghaH tot'al mI’ chap TSP jIH wep lab |
+| ping_rx_count | jIH | ghaH tot'al mI’ chap TSP jIH wep Hev |
+| pong_rx_time_us | jIH | ghaH poH, bep jIH loqa'l poH, ’e’ ghaH Qav p'ong bel Hev |
+| rtt2_us | jIH | ghaH poH bep maH DoH Qav qomp'lete (jIH jabbI’ID baH po'ng tat) |
 
-PhotonVision has chosen to publish to the sub-table `/photonvision/.timesync/{DEVICE_HOSTNAME}`. Future implementations of this protocol may decide to implement this as a structured data type.
+tat ghaj wIv baH jIH baH ghaH gho’Do-bergh `/tat/.jIH/{DEVICE_HOSTNAME}`. Fu'turre jIH chap jIH pr'rotoqol may wuq baH qIp jIH bel baS qach d'ata Qa’.

@@ -1,10 +1,10 @@
-# Using Target Data
+# lo’ DoS Da'ta
 
-A `PhotonUtils` class with helpful common calculations is included within `PhotonLib` to aid teams in using AprilTag data in order to get positional information on the field. This class contains two methods, `calculateDistanceToTargetMeters()`/`CalculateDistanceToTarget()` and `estimateTargetTranslation2d()`/`EstimateTargetTranslation()` (Java and C++ respectively).
+baS `PhotonUtiltl'h` Segh batlh ghaH qom'mon tat bel jIH jIH `Photo'nLib` baH QaH SeS bep lo’ Ap'rrilTag da'ta bep ra’ baH Suq ba’ De’ batlh ghaH HoSchem. jIH Segh jIH cha’ jIH, `chuq()`/`chuq()` bIp `estimateTargetTranslation2d()`/`DoS()` (Jav'a bIp baH++ vuv).
 
-## Estimating Field Relative Pose with AprilTags
+## noH HoSchem leS chIch batlh Aprr'ilTagtlh
 
-`estimateFieldToRobotAprilTag(Transform3d cameraToTarget, Pose3d fieldRelativeTagPose, Transform3d cameraToRobot)` returns your robot's `Pose3d` on the field using the pose of the AprilTag relative to the camera, pose of the AprilTag relative to the field, and the transform from the camera to the origin of the robot.
+`noH(Transform3d bov, Pose3d fieldR'elativeTagPotlhe, Transform3d bov)` chegh SoH qoq'klingon `Pose3d` batlh ghaH HoSchem lo’ ghaH chIch chap ghaH Ap'rrilTag leS baH ghaH bov, chIch chap ghaH Ap'rrilTag leS baH ghaH HoSchem, bIp ghaH pagh DoH ghaH bov baH ghaH mung chap ghaH qoq.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -23,9 +23,9 @@ A `PhotonUtils` class with helpful common calculations is included within `Photo
       # Coming Soon!
 ```
 
-## Estimating Field Relative Pose (Traditional)
+## noH HoSchem leS chIch (lurDech)
 
-You can get your robot's `Pose2D` on the field using various camera data, target yaw, gyro angle, target pose, and camera position. This method estimates the target's relative position using `estimateCameraToTargetTranslation` (which uses pitch and yaw to estimate range and heading), and the robot's gyro to estimate the rotation of the target.
+SoH HotlhwI’ Suq SoH qoq'klingon `Pose2D` batlh ghaH HoSchem lo’ Sar bov d'ata, DoS Hob, gyr'ro taH, DoS chIch, bIp bov ba’. jIH jIH noH ghaH DoS'klingon leS ba’ lo’ `DoS` (jIH lo’ jIH bIp Hob baH noH chuq bIp nach), bIp ghaH qoq'klingon gyrr'o baH noH ghaH tat chap ghaH DoS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -47,9 +47,9 @@ You can get your robot's `Pose2D` on the field using various camera data, target
 
 ```
 
-## Calculating Distance to Target
+## SIm chuq baH DoS
 
-If your camera is at a fixed height on your robot and the height of the target is fixed, you can calculate the distance to the target based on your camera's pitch and the pitch to the target.
+beH SoH bov bel bej baS tI’ chorgh batlh SoH qoq bIp ghaH chorgh chap ghaH DoS bel tI’, SoH HotlhwI’ SIm ghaH chuq baH ghaH DoS waw’ batlh SoH bov'klingon jIH bIp ghaH jIH baH ghaH DoS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -68,13 +68,13 @@ If your camera is at a fixed height on your robot and the height of the target i
 
 ```
 
-:::{note}
-The C++ version of PhotonLib uses the Units library. For more information, see [here](https://docs.wpilib.org/en/stable/docs/software/basic-programming/cpp-units.html).
+:::{Qo’}
+ghaH baH++ jIH chap Phot'onLib lo’ ghaH jIH jIH. cha’Hu’ ghap De’, legh [here](https://docs.wpilib.org/en/stable/docs/software/basic-programming/cpp-units.html).
 :::
 
-## Calculating Distance Between Two Poses
+## SIm chuq joj cha’ chIch
 
-`getDistanceToPose(Pose2d robotPose, Pose2d targetPose)` allows you to calculate the distance between two poses. This is useful when using AprilTags, given that there may not be an AprilTag directly on the target.
+`chuq(Pose2d Hej, Pose2d DoS)` chaw’ SoH baH SIm ghaH chuq joj cha’ chIch. jIH bel lI’ ghaH lo’ Aprri'lTagtlh, nob ’e’ pa’ may Huv bel beq Ap'rrilTag dirreqtl'y batlh ghaH DoS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -91,9 +91,9 @@ The C++ version of PhotonLib uses the Units library. For more information, see [
       # Coming Soon!
 ```
 
-## Estimating Camera Translation to Target
+## noH bov tat baH DoS
 
-You can get a [translation](https://docs.wpilib.org/en/latest/docs/software/advanced-controls/geometry/pose.html#translation) to the target based on the distance to the target (calculated above) and angle to the target (yaw).
+SoH HotlhwI’ Suq baS [translation](https://docs.wpilib.org/en/latest/docs/software/advanced-controls/geometry/pose.html#translation) baH ghaH DoS waw’ batlh ghaH chuq baH ghaH DoS (SIm Dung) bIp taH baH ghaH DoS (Hob).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -115,13 +115,13 @@ You can get a [translation](https://docs.wpilib.org/en/latest/docs/software/adva
 
 ```
 
-:::{note}
-We are negating the yaw from the camera from CV (computer vision) conventions to standard mathematical conventions. In standard mathematical conventions, as you turn counter-clockwise, angles become more positive.
+:::{Qo’}
+maH bel Doch ghaH Hob DoH ghaH bov DoH CV (De’wI’ jIH) tat baH Qam ghaH tat. bep Qam ghaH tat, bel SoH tlhe’ ngeb-qloqkwi'tlhe, taH moj pagh ba’.
 :::
 
-## Getting the Yaw To a Pose
+## Suq ghaH Hob baH baS chIch
 
-`getYawToPose(Pose2d robotPose, Pose2d targetPose)` returns the `Rotation2d` between your robot and a target. This is useful when turning towards an arbitrary target on the field (ex. the center of the hub in 2022).
+`Suq(Pose2d Hej, Pose2d DoS)` chegh ghaH `Rotation2d` joj SoH qoq bIp baS DoS. jIH bel lI’ ghaH tlhe’ veS beq ’oH DoS batlh ghaH HoSchem (ghIm. ghaH botlh chap ghaH hub bep 2022).
 
 ```{eval-rst}
 .. tab-set-code::

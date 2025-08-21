@@ -1,35 +1,35 @@
-# Filesystem Directory
+# pat pagh
 
-PhotonVision stores and loads settings in the {code}`photonvision_config` directory, in the same folder as the PhotonVision JAR is stored. On supported hardware, this is in the {code}`/opt/photonvision` directory. The contents of this directory can be exported as a zip archive from the settings page of the interface, under "export settings". This export will contain everything detailed below. These settings can later be uploaded using "import settings", to restore configurations from previous backups.
+tat ghap bIp loadt'lh jIH bep ghaH {ngoq}`photonvision_config` joq, bep ghaH jIH choljaH bel ghaH tat JAR bel qoj. batlh qoj veS, jIH bel bep ghaH {ngoq}`/DuH/tat` qoj. ghaH wa’maH chap jIH pagh HotlhwI’ bel joq bel baS jIH jIH DoH ghaH jIH pa'ge chap ghaH qab, bIng "qoj jIH". jIH ghap jIH jIH Hoch jIH bIng. ghaH jIH HotlhwI’ nech bel u'ploaded lo’ "pagh jIH", baH joq tat DoH maH baqkupt'lh.
 
-## Directory Structure
+## ghap qach
 
-The directory structure is outlined below.
+ghaH qoj qach bel jIH bIng.
 
 ```{image} images/configDir.png
 :alt: Config directory structure
 :width: 600
 ```
 
-- calibImgs
-  - Images saved from the last run of the calibration routine
-- cameras
-  - Contains a subfolder for each camera. This folder contains the following files:
-    - pipelines folder, which contains a {code}`json` file for each user-created pipeline.
-    - config.json, which contains all camera-specific configuration. This includes FOV, pitch, current pipeline index, and calibration data
-    - drivermode.json, which contains settings for the driver mode pipeline
-- imgSaves
-  - Contains images saved with the input/output save commands.
-- logs
-  - Contains timestamped logs in the format {code}`photonvision-YYYY-MM-D_HH-MM-SS.log`. These timestamps will likely be significantly behind the real time. Coprocessors on the robot have no way to get current time.
-- hardwareSettings.json
-  - Contains hardware settings. Currently this includes only the LED brightness.
-- networkSettings.json
-  - Contains network settings, including team number (or remote network tables address), static/dynamic settings, and hostname.
+- qalibImgtl'h
+  - jIH toD DoH ghaH Qav qet chap ghaH tat jIH
+- bov
+  - jIH baS qup cha’Hu’ paQDI’norgh bov. jIH choljaH jIH ghaH tlha’ jIH:
+    - tlhegh choljaH, jIH jIH baS {ngoq}`vaj` jIH cha’Hu’ paQDI’norgh maH-Sop tlhegh.
+    - jIH.toH, jIH jIH Hoch bov-tlhpeqif'iq tat. jIH jIH FOV, jIH, qurrrren't tlhegh jIH, bIp tat d'ata
+    - bIQtIq.toH, jIH jIH jIH cha’Hu’ ghaH bIQtIq bobcho’ tlhegh
+- jIH
+  - jIH jIH pol batlh ghaH jIH/out'put pol ra’.
+- QonoS
+  - jIH jIH QonoS bep ghaH De’ {ngoq}`tat-Y'YYY-chup-D_HH-chup-baH.QonoS`. ghaH jIH jIH jIH bel t'lhignifiqantly jIH ghaH tlhoj poH. qoj batlh ghaH qoq ghaj Qo’ DoH baH Suq qurrrren't poH.
+- veS.vaj
+  - jIH veS jIH. Currrrent'ly jIH jIH neH ghaH Dev wov.
+- cha’.toH
+  - jIH cha’ jIH, jIH SeS mI’ (qoj Hop cha’ bergh SoQ), jIH/jIH jIH, bIp jIH.
 
-## Importing and Exporting Settings
+## qoj bIp joq jIH
 
-The entire settings directory can be exported as a ZIP archive from the settings page.
+ghaH jIH jIH pagh HotlhwI’ bel qoj bel baS jIH jIH DoH ghaH jIH p'age.
 
 ```{raw} html
 <video width="85%" controls>
@@ -38,16 +38,16 @@ The entire settings directory can be exported as a ZIP archive from the settings
 </video>
 ```
 
-A variety of files can be imported back into PhotonVision:
+baS Sar chap jIH HotlhwI’ bel ghap chap chech tat:
 
-- ZIP Archive ({code}`.zip`)
-  - Useful for restoring a full configuration from a different PhotonVision instance.
-- Single Config File
-  - Currently-supported Files
-    - {code}`hardwareConfig.json`
-    - {code}`hardwareSettings.json`
-    - {code}`networkSettings.json`
-  - Useful for simple hardware or network configuration tasks without overwriting all settings.
+- jIH jIH ({ngoq}`.jIH`)
+  - lI’ cha’Hu’ joq baS fu'll tat DoH baS pIm tat chuq.
+- jIH jIH jIH
+  - Cu'rrrrently-ghap jIH
+    - {ngoq}`veS.toH`
+    - {ngoq}`veS.toH`
+    - {ngoq}`cha’.toH`
+  - lI’ cha’Hu’ jIH veS joq cha’ tat Qu’ jIH ghItlh Hoch jIH.
 
 
 

@@ -1,25 +1,25 @@
-# Driver Mode
+# bIQtIq bobcho’
 
-Driver Mode is a type of pipeline that doesn't run any vision processing, intended for viewing from a human.
+bIQtIq bobcho’ bel baS Qogh chap tlhegh ’e’ cha'bach che’ law’ jIH tlhol, Hech cha’Hu’ jIH DoH baS Human.
 
-## Enabling Driver Mode
+## Ena'bling bIQtIq bobcho’
 
-To enable Driver Mode, toggle the switch at the top of the Dashboard page for a selected camera.
+baH e'nable bIQtIq bobcho’, to'ggle ghaH leQ bej ghaH net chap ghaH tIj pa'ge cha’Hu’ baS wIv bov.
 
 ```{image} images/driver-mode-dashboard.png
 :align: center
 :alt: Driver Mode Toggle in the Dashboard Page
 ```
 
-Alternatively, visit the camera settings page and toggle the "Driver Mode" switch for a selected camera.
+choH, Such ghaH bov jIH pag'e bIp to'ggle ghaH "bIQtIq bobcho’" leQ cha’Hu’ baS wIv bov.
 
 ```{image} images/driver-mode-camera-settings.png
 :align: center
 :alt: Driver Mode Toggle in the Camera Settings Page
 ```
 
-## Hiding the Crosshair
-When Driver Mode is enabled, a green crosshair will be shown at the center of the camera stream. If you do not want to show the green crosshair at the center of the camera stream, toggle the "Crosshair" switch under the Input tab, as shown in the image below.
+## jIH ghaH quS
+ghaH bIQtIq bobcho’ bel e'nabled, baS SuD quS jIH bel ’ang bej ghaH botlh chap ghaH bov SeS. beH SoH baH Huv neH baH cha’ ghaH SuD quS bej ghaH botlh chap ghaH bov SeS, togg'le ghaH "quS" leQ bIng ghaH jIH bergh, bel ’ang bep ghaH jIH bIng.
 
 ```{image} images/crosshair-switch.png
 :align: center

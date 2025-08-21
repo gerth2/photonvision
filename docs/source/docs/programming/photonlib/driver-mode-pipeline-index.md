@@ -1,10 +1,10 @@
-# Driver Mode and Pipeline Index/Latency
+# bIQtIq bobcho’ bIp tlhegh jIH/wa’maH
 
-After {ref}`creating a PhotonCamera <docs/programming/photonlib/getting-target-data:Constructing a PhotonCamera>`, one can toggle Driver Mode and change the Pipeline Index of the vision program from robot code.
+cha’leS {lulIgh}`Sop baS bov <Qel/pr'rogrramming/photo'nlib/Suq-DoS-da'ta:ghojmoH baS bov>`, wa’ HotlhwI’ to'ggle bIQtIq bobcho’ bIp choH ghaH tlhegh jIH chap ghaH jIH ghun DoH qoq ngoq.
 
-## Toggle Driver Mode
+## T'oggle bIQtIq bobcho’
 
-You can use the `setDriverMode()`/`SetDriverMode()` (Java and C++ respectively) to toggle driver mode from your robot program. Driver mode is an unfiltered / normal view of the camera to be used while driving the robot.
+SoH HotlhwI’ lo’ ghaH `bIQtIq()`/`bIQtIq()` (J'ava bIp baH++ vuv) baH tog'gle bIQtIq bobcho’ DoH SoH qoq ghun. bIQtIq bobcho’ bel beq Doq / pagh jIH chap ghaH bov baH bel lo’ jIH jIH ghaH qoq.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -24,9 +24,9 @@ You can use the `setDriverMode()`/`SetDriverMode()` (Java and C++ respectively) 
         # Coming Soon!
 ```
 
-## Setting the Pipeline Index
+## cher ghaH tlhegh jIH
 
-You can use the `setPipelineIndex()`/`SetPipelineIndex()` (Java and C++ respectively) to dynamically change the vision pipeline from your robot program.
+SoH HotlhwI’ lo’ ghaH `tlhegh()`/`tlhegh()` (J'ava bIp baH++ vuv) baH Hoch choH ghaH jIH tlhegh DoH SoH qoq ghun.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -46,9 +46,9 @@ You can use the `setPipelineIndex()`/`SetPipelineIndex()` (Java and C++ respecti
         # Coming Soon!
 ```
 
-## Getting the Pipeline Latency
+## Suq ghaH tlhegh wa’maH
 
-You can also get the pipeline latency from a pipeline result using the `getLatencyMillis()`/`GetLatency()` (Java and C++ respectively) methods on a `PhotonPipelineResult`.
+SoH HotlhwI’ je Suq ghaH tlhegh wa’maH DoH baS tlhegh leS lo’ ghaH `rop()`/`Suq()` (J'ava bIp baH++ vuv) jIH batlh baS `tlhegh`.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -67,6 +67,6 @@ You can also get the pipeline latency from a pipeline result using the `getLaten
         # Coming Soon!
 ```
 
-:::{note}
-The C++ version of PhotonLib returns the latency in a unit container. For more information on the Units library, see [here](https://docs.wpilib.org/en/stable/docs/software/basic-programming/cpp-units.html).
+:::{Qo’}
+ghaH baH++ jIH chap Pho'tonLib chegh ghaH wa’maH bep baS jIH togh. cha’Hu’ pagh De’ batlh ghaH jIH jIH, legh [here](https://docs.wpilib.org/en/stable/docs/software/basic-programming/cpp-units.html).
 :::

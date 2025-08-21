@@ -1,24 +1,24 @@
-# Using WPILib Pose Estimation, Simulation, and PhotonVision Together
+# lo’ jIH chIch tat, tat, bIp tat tay’
 
-The following example comes from the PhotonLib example repository ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/poseest)/[C++](https://github.com/PhotonVision/photonvision/tree/main/photonlib-cpp-examples/poseest)/[Python](https://github.com/PhotonVision/photonvision/tree/main/photonlib-python-examples/poseest)).  Full code is available at that links.
+ghaH tlha’ exampl'e ghoS DoH ghaH Phot'onLib ex'ample ba’ ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/poseest)/[C++](https://github.com/PhotonVision/photonvision/tree/main/photonlib-cpp-examples/poseest)/[Python](https://github.com/PhotonVision/photonvision/tree/main/photonlib-python-examples/poseest)).  Fu'll ngoq bel availab'le bej net jIH.
 
-## Knowledge and Equipment Needed
+## DaH bIp luch N'eeded
 
-- Everything required in {ref}`Combining Aiming and Getting in Range <docs/examples/aimandrange:Knowledge and Equipment Needed>`, plus some familiarity with WPILib pose estimation functionality.
+- Hoch poQ bep {lulIgh}`jIH DoQ bIp Suq bep chuq <Qel/ex'ampletlh/chuq:DaH bIp luch Need'ed>`, maH je’ ’oH batlh jIH chIch tat Qap.
 
-## Background
+## yav
 
-This example demonstrates integration of swerve drive control, a basic swerve physics simulation, and PhotonLib's simulated vision system functionality.
+jIH examp'le demontlhtrra'tetlh tat chap maH jIH SeH, baS jIH maH jIH tat, bIp Photon'Lib'klingon tlhi'mulated jIH pat Qap.
 
-## Walkthrough
+## yIt
 
-### Estimating Pose
+### noH chIch
 
-The {code}`Drivetrain` class includes functionality to fuse multiple sensor readings together (including PhotonVision) into a best-guess of the pose on the field.
+ghaH {ngoq}`qeq` Segh jIH Qap baH maH m'ultiple noch jIH tay’ (jIH tat) chech baS toH-loy chap ghaH chIch batlh ghaH HoSchem.
 
-Please reference the [WPILib documentation](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose_state-estimators.html) on using the {code}`SwerveDrivePoseEstimator` class.
+bel maS ghaH [WPILib documentation](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose_state-estimators.html) batlh lo’ ghaH {ngoq}`’Ip` Segh.
 
-We use the 2024 game's AprilTag Locations:
+maH lo’ ghaH 2024 Quj'klingon AprrilT'ag tat:
 
 ```{eval-rst}
 .. tab-set::
@@ -52,7 +52,7 @@ We use the 2024 game's AprilTag Locations:
 
 
 
-To incorporate PhotonVision, we need to create a {code}`PhotonCamera`:
+baH ghap tat, maH nee'd baH Sop baS {ngoq}`bov`:
 
 
 ```{eval-rst}
@@ -84,7 +84,7 @@ To incorporate PhotonVision, we need to create a {code}`PhotonCamera`:
          :lineno-start: 44
 ```
 
-During periodic execution, we read back camera results. If we see AprilTags in the image, we calculate the camera-measured pose of the robot and pass it to the {code}`Drivetrain`.
+jIH per'riodiq chIp, maH laD chap bov leS. beH maH legh AprrilTa'gtlh bep ghaH jIH, maH SIm ghaH bov-juv chIch chap ghaH qoq bIp juS ’oH baH ghaH {ngoq}`qeq`.
 
 ```{eval-rst}
 .. tab-set::
@@ -116,9 +116,9 @@ During periodic execution, we read back camera results. If we see AprilTags in t
 
 ```
 
-### Simulating the Camera
+### Simulatin'g ghaH bov
 
-First, we create a new {code}`VisionSystemSim` to represent our camera and coprocessor running PhotonVision, and moving around our simulated field.
+wa’DIch, maH Sop baS chu’ {ngoq}`pat` baH ’oS bo’DIj bov bIp pagh che’ tat, bIp nech yav bo’DIj tlhim'ulated HoSchem.
 
 ```{eval-rst}
 .. tab-set::
@@ -146,7 +146,7 @@ First, we create a new {code}`VisionSystemSim` to represent our camera and copro
 
 ```
 
-Then, we add configure the simulated vision system to match the camera system being simulated.
+vaj, maH chel qonfigurr'e ghaH tlhimulate'd jIH pat baH bej ghaH bov pat bel tlhimulate'd.
 
 ```{eval-rst}
 .. tab-set::
@@ -174,9 +174,9 @@ Then, we add configure the simulated vision system to match the camera system be
 ```
 
 
-### Updating the Simulated Vision System
+### Updatin'g ghaH Simula'ted jIH pat
 
-During simulation, we periodically update the simulated vision system.
+jIH tat, maH Hoch up'date ghaH tlhimulat'ed jIH pat.
 
 ```{eval-rst}
 .. tab-set::
@@ -203,7 +203,7 @@ During simulation, we periodically update the simulated vision system.
        # Coming Soon!
 ```
 
-The rest is done behind the scenes.
+ghaH leS bel baH jIH ghaH QeD.
 
 ```{raw} html
 <video width="85%" controls>

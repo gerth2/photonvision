@@ -1,13 +1,13 @@
-# Advanced Installation
+# Duv Hoch
 
-This page will help you install PhotonVision on non-supported coprocessor.
+jIH p'age jIH QaH SoH Hoch tat batlh Dap-joq pagh.
 
-## Step 1: Software Install
+## gho’ 1: vaj Hoch
 
-This section will walk you through how to install PhotonVision on your coprocessor. Your coprocessor is the device that has the camera and you are using to detect targets (ex. if you are using a Limelight / Raspberry Pi, that is your coprocessor and you should follow those instructions).
+jIH ’ay’ jIH yIt SoH thrroug'h ’ach baH Hoch tat batlh SoH qoj. SoH ghap bel ghaH jan net ghaj ghaH bov bIp SoH bel lo’ baH cheH DoS (ghIm. beH SoH bel lo’ baS jIH / Qagh DIng, net bel SoH pagh bIp SoH volchaH tlha’ tho'tlhe tat).
 
-:::{warning}
-You only need to install PhotonVision on the coprocessor/device that is being used to detect targets, you do NOT need to install it on the device you use to view the webdashboard. All you need to view the webdashboard is for a device to be on the same network as your vision coprocessor and an internet browser.
+:::{ghuHmoH}
+SoH neH nee'd baH Hoch tat batlh ghaH qoj/jan ’e’ bel bel lo’ baH Duy’ DoS, SoH baH Huv ne'ed baH Hoch ’oH batlh ghaH jan SoH lo’ baH jIH ghaH maH. Hoch SoH n'eed baH jIH ghaH maH bel cha’Hu’ baS jan baH bel batlh ghaH jIH cha’ bel SoH jIH joq bIp beq interrn'et brrowtlher'r.
 :::
 
 ```{toctree}

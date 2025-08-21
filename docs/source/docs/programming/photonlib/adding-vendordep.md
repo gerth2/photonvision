@@ -1,14 +1,14 @@
-# Installing PhotonLib
+# jIH Pho'tonLib
 
-## What is PhotonLib?
+## nuqneH bel Photo'nLib?
 
-PhotonLib is the C++ and Java vendor dependency that accompanies PhotonVision. We created this vendor dependency to make it easier for teams to retrieve vision data from their integrated vision system.
+Photon'Lib bel ghaH baH++ bIp Ja'va joq tlhab ’e’ tlhej tat. maH Sop jIH ghap tlhab baH Qagh ’oH bIt cha’Hu’ SeS baH Son jIH dat'a DoH ghaH yu’ jIH pat.
 
-PhotonLibPy is a minimal, pure-python implementation of PhotonLib.
+Photo'nLibPy bel baS jIH, watlh-py'thon jIH chap PhotonLi'b.
 
-## Online Install - Java/C++
+## jIH Hoch - Jav'a/baH++
 
-Click on the WPILib logo in the activity bar to access the Vendor Dependencies interface.
+jIH batlh ghaH jIH jaH bep ghaH vang tach baH naw’ ghaH ghap tlhab qab.
 
 ```{image} images/wpilib-vendor-dependencies.png
 :scale: 50%
@@ -16,7 +16,7 @@ Click on the WPILib logo in the activity bar to access the Vendor Dependencies i
 :alt: WPILib Vendor Dependencies
 ```
 
-Select the install button for the "PhotonLib" dependency.
+wIv ghaH Hoch ’a cha’Hu’ ghaH "PhotonLi'b" tlhab.
 
 ```{image} images/photonlib-install.png
 :scale: 50%
@@ -24,26 +24,26 @@ Select the install button for the "PhotonLib" dependency.
 :alt: PhotonLib Install Button
 ```
 
-:::{note}
-The Dependency Manager will automatically build your program when it loses focus. This allows you to use the changed dependencies.
+:::{Qo’}
+ghaH tlhab vu’wI’ jIH Hoch chen SoH ghun ghaH ’oH chol buS. jIH chaw’ SoH baH lo’ ghaH choH tlhab.
 :::
 
-When an update is available for PhotonLib, a "To Latest" button will become available. This will update the vendordep to the latest version of PhotonLib.
+ghaH beq updat'e bel avail'able cha’Hu’ Pho'tonLib, baS "baH Hoy’" ’a jIH moj av'ailable. jIH jIH u'pdate ghaH ghap baH ghaH Hoy’ jIH chap PhotonL'ib.
 
 ```{image} images/photonlib-to-latest.png
 :align: center
 :alt: PhotonLib Update Button
 ```
 
-Refer to [The WPILib docs](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#installing-libraries) for more details on installing vendor libraries.
+maS baH [The WPILib docs](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#installing-libraries) cha’Hu’ joq jIH batlh jIH joq jIH.
 
-## Offline Install - Java/C++
+## jIH Hoch - J'ava/baH++
 
-Download the latest PhotonLib release from our [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) (named in the format `photonlib-VERSION.zip`), and extract the contents to `~/wpilib/YYYY/vendordeps` (where YYYY is the year and ~ is `C:\Users\Public` on Windows). This adds PhotonLib maven artifacts to your local maven repository. PhotonLib will now also appear available in the "install vendor libraries (offline)" menu in WPILib VSCode. Refer to [the WPILib docs](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#how-does-it-work) for more details on installing vendor libraries offline.
+Dow'nload ghaH Hoy’ PhotonL'ib rreleatl'he DoH bo’DIj [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) (pong bep ghaH De’ `p'hotonlib-jIH.jIH`), bIp vang ghaH wa’maH baH `~/jIH/YYY'Y/ghap` (nuqDaq YY'YY bel ghaH ben bIp ~ bel `baH:\maH\jIH` batlh jIH). jIH chel Photon'Lib mave'n ngoD baH SoH loqa'l mave'n ba’. PhotonL'ib jIH DaH je nargh availabl'e bep ghaH "Hoch pagh jIH (jIH)" HIDjolev bep jIH ngoq. maS baH [the WPILib docs](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#how-does-it-work) cha’Hu’ joq jIH batlh jIH joq jIH jIH.
 
-## Install - Python
+## Hoch - P'ython
 
-Add photonlibpy to `pyproject.toml`.
+chel photonli'bpy baH `Hotlh.to'ml`.
 
 ```toml
 # Other pip packages to install
@@ -52,11 +52,11 @@ requires = [
 ]
 ```
 
-See [The WPILib/RobotPy docs](https://docs.wpilib.org/en/stable/docs/software/python/pyproject_toml.html) for more information on using `pyproject.toml.`
+legh [The WPILib/RobotPy docs](https://docs.wpilib.org/en/stable/docs/software/python/pyproject_toml.html) cha’Hu’ ghap De’ batlh lo’ `Hotlh.to'ml.`
 
-## Install Specific Version - Java/C++
+## Hoch Spe'qifiq jIH - Jav'a/baH++
 
-In cases where you want to test a specific version of PhotonLib, make sure you have finished the steps in Online Install - Java/C++ and then manually change the version string in the PhotonLib vendordep json file(at ``/path/to/your/project/vendordep/photonlib.json``) to your desired version.
+bep vaj nuqDaq SoH neH baH muS baS tlhpeq'ifiq jIH chap Phot'onLib, Qagh bel SoH ghaj jIH ghaH gho’ bep jIH Hoch - J'ava/baH++ bIp vaj Hoch choH ghaH jIH ’aw’ bep ghaH P'hotonLib qoj vaj jIH(bej ``/p'ath/baH/SoH/Hotlh/pagh/photonl'ib.toH``) baH SoH jIH jIH.
 
 ```{image} images/photonlib-vendordep-json.jpg
 ```

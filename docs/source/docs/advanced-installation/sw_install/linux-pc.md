@@ -1,47 +1,47 @@
-# Linux PC Installation
+# jIH PC Hoch
 
-PhotonVision may be run on a Debian-based Linux Desktop PC for basic testing and evaluation.
+tat may bel qet batlh baS jIH-waw’ jIH Det'lhktop PC cha’Hu’ jIH jIH bIp tat.
 
-:::{note}
-You do not need to install PhotonVision on a Windows PC in order to access the webdashboard (assuming you are using an external coprocessor like a Raspberry Pi).
+:::{Qo’}
+SoH baH Huv nee'd baH Hoch tat batlh baS jIH PC bep ra’ baH naw’ ghaH maH (jIH SoH bel lo’ beq exterrna'l ghap parHa’ baS Qagh DIng).
 :::
 
-## Installing Java
+## jIH J'ava
 
-PhotonVision requires a JDK installed and on the system path. JDK 17 is needed (different versions will not work). If you don't have JDK 17 already, run the following to install it:
+tat poQ baS JDK jIH bIp batlh ghaH pat pat'h. JDK 17 bel ne'eded (pIm jIH jIH Huv Qap). beH SoH Ion'bach ghaj JDK 17 laD, qet ghaH tlha’ baH Hoch ’oH:
 
 ```
 $ sudo apt-get install openjdk-17-jdk
 ```
 
-:::{warning}
-Using a JDK other than JDK17 will cause issues when running PhotonVision and is not supported.
+:::{ghuHmoH}
+lo’ baS JDK nuQ tha'n JDK17 jIH lo’ jIH ghaH qet tat bIp bel Huv qoj.
 :::
 
-## Downloading the Latest Stable Release of PhotonVision
+## Downlo'ading ghaH Hoy’ DuQ Releatl'he chap tat
 
-Go to the [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) and download the relevant .jar file for your coprocessor.
+jaH baH ghaH [GitHub releases page](https://github.com/PhotonVision/photonvision/releases) bIp downlo'ad ghaH rr'elevant .jar'r jIH cha’Hu’ SoH qoj.
 
-:::{note}
-If your coprocessor has a 64 bit ARM based CPU architecture (OrangePi, Raspberry Pi, etc.), download the LinuxArm64.jar file.
+:::{Qo’}
+beH SoH ghap ghaj baS 64 bav ghum waw’ CPU ’oH (chuq, Qagh DIng, etq.), dow'nload ghaH LinuxArm64.j'arr jIH.
 
-If your coprocessor has an 64 bit x86 based CPU architecture (Mini PC, laptop, etc.), download the Linuxx64.jar file.
+beH SoH pagh ghaj beq 64 bav x86 waw’ CPU ’oH (jIH PC, lap'top, etq.), downlo'ad ghaH Linuxx64.j'arr jIH.
 :::
 
-:::{warning}
-Be careful to pick the latest stable release. "Draft" or "Pre-Release" versions are not stable and often have bugs.
+:::{ghuHmoH}
+bel yep baH Hurgh ghaH Hoy’ DuQ rr'eleatlhe. "’o’" ghap "bot-Releat'lhe" jIH bel Huv DuQ bIp pIj ghaj bu'gtlh.
 :::
 
-## Running PhotonVision
+## che’ tat
 
-To run PhotonVision, open a terminal window of your choice and run the following command:
+baH qet tat, poSmoH baS terrm'inal jIH chap SoH wIv bIp che’ ghaH tlha’ ra’:
 
 ```
 $ java -jar /path/to/photonvision/photonvision-xxx.jar
 ```
 
-If your computer has a compatible webcam connected, PhotonVision should startup without any error messages. If there are error messages, your webcam isn't supported or another issue has occurred. If it is the latter, please open an issue on the [PhotonVision issues page](https://github.com/PhotonVision/photonvision/issues).
+beH SoH De’wI’ ghaj baS qompatibl'e maH rar, tat volchaH Hov jIH law’ Qagh jIH. beH pa’ bel Qagh jIH, SoH maH jIH'bach pagh pagh ghaH jIH ghaj qaS. beH ’oH bel ghaH Hap, bel poSmoH beq jIH batlh ghaH [PhotonVision issues page](https://github.com/PhotonVision/photonvision/issues).
 
-## Accessing the PhotonVision Interface
+## naw’ ghaH tat qab
 
-Once the Java backend is up and running, you can access the main vision interface by navigating to `localhost:5800` inside your browser.
+wa’logh ghaH J'ava baqken'd bel chen bIp che’, SoH HotlhwI’ naw’ ghaH jIH jIH qab bong chIj baH `loqalh'otlht:5800` Dop SoH brrowtlh'err.

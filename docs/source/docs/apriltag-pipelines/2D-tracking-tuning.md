@@ -1,56 +1,56 @@
-# 2D AprilTag Tuning / Tracking
+# 2D Aprri'lTag ’och / toj
 
-## Tracking AprilTags
+## toj Apr'rilTagtlh
 
-Before you get started tracking AprilTags, ensure that you have followed the previous sections on installation, wiring and networking. Next, open the Web UI, go to the top right card, and switch to the "AprilTag" or "Aruco" type. You should see a screen similar to the one below.
+cha’Hu’ SoH Suq Hov toj Apr'rilTagtlh, SIQ ’e’ SoH ghaj tlha’ ghaH maH ’ay’ batlh Hoch, jIH bIp cha’. retlh, poSmoH ghaH maH bup, jaH baH ghaH ’e’ wov nuch, bIp leQ baH ghaH "Aprri'lTag" pagh "Arruq'o" Qa’. SoH volchaH legh baS Hotlh jIH baH ghaH wa’ bIng.
 
 ```{image} images/apriltag.png
 :align: center
 ```
 
-You are now able to detect and track AprilTags in 2D (yaw, pitch, roll, etc.). In order to get 3D data from your AprilTags, please see {ref}`here. <docs/apriltag-pipelines/3D-tracking:3D Tracking>`
+SoH bel DaH bergh baH Duy’ bIp toj Aprri'lTagtlh bep 2D (Hob, jIH, r'roll, etq.). bep ra’ baH Suq 3D dat'a DoH SoH AprrilTagt'lh, bel legh {lulIgh}`naDev. <Qel/ap'rriltag-tlhegh/3D-toj:3D toj>`
 
-## Tuning AprilTags
+## ’och Ap'rrilTagtlh
 
-AprilTag pipelines come with reasonable defaults to get you up and running with tracking. However, in order to optimize your performance and accuracy, you must tune your AprilTag pipeline using the settings below. Note that the settings below are different between the AprilTag and Aruco detectors but the concepts are the same.
+Apr'rilTag tlhegh ghoS batlh meq pIch baH Suq SoH chen bIp qet batlh toj. ’a, bep ra’ baH optim'ize SoH pagh bIp aqqurr'aqy, SoH loch ’och SoH A'prrilTag tlhegh lo’ ghaH jIH bIng. Qo’ net ghaH jIH bIng bel pIm joj ghaH Ap'rrilTag bIp Arr'uqo ghap ’a ghaH wa’logh bel ghaH jIH.
 
 ```{image} images/apriltag-tune.png
 :align: center
 :scale: 45 %
 ```
 
-### Target Family
+### DoS qorDu’
 
-Target families are defined by two numbers (before and after the h). The first number is the number of bits the tag is able to encode (which means more tags are available in the respective family) and the second is the hamming distance. Hamming distance describes the ability for error correction while identifying tag ids. A high hamming distance generally means that it will be easier for a tag to be identified even if there are errors. However, as hamming distance increases, the number of available tags decreases.
+DoS qorDu’ bel jIH bong cha’ mI’ (cha’Hu’ bIp cha’leS ghaH klingon). ghaH wa’DIch mI’ bel ghaH mI’ chap bav ghaH Sorgh bel bergh baH ngoq (jIH qej pagh Sorgh bel availabl'e bep ghaH vuv qorDu’) bIp ghaH cha’DIch bel ghaH jIH chuq. jIH chuq detl'hqrribetlh ghaH laH cha’Hu’ Qagh pagh jIH ngu’ Sorgh bong. baS jen jIH chuq bov qej ’e’ ’oH jIH bel bIt cha’Hu’ baS Sorgh baH bel ngu’ bortaS beH pa’ bel Qagh. ’ach, bel jIH chuq ghur, ghaH mI’ chap availabl'e Sorgh nup.
 
-The 2025 FRC game will be using 36h11 tags, which can be found [here](https://github.com/AprilRobotics/apriltag-imgs/tree/main/tag36h11).
+ghaH 2025 FRC Quj jIH bel lo’ 36h11 Sorgh, jIH HotlhwI’ bel tu’ [here](https://github.com/AprilRobotics/apriltag-imgs/tree/main/tag36h11).
 
-### Decimate
+### Deqimat'e
 
-Decimation (also known as down-sampling) is the process of reducing the sampling frequency of a signal (in our case, the image). Increasing decimate will lead to an increased detection rate while decreasing detection distance. We recommend keeping this at the default value.
+tat (je Sov bel jotlh-tlhampli'ng) bel ghaH tlhol chap Doq ghaH tlh'ampling Se’ chap baS jIH (bep bo’DIj vaj, ghaH jIH). ghur deqim'ate jIH Dev baH beq ghur tat buS jIH nup tat chuq. maH chup pol jIH bej ghaH pIch valu'e.
 
-### Blur
+### Blu'rr
 
-This controls the sigma of Gaussian blur for tag detection. In clearer terms, increasing blur will make the image blurrier, decreasing it will make it closer to the original image. We strongly recommend that you keep blur to a minimum (0) due to it's high performance intensity unless you have an extremely noisy image.
+jIH SeH ghaH jIH chap maH blur'r cha’Hu’ Sorgh tat. bep Huv chuvmey, ghur blur'r jIH Qagh ghaH jIH bIQtIq, nup ’oH jIH Qagh ’oH SoQmoH baH ghaH joq jIH. maH tl'htrrongly chup net SoH pol blur'r baH baS jIH (0) Hay’ baH ’oH'klingon jen joq ba’ unletlht'lh SoH ghaj beq jIH chuS jIH.
 
-### Threads
+### laD
 
-Threads refers to the threads within your coprocessor's CPU. The theoretical maximum is device dependent, but we recommend that users to stick to one less than the amount of CPU threads that your coprocessor has. Increasing threads will increase performance at the cost of increased CPU load, temperature increase, etc. It may take some experimentation to find the most optimal value for your system.
+laD maS baH ghaH laD jIH SoH pagh'klingon CPU. ghaH ghaH jIH bel jan tlhab, ’ach maH chup net maH baH Hum baH wa’ lo’laHbe’ tha'n ghaH amou'nt chap CPU laD ’e’ SoH ghap ghaj. ghur laD jIH ghur joq bej ghaH qot'lht chap ghur CPU lo'ad, Hat ghur, etq. ’oH may tlhap je’ jIH baH tu’ ghaH m'otlht jIH val'ue cha’Hu’ SoH pat.
 
-### Refine Edges
+### jIH HeH
 
-The edges of the each polygon are adjusted to "snap to" high color differences surrounding it. It is recommended to use this in tandem with decimate as it can increase the quality of the initial estimate.
+ghaH HeH chap ghaH paQDI’norgh jaH bel lIS baH "Dum baH" jen ghap differre'nqetlh QID ’oH. ’oH bel chup baH lo’ jIH bep tand'em batlh deq'imate bel ’oH HotlhwI’ ghur ghaH jIH chap ghaH jIH noH.
 
-### Pose Iterations
+### chIch bov
 
-Pose iterations represents the amount of iterations done in order for the AprilTag algorithm to converge on its pose solution(s). A smaller number between 0-100 is recommended. A smaller amount of iterations cause a more noisy set of poses when looking at the tag straight on, while higher values much more consistently stick to a (potentially wrong) pair of poses. WPILib contains many useful filter classes in order to account for a noisy tag reading.
+chIch bov ’oS ghaH am'ount chap bov baH bep ra’ cha’Hu’ ghaH Ap'rrilTag qoj baH qonver'rge batlh jIH chIch taS(klingon). baS Hoch mI’ joj 0-100 bel chup. baS Hoch am'ount chap bov lo’ baS joq chuS cher chap chIch ghaH nej bej ghaH Sorgh chorgh batlh, jIH ghaH val'uetlh ’ar joq wa’maH Hum baH baS (Hoch muj) jIH chap chIch. jIH jIH law’ lI’ jIH Segh bep ra’ baH togh cha’Hu’ baS chuS Sorgh laD.
 
-### Max Error Bits
+### Max Qagh bav
 
-Max error bits, also known as hamming distance, is the number of positions at which corresponding pieces of data / tag are different. Put more generally, this is the number of bits (think of these as squares in the tag) that need to be changed / corrected in the tag to correctly detect it. A higher value means that more tags will be detected while a lower value cuts out tags that could be "questionable" in terms of detection.
+Max Qagh bav, je Sov bel jIH chuq, bel ghaH mI’ chap ba’ bej jIH qoj jIH chap d'ata / Sorgh bel pIm. De’wI’ joq bov, jIH bel ghaH mI’ chap bav (Qub chap ghaH bel tlhqu'arretlh bep ghaH Sorgh) net n'eed baH bel choH / lugh bep ghaH Sorgh baH qoj Duy’ ’oH. baS ghaH val'ue qej net joq Sorgh jIH bel Duy’ jIH baS maH v'alue pe’ buS Sorgh ’e’ qun bel "Qu’" bep chuvmey chap tat.
 
-We recommend a value of 0 for the 16h5 and at most 3 for the 36h11 family.
+maH chup baS v'alue chap 0 cha’Hu’ ghaH 16h5 bIp bej motl'ht 3 cha’Hu’ ghaH 36h11 qorDu’.
 
-### Decision Margin Cutoff
+### tat jIH chIp
 
-The decision margin cutoff is how much “margin” the detector has left before it rejects a tag; increasing this rejects poorer tags. We recommend you keep this value around a 30.
+ghaH tat jIH chIp bel ’a ’ar “jIH” ghaH qoj ghaj leSpoH cha’Hu’ ’oH rrejeqt'tlh baS Sorgh; ghur jIH rrejeqttl'h ghap Sorgh. maH chup SoH pol jIH val'ue yav baS 30.

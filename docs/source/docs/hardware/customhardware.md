@@ -1,14 +1,14 @@
-# Deploying on Custom Hardware
+# Deployin'g batlh tIgh veS
 
-## Configuration
+## tat
 
-By default, PhotonVision attempts to make minimal assumptions of the hardware it runs on. However, it may be configured to enable custom LED control, branding, and other functionality.
+bong pIch, tat nID baH Qagh jIH tat chap ghaH veS ’oH che’ batlh. ’ach, ’oH may bel qonfigur'red baH enab'le tIgh Dev SeH, yab, bIp nuQ Qap.
 
-`hardwareConfig.json` is the location for this configuration. It is included when settings are exported, and can be uploaded as part of a .zip, or on its own.
+`veS.vaj` bel ghaH tat cha’Hu’ jIH tat. ’oH bel jIH ghaH jIH bel qoj, bIp HotlhwI’ bel u'ploaded bel jeS chap baS .jIH, joq batlh jIH jotlh.
 
-## LED Support
+## Dev joq
 
-For Raspberry-Pi based hardware, PhotonVision can use [PiGPIO](https://abyz.me.uk/rpi/pigpio/) to control IO pins. The mapping of which pins control which LED's is part of the hardware config. The pins are active-high: set high when LED's are commanded on, and set low when commanded off.
+cha’Hu’ Qagh-DIng waw’ veS, tat HotlhwI’ lo’ [PiGPIO](https://abyz.me.uk/rpi/pigpio/) baH SeH buv jIH. ghaH jIH chap jIH jIH SeH jIH Dev'klingon bel jeS chap ghaH veS jIH. ghaH jIH bel jIH-jen: cher jen ghaH Dev'klingon bel ra’ batlh, bIp cher bIng ghaH ra’ DoH.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -27,15 +27,15 @@ For Raspberry-Pi based hardware, PhotonVision can use [PiGPIO](https://abyz.me.u
       }
 ```
 
-:::{note}
-No hardware boards with status RGB LED pins or non-dimming LED's have been tested yet. Please reach out to the development team if these features are desired, they can assist with configuration and testing.
+:::{Qo’}
+Qo’ veS tIj batlh Dotlh RGB Dev jIH pagh Dap-jIH Dev'klingon ghaj bel muS wej. bel SIch buS baH ghaH jIH SeS beH ghaH Sop bel jIH, bIH HotlhwI’ boQ batlh tat bIp jIH.
 :::
 
-## Hardware Interaction Commands
+## veS bov ra’
 
-For Non-Raspberry-Pi hardware, users must provide valid hardware-specific commands for some parts of the UI interaction (including performance metrics, and executing system restarts).
+cha’Hu’ Dap-Qagh-DIng veS, maH loch jIH jIH veS-tlhpe'qifiq ra’ cha’Hu’ je’ jeS chap ghaH bup bov (jIH joq jIH, bIp muH pat Hov).
 
-Leaving a command blank will disable the associated functionality.
+leSpoH baS ra’ bl'ank jIH Qotlh ghaH toH Qap.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -52,13 +52,13 @@ Leaving a command blank will disable the associated functionality.
       }
 ```
 
-:::{note}
-These settings have no effect if PhotonVision detects it is running on a Raspberry Pi. See [the MetricsBase class](https://github.com/PhotonVision/photonvision/blob/dbd631da61b7c86b70fa6574c2565ad57d80a91a/photon-core/src/main/java/org/photonvision/common/hardware/metrics/MetricsBase.java) for the commands utilized.
+:::{Qo’}
+ghaH jIH ghaj Qo’ cheH beH tat cheH ’oH bel che’ batlh baS Qagh DIng. legh [the MetricsBase class](https://github.com/PhotonVision/photonvision/blob/dbd631da61b7c86b70fa6574c2565ad57d80a91a/photon-core/src/main/java/org/photonvision/common/hardware/metrics/MetricsBase.java) cha’Hu’ ghaH ra’ jIH.
 :::
 
-## Known Camera FOV
+## Sov bov FOV
 
-If your hardware contains a camera with a known field of vision, it can be entered into the hardware configuration. This will prevent users from editing it in the GUI.
+beH SoH veS jIH baS bov batlh baS Sov HoSchem chap jIH, ’oH HotlhwI’ bel ’el chech ghaH veS tat. jIH jIH bot maH DoH Hoq ’oH bep ghaH Dev.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -69,9 +69,9 @@ If your hardware contains a camera with a known field of vision, it can be enter
       }
 ```
 
-## Cosmetic & Branding
+## jIH & yab
 
-To help differentiate your hardware from other solutions, some customization is allowed.
+baH QaH differrentia'te SoH veS DoH nuQ taS, je’ maH bel chaw’.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -84,13 +84,13 @@ To help differentiate your hardware from other solutions, some customization is 
       }
 ```
 
-:::{note}
-Not all configuration is currently presented in the User Interface. Additional file uploads may be needed to support custom images.
+:::{Qo’}
+Huv Hoch tat bel qurrr'rently much bep ghaH maH qab. chel jIH uploadtl'h may bel nee'ded baH pagh tIgh jIH.
 :::
 
-## Example
+## Ex'ample
 
-Here is a complete example `hardwareConfig.json`:
+naDev bel baS q'omplete exampl'e `veS.toH`:
 
 ```{eval-rst}
 .. tab-set-code::

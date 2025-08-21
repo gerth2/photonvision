@@ -1,10 +1,10 @@
-# AprilTag Detection
+# jIH'ben Dotlh
 
-```{toctree}
-about-apriltags
-detector-types
-2D-tracking-tuning
-3D-tracking
-multitag
-coordinate-systems
+```{Sor}
+buS-apr'riltagtlh
+ghap-Qogh
+2D-toj-’och
+3D-toj
+’oH
+Quv-pat
 ```

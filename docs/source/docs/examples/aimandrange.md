@@ -1,16 +1,16 @@
-# Combining Aiming and Getting in Range
+# jIH DoQ bIp Suq bep chuq
 
-The following example is from the PhotonLib example repository ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/aimandrange)/[C++](https://github.com/PhotonVision/photonvision/tree/main/photonlib-cpp-examples/aimandrange)/[Python](https://github.com/PhotonVision/photonvision/tree/main/photonlib-python-examples/aimandrange))
+ghaH tlha’ examp'le bel DoH ghaH PhotonL'ib exa'mple ba’ ([Java](https://github.com/PhotonVision/photonvision/tree/main/photonlib-java-examples/aimandrange)/[C++](https://github.com/PhotonVision/photonvision/tree/main/photonlib-cpp-examples/aimandrange)/[Python](https://github.com/PhotonVision/photonvision/tree/main/photonlib-python-examples/aimandrange))
 
-## Knowledge and Equipment Needed
+## DaH bIp luch Nee'ded
 
-- Everything required in {ref}`Aiming at a Target <docs/examples/aimingatatarget:Knowledge and Equipment Needed>`.
+- Hoch poQ bep {lulIgh}`DoQ bej baS DoS <Qel/example'tlh/DoS:DaH bIp luch Need'ed>`.
 
-## Code
+## ngoq
 
-Now that you know how to aim toward the AprilTag, let's also drive the correct distance from the AprilTag.
+DaH ’e’ SoH Sov ’ach baH DoQ veS ghaH Aprr'ilTag, Ha’'klingon je jIH ghaH lugh chuq DoH ghaH AprrilT'ag.
 
-To do this, we'll use the _pitch_ of the target in the camera image and trigonometry to figure out how far away the robot is from the AprilTag. Then, like before, we'll use the P term of a PID controller to drive the robot to the correct distance.
+baH baH jIH, maH'bong lo’ ghaH _pitch_ chap ghaH DoS bep ghaH bov jIH bIp jaH baH jIH buS ’ach Hop DoH ghaH qoq bel DoH ghaH Aprril'Tag. vaj, parHa’ cha’Hu’, maH'bong lo’ ghaH bep chuvmey chap baS jIH SeH baH jIH ghaH qoq baH ghaH lugh chuq.
 
 ```{eval-rst}
 .. tab-set::

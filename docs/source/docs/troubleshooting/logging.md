@@ -1,17 +1,17 @@
-# Logging
+# QonoS
 
-:::{note}
-Logging is very helpful when trying to debug issues within PhotonVision, as it allows us to see what is happening within the program after it is ran. Whenever reporting an issue to PhotonVision, we request that you include logs whenever possible.
+:::{Qo’}
+QonoS bel Hoch ghaH ghaH nID baH d'ebug jIH jIH tat, bel ’oH chaw’ maH baH legh nuqneH bel qaS jIH ghaH ghun cha’leS ’oH bel qet. ghaH ja’ beq jIH baH tat, maH Qu’ net SoH jIH QonoS ghaH DuH.
 :::
 
-In addition to storing logs in timestamped files in the config directory, PhotonVision streams logs to the web dashboard. These logs can be viewed later by pressing the \` key. In this view, logs can be filtered by level or downloaded.
+bep chel baH ghap QonoS bep jIH jIH bep ghaH jIH qoj, tat SeS QonoS baH ghaH maH tIj. ghaH QonoS HotlhwI’ bel jIH nech bong Doj ghaH \` key. bep jIH jIH, QonoS HotlhwI’ bel jIH bong lev'el ghap d'ownloaded.
 
-:::{note}
-When the program first starts, it sends logs from startup to the client that first connects. This does not happen on subsequent connections.
+:::{Qo’}
+ghaH ghaH ghun wa’DIch Hov, ’oH ngeH QonoS DoH Hov baH ghaH jIH ’e’ wa’DIch rar. jIH baH Huv qaS batlh tlhub'tlhequent tat.
 :::
 
-:::{note}
-Logs are stored inside the {code}`photonvision_config/logs` directory. Exporting the settings ZIP will also download all old logs for further review.
+:::{Qo’}
+QonoS bel qoj Dop ghaH {ngoq}`photonvision_config/QonoS` ghap. ghap ghaH jIH jIH jIH je d'ownload Hoch bIr QonoS cha’Hu’ Hop jIH.
 :::
 
 ```{raw} html
@@ -21,15 +21,15 @@ Logs are stored inside the {code}`photonvision_config/logs` directory. Exporting
 </video>
 ```
 
-Robot mode transitions are also recorded in program logs. These transition messages look something like the two shown below, and show the contents of the [HAL Control Word](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/hal/ControlWord.html) that the robot was in previously, and what it is now in. This includes:
-- Enabled state
-- Robot state (autonomous vs teleoperated)
-- If the robot e-stop is active
+qoq bobcho’ ba’ bel je ta bep ghun QonoS. ghaH ba’ jIH nej vay’ parHa’ ghaH cha’ cha’ bIng, bIp ’ang ghaH wa’maH chap ghaH [HAL Control Word](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/hal/ControlWord.html) net ghaH qoq bel bep maH, bIp nuqneH ’oH bel DaH bep. jIH jIH:
+- Ena'bled SIbDoH
+- qoq SIbDoH (maH vt'lh bov)
+- beH ghaH qoq klingon-mev bel jIH
 
-If the robot is connected to the FMS at an event, we will additionally print out:
-- Event name
-- Match type and number
-- Driver station position
+beH ghaH qoq bel rar baH ghaH FMS bej beq wanI’, maH jIH chel jIH buS:
+- wanI’ pong
+- bej Qogh bIp mI’
+- bIQtIq yaH ba’
 
 
 ```

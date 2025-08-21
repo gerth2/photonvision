@@ -1,33 +1,33 @@
-# Building the PhotonVision Documentation
+# chen ghaH tat jIH
 
-To build the PhotonVision documentation, you will require [Git](https://git-scm.com) and [Python 3.6 or greater](https://www.python.org).
+baH chen ghaH tat jIH, SoH jIH poQ [Git](https://git-scm.com) bIp [Python 3.6 or greater](https://www.python.org).
 
-## Cloning the Documentation Repository
+## wa’ ghaH jIH ba’
 
-Documentation lives within the main PhotonVision repository within the `docs` sub-folder. If you are planning on contributing, it is recommended to create a fork of the [PhotonVision repository](https://github.com/PhotonVision/photonvision). To clone this fork, run the following command in a terminal window:
+jIH yIn jIH ghaH jIH tat ba’ jIH ghaH `Qel` gho’Do-choljaH. beH SoH bel nab batlh ghaq, ’oH bel chup baH Sop baS joq chap ghaH [PhotonVision repository](https://github.com/PhotonVision/photonvision). baH wa’ jIH pagh, che’ ghaH tlha’ ra’ bep baS te'rrminal jIH:
 
-`git clone https://github.com/[your username]/photonvision`
+`jIH wa’ http'tlh://jIH.bep/[SoH jIH]/tat`
 
-## Installing Python Dependencies
+## jIH Pyth'on tlhab
 
-You must install a set of Python dependencies in order to build the documentation. To do so, you can run the following command in the docs sub-folder:
+SoH loch Hoch baS cher chap P'ython tlhab bep ra’ baH chen ghaH jIH. baH baH vaj, SoH HotlhwI’ che’ ghaH tlha’ ra’ bep ghaH Qel gho’Do-choljaH:
 
-`~/photonvision/docs$ python -m pip install -r requirements.txt`
+`~/tat/Qel$ py'thon -baS jIH Hoch -baH jIH.txt`
 
-## Building the Documentation
+## chen ghaH jIH
 
-In order to build the documentation, you can run the following command in the docs sub-folder. This will automatically build docs every time a file changes, and serves them locally at `localhost:8000` by default.
+bep ra’ baH chen ghaH jIH, SoH HotlhwI’ qet ghaH tlha’ ra’ bep ghaH Qel gho’Do-choljaH. jIH jIH Hoch chen Qel Hoch poH baS jIH choH, bIp choq chaH Hoch bej `lo'qalhotlht:8000` bong pIch.
 
-`~/photonvision/docs$ sphinx-autobuild --open-browser source source/_build/html`
+`~/tat/Qel$ jIH-auto'build --poSmoH-brrow'tlherr Hal Hal/_build/h'tml`
 
-## Opening the Documentation
+## poSmoH ghaH jIH
 
-The built documentation is located at `docs/build/html/index.html` relative to the root project directory, or can be accessed via the local web server if using sphinx-autobuild.
+ghaH chen jIH bel loq'ated bej `Qel/chen/htm'l/jIH.htm'l` leS baH ghaH qoq Hotlh ghap, qoj HotlhwI’ bel naw’ jIH ghaH loq'al maH jab beH lo’ jIH-auto'build.
 
-## Docs Builds on Pull Requests
+## Qel chen batlh P'ull Qu’
 
-Pre-merge builds of docs can be found at: `https://photonvision-docs--PRNUMBER.org.readthedocs.build/en/PRNUMBER/index.html`. These docs are republished on every commit to a pull request made to PhotonVision/photonvision-docs. For example, PR 325 would have pre-merge documentation published to `https://photonvision-docs--325.org.readthedocs.build/en/325/index.html`. Additionally, the pull request will have a link directly to the pre-release build of the docs. This build only runs when there is a change to files in the docs sub-folder.
+bot-chach chen chap Qel HotlhwI’ bel tu’ bej: `htt'ptlh://tat-Qel--mI’.DIvI’.ghaH.chen/klingon/mI’/jIH.ht'ml`. ghaH Qel bel rrepubl'itlhhed batlh Hoch HeS baH baS pu'll Qu’ Qagh baH tat/tat-Qel. cha’Hu’ exampl'e, bIghHa’ 325 QID ghaj bot-chach jIH jIH baH `ht'tptlh://tat-Qel--325.DIvI’.ghaH.chen/klingon/325/jIH.h'tml`. chel, ghaH pu'll Qu’ jIH ghaj baS jIH di'rreqtly baH ghaH bot-rreleatlh'e chen chap ghaH Qel. jIH chen neH che’ ghaH pa’ bel baS choH baH jIH bep ghaH Qel gho’Do-choljaH.
 
-## Style Guide
+## S'tyle Dev
 
-PhotonVision follows the frc-docs style guide which can be found [here](https://docs.wpilib.org/en/stable/docs/contributing/style-guide.html). In order to run the linter locally (which builds on doc8 and checks for compliance with the style guide), follow the instructions [on GitHub](https://github.com/wpilibsuite/ohnoyoudidnt).
+tat tlha’ ghaH f'rrq-Qel tlhtyl'e Dev jIH HotlhwI’ bel tu’ [here](https://docs.wpilib.org/en/stable/docs/contributing/style-guide.html). bep ra’ baH che’ ghaH jIH Hoch (jIH chen batlh doc8 bIp ghaH cha’Hu’ HeQ batlh ghaH tlhtyl'e Dev), tlha’ ghaH tat [on GitHub](https://github.com/wpilibsuite/ohnoyoudidnt).

@@ -1,12 +1,12 @@
-# Getting Target Data
+# Suq DoS D'ata
 
-## Constructing a PhotonCamera
+## ghojmoH baS bov
 
-### What is a PhotonCamera?
+### nuqneH bel baS bov?
 
-`PhotonCamera` is a class in PhotonLib that allows a user to interact with one camera that is connected to hardware that is running PhotonVision. Through this class, users can retrieve yaw, pitch, roll, robot-relative pose, latency, and a wealth of other information.
+`bov` bel baS Segh bep Phot'onLib ’e’ chaw’ baS maH baH bov batlh wa’ bov ’e’ bel rar baH veS ’e’ bel che’ tat. T'hrrough jIH Segh, maH HotlhwI’ Son Hob, jIH, rro'll, qoq-leS chIch, wa’maH, bIp baS maH chap nuQ De’.
 
-The `PhotonCamera` class has two constructors: one that takes a `NetworkTable` and another that takes in the name of the network table that PhotonVision is broadcasting information over. For ease of use, it is recommended to use the latter. The name of the NetworkTable (for the string constructor) should be the same as the camera's nickname (from the PhotonVision UI).
+ghaH `bov` Segh ghaj cha’ joq: wa’ net tlhap baS `cha’` bIp ghaH net tlhap bep ghaH pong chap ghaH cha’ bergh ’e’ tat bel brroadqatlh'ting De’ chuv. cha’Hu’ bel chap lo’, ’oH bel chup baH lo’ ghaH Hap. ghaH pong chap ghaH cha’ (cha’Hu’ ghaH ’aw’ joq) volchaH bel ghaH jIH bel ghaH bov'klingon jIH (DoH ghaH tat bup).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -27,17 +27,17 @@ The `PhotonCamera` class has two constructors: one that takes a `NetworkTable` a
 
 ```
 
-:::{warning}
-Teams must have unique names for all of their cameras regardless of which coprocessor they are attached to.
+:::{ghuHmoH}
+SeS loch ghaj jIH pong cha’Hu’ Hoch chap ghaH bov r'regarrdletlhtlh chap jIH qoj bIH bel HIv baH.
 :::
 
-## Getting the Pipeline Result
+## Suq ghaH tlhegh leS
 
-### What is a Photon Pipeline Result?
+### nuqneH bel baS P'hoton tlhegh leS?
 
-A `PhotonPipelineResult` is a container that contains all information about currently detected targets from a `PhotonCamera`. You can retrieve the latest pipeline result using the PhotonCamera instance.
+baS `tlhegh` bel baS togh ’e’ jIH Hoch De’ buS q'urrrrently Duy’ DoS DoH baS `bov`. SoH HotlhwI’ Son ghaH Hoy’ tlhegh leS lo’ ghaH bov chuq.
 
-Use the `getLatestResult()`/`GetLatestResult()` (Java and C++ respectively) to obtain the latest pipeline result. An advantage of using this method is that it returns a container with information that is guaranteed to be from the same timestamp. This is important if you are using this data for latency compensation or in an estimator.
+lo’ ghaH `Suq()`/`Suq()` (J'ava bIp baH++ vuv) baH Suq ghaH Hoy’ tlhegh leS. beq advan'tage chap lo’ jIH jIH bel net ’oH chegh baS togh batlh De’ ’e’ bel ’av baH bel DoH ghaH jIH jIH. jIH bel joq beH SoH bel lo’ jIH da'ta cha’Hu’ wa’maH tat ghap bep beq joq.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -59,13 +59,13 @@ Use the `getLatestResult()`/`GetLatestResult()` (Java and C++ respectively) to o
 
 ```
 
-:::{note}
-Unlike other vision software solutions, using the latest result guarantees that all information is from the same timestamp. This is achievable because the PhotonVision backend sends a byte-packed string of data which is then deserialized by PhotonLib to get target data. For more information, check out the [PhotonLib source code](https://github.com/PhotonVision/photonvision/tree/main/photon-lib).
+:::{Qo’}
+jIH nuQ jIH toH taS, lo’ ghaH Hoy’ leS ’av net Hoch De’ bel DoH ghaH jIH jIH. jIH bel chav lo’ ghaH tat baqken'd ngeH baS by'te-paqke'd ’aw’ chap d'ata jIH bel vaj choS bong PhotonL'ib baH Suq DoS dat'a. cha’Hu’ ghap De’, ghaH buS ghaH [PhotonLib source code](https://github.com/PhotonVision/photonvision/tree/main/photon-lib).
 :::
 
-## Checking for Existence of Targets
+## ghaH cha’Hu’ wa’maH chap DoS
 
-Each pipeline result has a `hasTargets()`/`HasTargets()` (Java and C++ respectively) method to inform the user as to whether the result contains any targets.
+paQDI’norgh tlhegh leS ghaj baS `DoS()`/`DoS()` (Ja'va bIp baH++ vuv) jIH baH De’ ghaH maH bel baH ghaH ghaH leS jIH law’ DoS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -85,17 +85,17 @@ Each pipeline result has a `hasTargets()`/`HasTargets()` (Java and C++ respectiv
       hasTargets = result.hasTargets()
 ```
 
-:::{warning}
-In Java/C++, You must _always_ check if the result has a target via `hasTargets()`/`HasTargets()` before getting targets or else you may get a null pointer exception. Further, you must use the same result in every subsequent call in that loop.
+:::{ghuHmoH}
+bep Jav'a/baH++, SoH loch _always_ ghaH beH ghaH leS ghaj baS DoS jIH `DoS()`/`DoS()` cha’Hu’ Suq DoS ghap je’ SoH may Suq baS nul'l jIH le’. Hop, SoH loch lo’ ghaH jIH leS bep Hoch tlhubtlhequ'ent pong bep ’e’ loo'p.
 :::
 
-## Getting a List of Targets
+## Suq baS jIH chap DoS
 
-### What is a Photon Tracked Target?
+### nuqneH bel baS P'hoton toj DoS?
 
-A tracked target contains information about each target from a pipeline result. This information includes yaw, pitch, area, and robot relative pose.
+baS toj DoS jIH De’ buS paQDI’norgh DoS DoH baS tlhegh leS. jIH De’ jIH Hob, jIH, yoS, bIp qoq leS chIch.
 
-You can get a list of tracked targets using the `getTargets()`/`GetTargets()` (Java and C++ respectively) method from a pipeline result.
+SoH HotlhwI’ Suq baS jIH chap toj DoS lo’ ghaH `DoS()`/`DoS()` (J'ava bIp baH++ vuv) jIH DoH baS tlhegh leS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -115,9 +115,9 @@ You can get a list of tracked targets using the `getTargets()`/`GetTargets()` (J
       targets = result.getTargets()
 ```
 
-## Getting the Best Target
+## Suq ghaH toH DoS
 
-You can get the {ref}`best target <docs/reflectiveAndShape/contour-filtering:Contour Grouping and Sorting>` using `getBestTarget()`/`GetBestTarget()` (Java and C++ respectively) method from the pipeline result.
+SoH HotlhwI’ Suq ghaH {lulIgh}`toH DoS <Qel/rrefleqtiveAndSha'pe/qontour'r-jIH:Conto'urr ghom bIp Segh>` lo’ `DoS()`/`DoS()` (Ja'va bIp baH++ vuv) jIH DoH ghaH tlhegh leS.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -138,14 +138,14 @@ You can get the {ref}`best target <docs/reflectiveAndShape/contour-filtering:Con
 
 ```
 
-## Getting Data From A Target
+## Suq Da'ta DoH baS DoS
 
-- double `getYaw()`/`GetYaw()`: The yaw of the target in degrees (positive left).
-- double `getPitch()`/`GetPitch()`: The pitch of the target in degrees (positive up).
-- double `getArea()`/`GetArea()`: The area (how much of the camera feed the bounding box takes up) as a percent (0-100).
-- double `getSkew()`/`GetSkew()`: The skew of the target in degrees (counter-clockwise positive).
-- double\[\] `getCorners()`/`GetCorners()`: The 4 corners of the minimum bounding box rectangle.
-- Transform2d `getCameraToTarget()`/`GetCameraToTarget()`: The camera to target transform. See [2d transform documentation here](https://docs.wpilib.org/en/latest/docs/software/advanced-controls/geometry/transformations.html#transform2d-and-twist2d).
+- Seng `Suq()`/`Suq()`: ghaH Hob chap ghaH DoS bep de'grreetlh (ba’ leSpoH).
+- Seng `Suq()`/`Suq()`: ghaH jIH chap ghaH DoS bep de'grreetlh (ba’ chen).
+- Seng `Suq()`/`Suq()`: ghaH yoS (’ach ’ar chap ghaH bov je’ ghaH veH box tlhap chen) bel baS vatlhvI’ (0-100).
+- Seng `Suq()`/`Suq()`: ghaH tlhk'ew chap ghaH DoS bep de'grreetlh (ngeb-qloqkwi'tlhe ba’).
+- Seng\[\] `qoj()`/`pagh()`: ghaH 4 ghap chap ghaH jIH veH box rreqtang'le.
+- Transform2d `bov()`/`bov()`: ghaH bov baH DoS qoj. legh [2d transform documentation here](https://docs.wpilib.org/en/latest/docs/software/advanced-controls/geometry/transformations.html#transform2d-and-twist2d).
 
 ```{eval-rst}
 .. tab-set-code::
@@ -180,16 +180,16 @@ You can get the {ref}`best target <docs/reflectiveAndShape/contour-filtering:Con
       corners = target.getDetectedCorners()
 ```
 
-## Getting AprilTag Data From A Target
+## Suq Aprri'lTag D'ata DoH baS DoS
 
-:::{note}
-All of the data above (**except skew**) is available when using AprilTags.
+:::{Qo’}
+Hoch chap ghaH d'ata Dung (**le’ tlhke'w**) bel ava'ilable ghaH lo’ AprrilTagt'lh.
 :::
 
-- int `getFiducialId()`/`GetFiducialId()`: The ID of the detected fiducial marker.
-- double `getPoseAmbiguity()`/`GetPoseAmbiguity()`: How ambiguous the pose of the target is (see below).
-- Transform3d `getBestCameraToTarget()`/`GetBestCameraToTarget()`: Get the transform that maps camera space (X = forward, Y = left, Z = up) to object/fiducial tag space (X forward, Y left, Z up) with the lowest reprojection error.
-- Transform3d `getAlternateCameraToTarget()`/`GetAlternateCameraToTarget()`: Get the transform that maps camera space (X = forward, Y = left, Z = up) to object/fiducial tag space (X forward, Y left, Z up) with the highest reprojection error.
+- chech `Suq()`/`Suq()`: ghaH ID chap ghaH cheH f'iduqial marrker'r.
+- Seng `Suq()`/`Suq()`: ’ach maH ghaH chIch chap ghaH DoS bel (legh bIng).
+- Transform3d `bov()`/`bov()`: Suq ghaH pagh ’e’ m'aptlh bov logh (DuD = pagh, bep = leSpoH, buD = chen) baH bep/fi'duqial Sorgh logh (DuD pagh, bep leSpoH, buD chen) batlh ghaH bIng jInmol Qagh.
+- Transform3d `choH()`/`choH()`: Suq ghaH qoj net mapt'lh bov logh (DuD = qoj, bep = leSpoH, buD = chen) baH bep/fi'duqial Sorgh logh (DuD pagh, bep leSpoH, buD chen) batlh ghaH jen Hotlh Qagh.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -218,11 +218,11 @@ All of the data above (**except skew**) is available when using AprilTags.
       alternateCameraToTarget = target.getAlternateCameraToTarget()
 ```
 
-## Saving Pictures to File
+## toD cha’ baH jIH
 
-A `PhotonCamera` can save still images from the input or output video streams to file. This is useful for debugging what a camera is seeing while on the field and confirming targets are being identified properly.
+baS `bov` HotlhwI’ pol jIH jIH DoH ghaH jIH qoj outpu't jIH SeS baH jIH. jIH bel lI’ cha’Hu’ debugg'ing nuqneH baS bov bel legh jIH batlh ghaH HoSchem bIp jIH DoS bel bel ngu’ tlhegh.
 
-Images are stored within the PhotonVision configuration directory. Running the "Export" operation in the settings tab will download a .zip file which contains the image captures.
+jIH bel joq jIH ghaH tat tat joq. che’ ghaH "joq" bov bep ghaH jIH bergh jIH downl'oad baS .jIH jIH jIH jIH ghaH jIH jon.
 
 ```{eval-rst}
 .. tab-set-code::
@@ -252,6 +252,6 @@ Images are stored within the PhotonVision configuration directory. Running the "
       camera.takeOutputSnapshot()
 ```
 
-:::{note}
-Saving images to file takes a bit of time and uses up disk space, so doing it frequently is not recommended. In general, the camera will save an image every 500ms. Calling these methods faster will not result in additional images. Consider tying image captures to a button press on the driver controller, or an appropriate point in an autonomous routine.
+:::{Qo’}
+pol jIH baH jIH tlhap baS bav chap poH bIp lo’ chen jIH logh, toH baH ’oH frreque'ntly bel Huv chup. bep bov, ghaH bov jIH pol beq jIH Hoch 500ms. pong ghaH jIH nom jIH Huv leS bep chel jIH. Dop boH jIH jon baH baS ’a Doj batlh ghaH bIQtIq SeH, pagh beq apprropr'riate jIH bep beq maH jIH.
 :::

@@ -1,19 +1,19 @@
-# Orange Pi 5 (and variants) Object Detection
+# chuq DIng 5 (bIp jIH) bep tat
 
-## How it works
+## ’ach ’oH Qap
 
-PhotonVision runs object detection on the Orange Pi 5 by use of the RKNN model architecture, and [this JNI code](https://github.com/PhotonVision/rknn_jni).
+tat qet bep tat batlh ghaH chuq DIng 5 bong lo’ chap ghaH R'KNN mo'del ’oH, bIp [this JNI code](https://github.com/PhotonVision/rknn_jni).
 
-## Supported models
+## ghap model'tlh
 
-PhotonVision currently ONLY supports 640x640 Ultralytics YOLOv5, YOLOv8, and YOLOv11 models trained and converted to `.rknn` format for RK3588 SOCs! Other models require different post-processing code and will NOT work.
+tat qurrrrent'ly neH joq 640x640 Ul'trralytiqtlh YOLOv5, YOLOv8, bIp YOLOv11 model'tlh qeq bIp q'onverrted baH `.rrk'nn` De’ cha’Hu’ RK3588 nugh! nuQ m'odeltlh poQ pIm lum-tlhol ngoq bIp jIH Huv Qap.
 
-## Converting Custom Models
+## Co'nverrting tIgh Mo'deltlh
 
-:::{warning}
-Only quantized models are supported, so take care when exporting to select the option for quantization.
+:::{ghuHmoH}
+neH qua'ntized mod'eltlh bel pagh, vaj tlhap Qorgh ghaH ghap baH wIv ghaH DuH cha’Hu’ tat.
 :::
 
-PhotonVision now ships with a [Python Notebook](https://github.com/PhotonVision/photonvision/blob/main/scripts/rknn-convert-tool/rknn_conversion.ipynb) that you can use in [Google Colab](https://colab.research.google.com) or in a local environment. In Google Colab, you can simply paste the PhotonVision GitHub URL into the "GitHub" tab and select the `rknn_conversion.ipynb` notebook without needing to manually download anything.
+tat DaH Duj batlh baS [Python Notebook](https://github.com/PhotonVision/photonvision/blob/main/scripts/rknn-convert-tool/rknn_conversion.ipynb) ’e’ SoH HotlhwI’ lo’ bep [Google Colab](https://colab.research.google.com) ghap bep baS lo'qal jIH. bep jaH Cola'b, SoH HotlhwI’ jIH ghopDap ghaH tat jIH URL chech ghaH "jIH" bergh bIp wIv ghaH `rknn_conversion.jIH` paq jIH n'eeding baH Hoch downl'oad vay’.
 
-Please ensure that the model you are attempting to convert is among the {ref}`supported models <docs/objectDetection/opi:Supported Models>` and using the PyTorch format.
+bel SIQ net ghaH mod'el SoH bel nID baH qonverr't bel a'mong ghaH {lulIgh}`ghap model'tlh <Qel/bep/jIH:pagh Mod'eltlh>` bIp lo’ ghaH pagh De’.

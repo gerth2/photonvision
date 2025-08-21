@@ -1,4 +1,4 @@
-# Hardware Selection
+# veS tat
 
 ```{toctree}
 :maxdepth: 2

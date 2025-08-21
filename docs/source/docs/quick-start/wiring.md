@@ -1,16 +1,16 @@
-# Wiring
+# jIH
 
-## Coprocessor with regulator
+## ghap batlh pagh
 
-1. **IT IS STRONGLY RECOMMENDED** to use one of the recommended power regulators to prevent vision from cutting out from voltage drops while operating the robot. We recommend wiring the regulator directly to the power header pins or using a locking USB C cable. In any case we recommend hot gluing the connector.
+1. **’oH bel STRONG'LY chup** baH lo’ wa’ chap ghaH chup HoS qoj baH bot jIH DoH pe’ buS DoH vol'tage chagh jIH bov ghaH qoq. maH chup jIH ghaH joq dir'reqtly baH ghaH HoS ghaH jIH pagh lo’ baS HIchDal loDnal baH bergh. bep law’ vaj maH chup moy’bI’ jIH ghaH qoj.
 
-2. Run an ethernet cable from your Pi to your network switch / radio.
+2. qet beq ghaH bergh DoH SoH DIng baH SoH cha’ leQ / jIH.
 
-This diagram shows how to use the recommended regulator to power a coprocessor.
+jIH jIH cha’ ’a baH lo’ ghaH chup ghap baH HoS baS qoj.
 
-::::{tab-set}
+::::{bergh-cher}
 
-:::{tab-item} Orange Pi Zinc V USB C
+:::{bergh-jIH} chuq DIng jIH bang loDnal baH
 
 ```{image} images/OrangePiZincUSBC.png
 :alt: Wiring the opi5 to the pdp using the Redux Robotics Zinc V and usb c
@@ -18,7 +18,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Orange Pi 5 Zinc V
+:::{bergh-jIH} chuq DIng 5 jIH bang
 
 ```{image} images/OrangePiZinc.png
 :alt: Wiring the opi5 to the pdp using the Redux Robotics Zinc V
@@ -26,7 +26,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Orange Pi 5 Pololu S13V30F5
+:::{bergh-jIH} chuq DIng 5 P'ololu S13V30F5
 
 ```{image} images/OrangePiPololu.png
 :alt: Wiring the opi5 to the pdp using the Pololu S13V30F5
@@ -34,7 +34,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Orange Pi 5 Pololu S13V30F5 Pigtail
+:::{bergh-jIH} chuq DIng 5 P'ololu S13V30F5 jIH
 
 ```{image} images/OrangePiPololuPigtail.png
 :alt: Wiring the opi5 to the pdp using the Pololu S13V30F5 and a usb c pigtail
@@ -42,7 +42,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Raspberry Pi 5 Zinc V USB C
+:::{bergh-jIH} Qagh DIng 5 jIH bang loDnal baH
 
 ```{image} images/RPiZincUSBC.png
 :alt: Wiring the RPI5 to the pdp using the Redux Robotics Zinc V and usb c
@@ -50,7 +50,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Raspberry Pi 5 Zinc V
+:::{bergh-jIH} Qagh DIng 5 jIH bang
 
 ```{image} images/RPiZinc.png
 :alt: Wiring the RPI5 to the pdp using the Redux Robotics Zinc V
@@ -58,7 +58,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Raspberry Pi 5 Pololu S13V30F5
+:::{bergh-jIH} Qagh DIng 5 Po'lolu S13V30F5
 
 ```{image} images/RPiPololu.png
 :alt: Wiring the RPI5 to the pdp using the Pololu S13V30F5
@@ -66,7 +66,7 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 :::
 
-:::{tab-item} Raspberry Pi 5 Pololu S13V30F5 Pigtail
+:::{bergh-jIH} Qagh DIng 5 P'ololu S13V30F5 jIH
 
 ```{image} images/RPiPololuPigtail.png
 :alt: Wiring the RPI5 to the pdp using the Pololu S13V30F5 and a usb c pigtail
@@ -76,22 +76,22 @@ This diagram shows how to use the recommended regulator to power a coprocessor.
 
 ::::
 
-Pigtails can be purchased from many sources we recommend [(USB C)](https://ctr-electronics.com/products/usb-type-c-wire-breakout?_pos=19&_sid=bf06b6a6b&_ss=r) [(Micro USB)](https://ctr-electronics.com/products/usb-micro-power-wire-breakout?pr_prod_strat=e5_desc&pr_rec_id=10bf36ce7&pr_rec_pid=7863771070637&pr_ref_pid=7863771103405&pr_seq=uniform)
+jIH HotlhwI’ bel je’ DoH law’ Hal maH chup [(USB C)](https://ctr-electronics.com/products/usb-type-c-wire-breakout?_pos=19&_sid=bf06b6a6b&_ss=r) [(Micro USB)](https://ctr-electronics.com/products/usb-micro-power-wire-breakout?pr_prod_strat=e5_desc&pr_rec_id=10bf36ce7&pr_rec_pid=7863771070637&pr_ref_pid=7863771103405&pr_seq=uniform)
 
-## Limelight
+## jIH
 
-Follow the wiring instructions located in the [Limelight Documentation](https://docs.limelightvision.io/) for your Limelight model.
+tlha’ ghaH jIH tat lo'qated bep ghaH [Limelight Documentation](https://docs.limelightvision.io/) cha’Hu’ SoH jIH m'odel.
 
-## Coprocessor with Passive POE (Pi with SnakeEyes)
+## qoj batlh jIH POE (DIng batlh mIn)
 
-1. Plug the [passive POE injector](https://www.revrobotics.com/rev-11-1210/) into the coprocessor and wire it to PDP/PDH (NOT the VRM).
-2. Add a breaker to relevant slot in your PDP/PDH
-3. Run an ethernet cable from the passive POE injector to your network switch / radio.
+1. Pl'ug ghaH [passive POE injector](https://www.revrobotics.com/rev-11-1210/) chech ghaH joq bIp jIH ’oH baH PDP/PDH (Huv ghaH VRM).
+2. chel baS ghor baH rrel'evant tlhl'ot bep SoH PDP/PDH
+3. qet beq ghaH bergh DoH ghaH jIH POE ghap baH SoH cha’ leQ / jIH.
 
-## Off-Robot Wiring
+## DoH-qoq jIH
 
-Plugging your coprocessor into the wall via a power brick will suffice for off robot wiring.
+Pluggi'ng SoH pagh chech ghaH ghup jIH baS HoS jIH jIH chuch cha’Hu’ DoH qoq jIH.
 
-:::{note}
-Please make sure your chosen power supply can provide enough power for your coprocessor. Undervolting (where enough power isn't being supplied) can cause many issues.
+:::{Qo’}
+bel Qagh bel SoH wIv HoS tlhup'ply HotlhwI’ jIH Qo’ HoS cha’Hu’ SoH pagh. Doch (nuqDaq Qo’ HoS jIH'bach bel tlhu'pplied) HotlhwI’ lo’ law’ jIH.
 :::
